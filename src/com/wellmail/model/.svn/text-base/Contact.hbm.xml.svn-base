@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.wellmail.model">
+	<class name="Contact" table="contact">
+		<id name="contactid">
+			<generator class="increment"/>
+		</id>
+		<property name="contactname"/>
+		<property name="contactemail"/>
+		
+		<many-to-one name="user" column="username"/>
+		
+		<many-to-one name="contactgroup" column="groupid"/>
+	</class>
+</hibernate-mapping>

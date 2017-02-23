@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.wellmail.model">
+	<class name="FileType" table="filetype">
+		<id name="filetypeid">
+			<generator class="increment"/>
+		</id>
+		<property name="filetypename"/>
+		<property name="containfilecount"/>
+		
+		<set name="webfiles">
+			<key column="filetypeid"/>
+			<one-to-many class="WebFile"/>
+		</set>
+		
+		<many-to-one name="user" column="username"/>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,524 @@
+﻿@charset "utf-8";
+
+/*html{filter:expression(document.execCommand("BackgroundImageCache",false,true));}*/
+
+/*--CSS ReSet 开始--*/
+html,body{}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td,select{padding:0; margin:0; font-family:verdana,Arial,Helvetica,sans-serif; color:#000; font-size:12px;}
+fieldset,img{border:0; }
+table{border-collapse:collapse; border-spacing:0; }
+ol,ul{list-style:none; }
+address,caption,cite,code,dfn,th,var{font-weight:normal; font-style:normal; }/*em,strong,*/
+caption,th{text-align:left; }
+h1,h2,h3,h4,h5,h6{font-weight:normal; font-size:100%; }
+q:before,q:after{content:''; }
+abbr,acronym{border:0; }
+.txt_underline{text-decoration:underline}
+/*--CSS ReSet 结束--*/
+
+
+/*--通用Class 开始--*/
+
+	/*连接*/
+	a:link,a:visited{color:#0068b7; text-decoration:underline;}
+	a:hover{color:#0075cd; text-decoration:underline;}
+
+	/*上传动画*/
+	.IcoUpload{background-image:url(upload.gif); background-repeat:no-repeat;}
+
+	/*按钮*/
+	html>body .Btn{ padding:0 11px; outline:none;}/*FF, Opera*/
+	.Btn:focus::-moz-focus-inner{border-color:transparent;}/*FF去按钮虚线框*/
+	.Btn{height:26px; font-family:"宋体"; color:#333;cursor:pointer!important;cursor:hand;padding-top:4px;padding-top/**/:2px; padding-left:5px; padding-right:5px; background-color:#fff; border:1px solid #000;}/*按钮形状*/
+	.BtnNml{background-position:0 -96px;}/*按钮-普通状态*/
+	.BtnHv,.Btn:hover{background-position:0 -128px;}/*按钮-鼠标移过状态*/
+	html>body .BtnDw{padding-left:12px; padding-right:10px; padding-top:2px;}
+	input.BtnDw{background:#fff; color:#000;}
+	.ImpBtn{font-weight:bold;}
+
+	/*伪按钮（把连接变成样式）*/
+	.ABtn{display:block; float:left; height:22px!important; height:24px;line-height:20px!important; line-height:22px; padding-top:4px;padding-top/**/:2px; padding-left:12px; padding-right:12px; background-position:0 -96px; outline:none; border:1px solid #000;}
+	.ABtn:link,.ABtn:visited{text-decoration:none; color:#333;}
+	.ABtn:hover{background-position:0 -128px; text-decoration:none; color:#333;}
+
+	/*输入框*/
+	.Ipt,.IptOnF{font-family:Arial; background-color:#fff; height:21px; line-height:15px; padding-top/**/:1px; padding-top:2px; padding-left:2px; border:1px solid #ccc;
+	}
+	.IptNml{}
+	.IptOnF{color:#000; background-color:#FFFFE1;}/*鼠标聚焦效果*/
+
+	/*Selectbox*/
+	html>body .Sel,html>body .SelA{}/*border-color:#fff;  border-style:inset; *//*FF, Opera*/
+	/*@media all and (min-width:0){select{border-color:#fff; border-style:inset;}}Opera, Safari*/
+
+	/*通用快速搜索框*/
+	.gSchBar{display:block; width:200px; height:20px; text-align:right; margin:0px; padding:0px;}
+		.gSchBar .gSchBtn{display:block; width:20px; height:20px; background-position:-512px -128px; margin:0px;}
+		.gSchBar .gSchBtn:hover{ background-position:-512px -160px;}
+		.gSchBar .gSchIpt{color:#999; border-right:none; height:20px; margin:0px;}
+		.gSchBar .IptOnF{color:#000;}
+
+	/*通用快速确认框*/
+	.gQSmbBar{display:block; width:200px; height:20px; text-align:right; margin:0px; padding:0px;}
+		.gQSmbBar .gQSmbBtn{display:block; width:20px; height:20px; background-position:-544px -128px; margin:0px;}
+		.gQSmbBar .gQSmbBtn:hover{ background-position:-544px -160px;}
+		.gQSmbBar .gQSmbIpt{color:#999; border-right:none; height:20px; margin:0px;}
+		.gQSmbBar .IptOnF{color:#000;}
+
+	/*通用快速取消按钮，配合上面2个快速框使用（如有需要）*/
+	.gQCnlBtn{display:block; width:20px; height:20px; background-position:-576px -128px; margin:0px;}
+	.gQCnlBtn:hover{ background-position:-576px -160px;}
+
+	/*通用定位*/
+	.fLe{float:left;}
+	.fRi{float:right;}
+	.hide{display:none;}
+	.clear{clear:both;font-size:0px;height:0;background-color:transparent;overflow:hidden;line-height:0px}
+	.wd{width:100%}
+	.Unable{color:#999;}
+	.HideFocus{outline:none;}/*hide-focus:expression(this.hideFocus=true);去除a标签虚线框*/
+
+	/*通用字体颜色*/
+	.fnt_Red,.fnt_Red:link,.fnt_Red:visited,.fnt_Red:hover,.fnt_Red a:link,.fnt_Red a:visited,.fnt_Red a:hover{color:#e60012;}/*红色警告*/
+	.fnt_Green,.fnt_Green:link,.fnt_Green:visited,.fnt_Green:hover,.fnt_Green a:link,.fnt_Green a:visited,.fnt_Green a:hover,.uFDtl_msg_scan{color:#009944;}/*绿色成功*/
+	.fnt_Blue,.fnt_Blue:link,.fnt_Blue:visited,.fnt_Blue:hover,.fnt_Blue a:link,.fnt_Blue a:visited,.fnt_Blue a:hover{color:#00b7ee;}/*特殊蓝色*/
+	.fnt_Black,.fnt_Black:link,.fnt_Black:visited,.fnt_Black:hover,.fnt_Black a:link,.fnt_Black a:visited,.fnt_Black a:hover{color:#000;}/*特殊黑色*/
+	.fnt_Dcr{color:#777;}/*灰色，辅助信息说明*/
+	/*字体Size*/
+	.fnt_S12{font-size:12px;}/*12象素字体*/
+	.fnt_S14{font-size:14px;}/*14象素字体*/
+	.fnt_S16{font-size:16px;}/*16象素字体*/
+	.fnt_chinese{ font-family:"宋体"}/*中文宋体*/
+	/*邮件状态颜色*//*fnt_Mark0~fnt_Mark15*/
+	.fnt_Mark0,a.fnt_Mark0:link,a.fnt_Mark0:visited,a.fnt_Mark0:hover{color:#000;}/*普通状态、取消标签*/
+	.fnt_Mark1,a.fnt_Mark1:link,a.fnt_Mark1:visited,a.fnt_Mark1:hover{color:#990000;}/*重要邮件*/
+	.fnt_Mark2,a.fnt_Mark2:link,a.fnt_Mark2:visited,a.fnt_Mark2:hover{color:#006600;}/*公司邮件*/
+	.fnt_Mark3,a.fnt_Mark3:link,a.fnt_Mark3:visited,a.fnt_Mark3:hover{color:#E38800;}/*业务邮件*/
+	.fnt_Mark4,a.fnt_Mark4:link,a.fnt_Mark4:visited,a.fnt_Mark4:hover{color:#26A5A8;}/*资讯邮件*/
+	.fnt_Mark5,a.fnt_Mark5:link,a.fnt_Mark5:visited,a.fnt_Mark5:hover{color:#FF6699;}/*亲友邮件*/
+	.fnt_Mark6,a.fnt_Mark6:link,a.fnt_Mark6:visited,a.fnt_Mark6:hover{color:#003399;}/*同学邮件*/
+	.fnt_Mark7,a.fnt_Mark7:link,a.fnt_Mark7:visited,a.fnt_Mark7:hover{color:#996600;}/*休闲邮件*/
+	.fnt_Mark8,a.fnt_Mark8:link,a.fnt_Mark8:visited,a.fnt_Mark8:hover{color:#993399;}/*趣闻邮件*/
+	.fnt_Mark15,a.fnt_Mark15:link,a.fnt_Mark15:visited,a.fnt_Mark15:hover{color:#333;}/*杂项邮件*/
+	a.fnt_Mark0:link,a.fnt_Mark0:visited,
+	a.fnt_Mark1:link,a.fnt_Mark1:visited,
+	a.fnt_Mark2:link,a.fnt_Mark2:visited,
+	a.fnt_Mark3:link,a.fnt_Mark3:visited,
+	a.fnt_Mark4:link,a.fnt_Mark4:visited,
+	a.fnt_Mark5:link,a.fnt_Mark5:visited,
+	a.fnt_Mark6:link,a.fnt_Mark6:visited,
+	a.fnt_Mark7:link,a.fnt_Mark7:visited,
+	a.fnt_Mark8:link,a.fnt_Mark8:visited,
+	a.fnt_Mark15:link,a.fnt_Mark15:visited{text-decoration:none;}/*取消标签连接下划线*/
+	a.fnt_Mark0:hover,
+	a.fnt_Mark1:hover,
+	a.fnt_Mark2:hover,
+	a.fnt_Mark3:hover,
+	a.fnt_Mark4:hover,
+	a.fnt_Mark5:hover,
+	a.fnt_Mark6:hover,
+	a.fnt_Mark7:hover,
+	a.fnt_Mark8:hover,
+	a.fnt_Mark15:hover{text-decoration:underline;}/*hover状态标签连接增加下划线*/
+
+	.Ico16x{height:16px; line-height:16px;}/*ico高度16px*/
+	/*邮件状态图标*//*fnt_Mark0~fnt_Mark15*/
+	.Ico_Mark0{background-position:16px 16px;}/*普通状态、取消标签*/
+	.Ico_Mark1{background-position:-296px -8px;}/*重要邮件*/
+	.Ico_Mark2{background-position:-328px -8px;}/*公司邮件*/
+	.Ico_Mark3{background-position:-360px -8px;}/*业务邮件*/
+	.Ico_Mark4{background-position:-392px -8px;}/*资讯邮件*/
+	.Ico_Mark5{background-position:-424px -8px;}/*亲友邮件*/
+	.Ico_Mark6{background-position:-456px -8px;}/*同学邮件*/
+	.Ico_Mark7{background-position:-488px -8px;}/*休闲邮件*/
+	.Ico_Mark8{background-position:-520px -8px;}/*趣闻邮件*/
+	.Ico_Mark15{background-position:-552px -8px;}/*杂项邮件*/
+	/*已发送状态ico*/
+	.icoSendOk{background-position:-422px -73px; width:24px;}/*已发送状态（成功）*/
+	.icoSending{background-position:-454px -73px; width:24px;}/*已发送状态（发送中）*/
+	.icoSendUnk{background-position:-486px -73px; width:24px;}/*已发送状态（未知状态）*/
+	.icoSendFailure{background-position:-518px -73px; width:24px;}/*已发送状态（失败）*/
+	.icoSend{background-position:-550px -73px; width:24px;}/*已发送状态（部分成功）*/
+	.icoSendALL{/*见下面*/}/*已发送状态（通用）*/
+
+
+	/*通用框架*/
+	body.All_C_Page{padding:0px; margin:7px 13px; overflow-x:hidden; overflow-y:auto; }
+		.ContentWp{margin:0;}
+
+	/*通用工具条*/
+	.gToolbar{height:26px; line-height:26px;}
+		.gToolbar .Btn,.gToolbar .BtnHv,.gToolbar .ABtn{float:left; margin-right:10px;}
+		.gToolbar .ImpBtn{margin-right:16px;}
+		html>body .gToolbar .Sel,html>body .gToolbar .SelA{margin-top:3px; }/*FF, Opera*/
+		.gToolbar .Sel,.gToolbar .SelA{float:left; margin-right:10px; margin-top:2px; overflow:hidden; width:94px;}
+		.gToolbar .SelA{width:auto;}
+		.SelOptLine{color:#ccc;}/*.gToolbar */
+		.SelInTT{color:#999;}
+		.gToolbar .Ipt,.gToolbar .IptOnF{float:left; margin-right:10px; margin-top:2px; }
+		.gToolbar .Txt{float:left; margin-right:10px; }
+		.gToolbar .Extra{float:right; white-space:nowrap; }
+		.gToolbar .gSchBar{margin-top:2px;}
+	.gTbrTop{ margin-bottom:10px;}
+	.gTbrBtm{ margin-top:10px;}
+	.gTbrSmb{padding-left:190px;}/*padding-left:104px;*/
+		.gTbrSmb .ImpBtn{margin-right:24px;}
+
+	/*通用分隔线*/
+	.Hr,.HrSub,.HrSub2{height:0px; margin:0px; padding:0px; border:0px; border-top:1px solid #999; border-bottom:1px solid #ccc;}
+		.Hr hr,.HrSub hr,.HrSub2 hr{display:none;}
+
+	/*通用标题栏*/
+	.gTitle{height:26px; line-height:26px; margin-bottom:10px; position:relative; }
+		.gTitle .gArrow{font-family:'宋体';}
+		.gTitle .mTT{font-weight:bold;font-size:14px;}
+		.gTitle .mDcr{color:#777; padding-left:12px; padding-right:12px;}
+		.gTitle .Extra{ position:absolute; right:0px; top:0px;}
+
+	/*通用子标题栏*/
+	.gTitleSub{height:26px; line-height:26px; margin:4px 0; position:relative; margin-top:8px;}
+		.gTitleSub .gArrow{font-family:'宋体';}
+		.gTitleSub .mTT{font-weight:bold;font-size:13px;}
+		.gTitleSub .mDcr{color:#777; padding-left:12px; padding-right:12px;}
+		.gTitleSub .Extra{ position:absolute; right:0px; top:0px;}
+
+	/*通用提示栏*/
+	.gTips{ padding:4px 8px; line-height:18px; font-size:12px; margin:4px 0px; border:1px solid #333; background-color:#eee;}
+		.gTips .icoCls{ position:relative; display:block; width:12px; height:12px; line-height:12px; float:right; margin-top:2px; margin-right:-4px; background-position:-74px -9px;}
+		.gTips .icoCls:hover{ background-position:-74px -41px;}
+		.gTips .icoTips,.gTips .icoInfo{ position:relative; float:left; display:block; width:16px; height:16px; background-position:-104px -8px; left:-1px; top:0px;}
+		.gTips .icoInfo{background-position:-136px -72px;}
+		.gTips .IcoLoading{background-position:0px 0px;}
+		.gTips .icoSendALL{background-position:-582px -71px; width:20px; margin-left:-2px;}/*已发送状态（通用）*/
+	.Tips_Nml{border:1px solid #ddddb8; background-color:#FFFFE1; color:#6d6500;}
+	.Tips_Scs{border:1px solid #d5e2c7; background-color:f1ffe3; color:#007130;}
+	.Tips_War{border:1px solid #e6cfcf; background-color:#ffeaea; color:#a40000;}
+		.Tips_War .icoTips{background-position:-104px -72px;}
+	.Tips_Nml_C{color:#777;}
+	.Tips_Nml_C b{color:#000;}
+
+	/*通用表格*/
+	.gTable{width:100%; margin:12px 0px;}
+		.gTable td,.gTable th{line-height:26px; padding:6px; vertical-align:top;}
+		.gTable th{text-align:right; padding-right:18px; width:160px; white-space:nowrap; }
+		.gTable .Sel,.gTable .SelA{margin-top:1px;}
+		.gTable .HrWp{height:auto; line-height:2px; font-size:2px; padding:6px;}
+		.gTable .Ipt,.gTable .IptOnF{width:180px;}
+
+	/*通用背景框（一级）*/ /*写信页面，读信等页面公用*/
+	.gCBgWp{}
+
+
+	/*通用系统对话框*/
+	.MsgPageWp,.ErrorPageWp{text-align:center; margin-top:60px; margin-bottom:16px;}
+	.gSysWin_Wp{text-align:left; width:460px; margin-left:auto; margin-right:auto;}
+		.gSysWin_WpIn{}
+			.gSW_TT_Wp{height:28px;}
+				.gSW_TT_tb{width:100%; height:28px; cursor:default;}
+					.LftCorner{width:27px; background-position:-256px -128px;}
+					.MidTxt{color:#fff; font-weight:bold; background-position:0px -704px;}
+					.RigCorner{width:27px; background-position:-319px -128px;}
+						.RigCorner a{display:block; width:27px; height:28px; background-position:-287px -160px;}
+						.RigCorner a:hover{background-position:-319px -160px;}
+			.gSW_Con_WpIn,.gSW_Footer_WpIn{border:1px solid #333;}/*blue*/
+			.gSW_Con_Wp{width:100%; background-color:#fff;}
+				.gSW_Con_WpIn{border-top:none; border-bottom:none;}
+					.SW_Ico_Wp{padding:20px 0px; width:0px}
+						.SW_Ico_Wp .SW_Ico{display:block; width:32px; height:32px; px; margin-left:20px; background-position:-384px -128px;}
+					.SW_Con_Wp{padding:16px 26px; font-size:14px;}
+						.gSW_mCon{line-height:22px;}
+							.gSW_mCon td,.gSW_mCon th{font-size:14px;vertical-align:top; line-height:26px; padding:4px;}
+							.gSW_mCon th{text-align:right; width:130px; padding-left:0px; padding-right:0px;}
+							.gSW_mCIn_Wide{ margin:-16px -26px; width:458px; height:180px; overflow-x:hidden; overflow-y:auto;}
+			.gSW_Footer_Wp{width:100%;}
+				.gSW_Footer_WpIn{border-top:none; height:50px;}
+					.gSW_Footer_WpIn .Btn{float:right; margin-right:16px; margin-top:10px;}
+					.gSW_Footer_WpIn .gSW_ftTips{float:left; margin-left:12px; margin-top:10px;}
+					.gSW_Footer_WpIn .fnt_Dcr div{color:#777;}
+	/*右下角提示弹出框*/
+	.gSysFla{width:250px;}
+		.gSysFla .gSW_Footer_WpIn{height:1px; line-height:1px; font-size:1px;}
+		.gSysFla .gSysFla_Info_Wp{text-align:center;}
+		.gSysFla .gSysFla_Info_Wp .AutoScl{text-align:left; overflow-x:hidden; overflow-y:auto; width:248px; height:146px;}
+		.gSysFla_Info_Wp .Info_Msg{padding:16px 10px 4px 10px;}
+			.gSysFla_Info_Wp .Info_MailTT{padding:4px 10px 16px 10px;width:220px;}
+			html>body .gSysFla_Info_Wp .Info_MailTT{white-space:nowrap; word-break:break-all;overflow:hidden;}/*FF, Opera*/
+			*html .gSysFla_Info_Wp .Info_MailTT{white-space:nowrap; overflow:hidden; text-overflow:ellipsis; empty-cells:show;}/*IE*/
+		.gSysFla_Info_Wp p{padding:6px 10px; line-height:18px;}
+		.gSysFla_Info_Wp .Info_MailNm{width:230px;display:block;}
+			html>body .gSysFla_Info_Wp span.Info_MailNm{white-space:nowrap; word-break:break-all;overflow:hidden;}/*FF, Opera*/
+			*html .gSysFla_Info_Wp .Info_MailNm{white-space:nowrap; overflow:hidden; text-overflow:ellipsis; empty-cells:show;}/*IE*/
+		.gSysFla_mCon{}
+		.a_Sel_Line{text-align:left; display:block; height:28px; line-height:28px; padding:0 12px;}
+		.a_Sel_Line:link,.a_Sel_Line:visited{text-decoration:none; color:#000;}
+		.a_Sel_Line:hover{text-decoration:underline; background:#FFFFE1; color:#000;}
+	/*错误提示*/
+	.Er_Bck{width:560px; margin-bottom:10px;}
+		.Er_Bck .SW_Ico_Wp .SW_Ico{width:68px; height:68px; background-position:-1504px -64px;}
+			.Er_Bck .gSW_mCon .mConIn{font-size:12px; margin-top:18px;}
+			.Er_Bck .gSW_mCon ol,.Er_Bck .gSW_mCon ul{ margin-left:26px;}
+				.Er_Bck .gSW_mCon ol li,.Er_Bck .gSW_mCon ul li{list-style-type:decimal; margin:8px 0px; line-height:18px;}
+				.Er_Bck .gSW_mCon ul li{list-style-type:square;}
+					/*.Er_Bck .gSW_mCon ol ol{ margin-left:0px;}*/
+					.Er_Bck .gSW_mCon ol ol li{list-style-type:lower-alpha;}
+		.Er_Bck .gSW_Footer_WpIn{text-align:center;}
+			.Er_Bck .gSW_Footer_WpIn .Btn{float:none;}
+			.Er_Bck .gSW_Footer_WpIn .gSW_ftTips{display:none}
+	/*通用对话框联系人列表*/
+	.ifr_lstAddr_Wp{width:250px; height:140px; margin:6px 0px 14px 0px; border:1px solid #ccc;}
+	.lstAddr_Wp{ width:250px; height:140px; overflow-x:hidden; overflow-y:auto;}
+	.tbAddrLst{ table-layout:fixed;}
+	.tbAddrLst td{height:24px; line-height:24px; border-bottom:1px solid #f4f4f4; cursor:pointer; cursor:hand; font-size:12px; }
+		.tbAddrLst td.tdIco{width:22px;}
+		.tbAddrLst td.tdTxt{width:230px; white-space:nowrap; word-break:break-all; overflow:hidden; text-overflow:ellipsis; empty-cells:show;}
+		.tbAddrLst td b.icoCmdOK{display:none; width:14px;}
+		.tbAddrLst tr.Selected{background-color:#FFFFCA; font-weight:bold;}
+		.tbAddrLst tr.Selected td b.icoCmdOK{display:block; margin-left:4px; width:14px; color:green;}
+		.tbAddrLst tr.OnFocus{background-color:#FFFFE1;}
+	/*通用对话框联系组列表*/
+	/*.ifr_lstAddrG_Wp{width:250px; height:140px; margin:6px 0px 14px 0px;}*/
+	.lstAddrG_Wp{ width:250px; height:140px; overflow-x:hidden; overflow-y:auto; border:1px solid #ccc;}
+	table.tbAddrGLst{ table-layout:fixed;}
+	table.tbAddrGLst tr td{padding:0px; height:24px; line-height:24px; cursor:pointer; cursor:hand; font-size:12px; vertical-align:middle; border-bottom:1px solid #f4f4f4;}/**/
+		table.tbAddrGLst td.tdChk{width:24px; text-align:center;}
+		table.tbAddrGLst td.tdTxt{width:230px; white-space:nowrap; word-break:break-all; overflow:hidden; text-overflow:ellipsis; empty-cells:show;}
+		table.tbAddrGLst tr.Selected{background-color:#FFFFCA; font-weight:bold;}
+		table.tbAddrGLst tr.OnFocus{background-color:#FFFFE1;}
+	/*从通讯录添加对话框*/
+	.tb_AtAddrL{table-layout:fixed;}
+	.tb_AtAddrL,.tb_AtAddrL td{padding:0px; margin:0px;}
+		.tb_AtAddrL td.td_C{width:190px;}
+		.tb_AtAddrL td.td_I{width:26px;vertical-align:middle; text-align:center;}
+		.tb_AtAddrL td.td_I .IcoImg{width:16px; height:16px; background-position:-808px -8px; margin:auto;}
+		.tCCm{border:1px solid #ccc; height:305px;}
+
+
+
+
+	/*无意义撑位，演示用*/
+	.NoUsePadding{ height:90px;}
+
+
+/*--通用Class 结束--*/
+
+
+/*--框架 开始--*/
+
+/*框架架构（大table框架）*/
+body.idx_Frame{margin:0; padding:0;overflow:hidden;}
+table.idx_Tb{margin:0; padding:0;}
+	table.idx_Tb td{margin:0; padding:0;}
+	table.idx_Tb td.idx_Td_Head{height:70px;}/*头部*/
+	table.idx_Tb td.idx_Td_Sidebar{width:194px;}/*侧栏*/
+	table.idx_Tb td.idx_Td_Main{}/*主题内容*/
+	.idx_ifr_Main{overflow-y:auto;}/*主题内容iframe*/
+
+/*框架头部*/
+.HeadWp{height:70px; overflow:hidden;}
+	.HeadThemeWp{}/*主题备用*/
+	.HeadWpInner{height:70px; position:relative; background-position:-1376px 38px;}
+		/*Logo*/
+		.Logo{position:absolute; width:168px; height:32px; left:19px; top:16px;}
+			img.imgLogo{}
+		/*用户名、退出*/
+		.UserInfo{display:block; position:absolute; width:450px; height:22px; line-height:22px; left:219px; top:11px;}/* left:206px;*/
+		/*搜索*/
+		.SearchBar{display:block; position:absolute; width:200px; height:20px; right:9px; top:33px; text-align:right;}
+			.SchBtn,.SchMenuBtn{display:block; width:22px; height:20px; background-position:-512px 0px; border:0; background-color:#fff; cursor:pointer;cursor:hand;}
+			.SchMenuBtn{ background-position:-534px -0px; width:12px;}
+			.SchBtnHv,.SchBtn:hover{ background-position:-512px -64px;}/*ff, opera*/
+			.SchMenuBtnHv,.SchMenuBtn:hover{ background-position:-534px -64px;}/*ff, opera*/
+			.SearchBar .Ipt,.SearchBar .IptOnF{border-right:none; height:20px;}
+			.SearchBar .Ipt{color:#999;}
+		/*帮助、选项等*/
+		.HeadWp .Extra{display:block; position:absolute; width:200px; height:22px; right:10px; top:8px; text-align:right;}
+		/*提示*/
+		.HeadWp .InfoTips{color:#fff; font-weight:bold; position:absolute; height:22px; left:40%; top:36px; text-align:center; padding:0 6px;}
+			.HeadWp .InfoTips a:link,.HeadWp .InfoTips a:visited,.HeadWp .InfoTips a:hover{color:#fff;}/*连接颜色*/
+			.HeadWp .InfoTips b.cnL{display:block; width:6px; height:22px; position:absolute; left:0; top:0; background-position:-1376px -64px;}
+			.HeadWp .InfoTips b.cnR{width:6px; height:22px; position:absolute; right:0; top:0; background-position:-1434px -64px;}
+			.HeadWp .InfoTips span.Txt{display:block; line-height:22px; padding:0 18px; background-color:#f19600;}
+			.HeadWp .InfoTips_Nml{}
+			.HeadWp .InfoTips_Scs{}
+				.HeadWp .InfoTips_Scs b.cnL{background-position:-1376px -96px;}
+				.HeadWp .InfoTips_Scs b.cnR{background-position:-1434px -96px;}
+				.HeadWp .InfoTips_Scs span.Txt{background-color:#00A01A;}
+			.HeadWp .InfoTips_War{}
+				.HeadWp .InfoTips_War b.cnL{background-position:-1376px -128px;}
+				.HeadWp .InfoTips_War b.cnR{background-position:-1434px -128px;}
+				.HeadWp .InfoTips_War span.Txt{background-color:#e00011;}
+
+
+/*侧栏*/
+.SidebarBdWp{overflow:hidden;}
+	.SidebarBdWp a:link,.SidebarBdWp a:visited,.SidebarBdWp a:hover{outline:none;}/*hide-focus:expression(this.hideFocus=true);*/
+.SidebarWp{width:194px; height:100%;}
+	.SidebarThemeWp{ height:100%;}
+	.SidebarWpInner{}
+
+		/*侧栏框架*/
+		.tbSb{table-layout:fixed;}
+		.tbSbTop{height:45px;}
+		.tbSbMid{vertical-align:top;}
+
+		/*“写信+收信”大按钮*/
+		.BigBtnWp{height:45px; background-position:-256px 0px; position:relative; }
+			/*按钮文字*/
+			.BigBtnWp b{display:block; font-size:14px; line-height:16px; height:16px; padding:0px; position:absolute; left:46px; cursor:pointer;cursor:hand;}
+			html>body .BigBtnWp b{top:9px;}/*FF, Opera*/
+			*html .BigBtnWp b{top:11px;}/*IE*/
+			.BigBtnWp a:link,.BigBtnWp a:visited,.BigBtnWp a:hover{text-decoration:none; color:#fff;}
+		.BigBtnWp a.aShouXIN,.BigBtnWp a.aXieXIN{display:block; width:93px; height:37px; position:absolute;}
+		.BigBtnWp a.aShouXIN{background-position:-260px 0px; left:4px; top:0px;}
+		.BigBtnWp a.aXieXIN{background-position:-353px 0px; left:97px; top:0px}
+		.BigBtnWp a.aShouXIN:hover{background-position:-260px -64px;}
+		.BigBtnWp a.aXieXIN:hover{background-position:-353px -64px;}
+
+		/*侧栏内容，文件夹列表*/
+		.Sb_ConWp{height:100%; overflow:hidden; padding-top:8px;}/*自动垂直滚动条*/ /*去掉滚动条，移动到下面自定义文件夹*/ /*overflow-x:hidden;overflow-y:auto;*/
+			.Sb_ConWpIn{height:1px;}
+			html>body .Sb_ConWpIn{height:auto;}
+		.PanelWp{}
+		/*可折叠标题栏*/
+		.PanelTT{position:relative; height:32px;}
+		.PanelTT,.PanelTT a:link,.PanelTT a:visited,.PanelTT a:hover{color:#777;}
+		.PanelTT a:hover{color:#000;}
+			.PanelTT .icoOpCls,.PanelTT .TTxt,.PanelTT .Extra{display:block; height:32px; line-height:30px;}
+			.PanelTT .icoOpCls{width:22px; height:22px; position:absolute; left:2px; top:3px;}
+				.icoOpen{background-position:-4px -4px;}
+				.icoOpen:hover{background-position:-4px -36px;}
+				.icoCls{background-position:-36px -4px;}
+				.icoCls:hover{background-position:-36px -36px;}
+			.PanelTT .TTxt{width:122px; position:absolute; left:23px; top:0px;}
+			.PanelTT .Extra{width:54px; padding-left:4px; position:absolute; left:140px; top:0px;}
+		/*可折叠内容*/
+		.PanelCon{}
+			.PanelCon ul,.PanelCon li{padding:0px; margin:0px;}
+			.PanelCon li{position:relative; height:30px; line-height:30px; font-size:1px;}/*解决IE与FF高度不一致地问题*/
+			.PanelCon li a{font-size:12px; display:block; height:30px; line-height:28px; color:#000;}
+			.PanelCon li a:link,.PanelCon li a:visited,.PanelCon li a:hover{color:#000;}
+			.PanelCon li a.fileItem{padding-left:23px; position:absolute; left:0px; top:0px; width:100%; white-space:nowrap;}/*padding-left:29px;*/
+			/*更多（文件夹方式延伸呈现）*/
+			.PanelCon li a.lnkMore:link,.PanelCon li a.lnkMore:visited{color:#777;}
+			.PanelCon li a.lnkMore:hover{color:#000;}
+			/*自动截取*/
+			.JQ{ display:block; width:114px; float:left; cursor:pointer; cursor:hand;}
+			html>body .JQ{white-space:nowrap; word-break:break-all;overflow:hidden;}/*FF, Opera*/
+			*html .JQ{white-space:nowrap; overflow:hidden; text-overflow:ellipsis; empty-cells:show;}/*IE*/
+			.PanelCon li.On a.fileItem{background-position:-608px 0px;}/*选中*/
+			.PanelCon li.New a.fileItem{font-weight:bold;}/*有新邮件*/
+			/*“清空”，“收取”等*/
+			.PanelCon li .Extra{display:block; height:32px; line-height:30px; width:54px; padding-left:4px; position:absolute; left:140px; top:0px; color:#777; font-size:12px;}
+				.PanelCon li .Extra a{ line-height:30px; display:inline;}
+				.PanelCon li .Extra a:link,.PanelCon li .Extra a:visited,.PanelCon li .Extra a:hover{ color:#777;}
+				.PanelCon li .Extra a:hover{ color:#000;}
+				.PanelCon li.On .Extra a:link,.PanelCon li.On .Extra a:visited{}/*选中标签右边连接颜色*/
+				.PanelCon li.On .Extra a:hover{}
+			/*收件箱等文件夹图标(默认不开放，供少数皮肤用)*/
+			.PanelCon li .icoFld{display:block; width:16px; height:16px; position:absolute; left:10px; top:6px; z-index:888; margin:0px; padding:0px;}
+			.PanelCon .Fld_Inbox .icoFld{background-position:-8px -328px;}/*收件箱*/
+			.PanelCon .Fld_Drafts .icoFld{background-position:-40px -328px;}/*草稿箱*/
+			.PanelCon .Fld_Send .icoFld{background-position:-72px -328px;}/*已发送*/
+			.PanelCon .Fld_Trash .icoFld{background-position:-104px -328px;}/*已删除*/
+			.PanelCon .Fld_Adver .icoFld{background-position:-136px -328px;}/*广告邮箱*/
+			.PanelCon .Fld_Spam .icoFld{background-position:-168px -328px;}/*垃圾邮件*/
+			.PanelCon .Fld_Addr .icoFld{background-position:-200px -328px;}/*通讯录*/
+			.PanelCon .Fld_NetDisk .icoFld{background-position:-232px -328px;}/*网盘*/
+			/*自定义文件夹，下方折叠图标*/
+			.PanelCon .pslFld_More{height:16px; height:16px;}
+			.PanelCon .pslFld_More a.aPslMore{text-align:center; display:block; height:16px; line-height:16px;}
+			.PanelCon .pslFld_More .icoOpCls{display:block; width:16px; height:16px; margin:0px auto; cursor:pointer; cursor:hand;}
+			.PslMr_Open a.aPslMore .icoOpCls{background-position:-8px -360px;}
+			.PslMr_Open a.aPslMore:hover .icoOpCls{background-position:-8px -392px;}
+			.PslMr_Cls a.aPslMore .icoOpCls{background-position:-40px -360px;}
+			.PslMr_Cls a.aPslMore:hover .icoOpCls{background-position:-40px -392px;}
+
+		/*自定义文件夹*/
+		.Panel_PslFld .PanelCon li a.fileItem{}/*等宽字体控制*//*font-family:fixedsys,Lucida Console,Courier New,courier,'新宋体';*/
+		.Sb_Line{height:11px; line-height:11px; font-size:1px; background-position:-608px -124px;}
+		/*自定义文件夹滚动区域*/
+		.PanelScl{overflow-x:hidden; overflow-y:auto;}
+
+
+/*--框架 结束--*/
+
+
+/* 通讯录折叠列表 Begin */
+a.letterOn,a.letterOn:hover,a.letterOn:visited{font-weight:bold;color:#000;text-decoration:none}
+.Cmp_txlbox{width:183px;*width:184px;background-color:#FFF;border-width:1px;border-style:solid}
+	.Cmp_TBtit a{display:block;float:left;text-align:center;width:91px;height:27px;line-height:27px;border-width:0 0 1px 0px;border-style:solid}
+		.Cmp_TBtit a.on{border-bottom-color:#FFF;background-color:#FFF;font-weight:bold;color:#000;text-decoration:none}
+		.Cmp_TBtit a.on:link,.Cmp_TBtit a.on:visited,.Cmp_TBtit a.on:hover{color:#000;text-decoration:none}
+
+/*通讯录搜索*/
+.Cmp_Rtxlser{height:35px;border-bottom:1px solid #eee; text-align:center; padding:0px; margin:0px; padding-left:4px; position:relative;}
+	.Cmp_Rtxlser .gSchBar{float:left;}
+	.Cmp_Rtxlser .icoAdd{display:block; position:absolute; right:7px; top:9px; width:16px; height:16px; background-position:-864px -0px;}
+	.Cmp_Rtxlser .icoAdd:hover{background-position:-864px -32px;}
+
+.Cmp_Rtxl,.Cmp_tSchRzWp{width:182px; padding:0px; margin:2px auto; overflow:auto; height:375px; overflow-x:hidden}
+.tCCm .Cmp_Rtxl,.tCCm .Cmp_tSchRzWp{width:188px;}
+	.Cmp_RTtit{height:21px;line-height:21px;margin:2px auto;overflow:hidden}	/*通讯录组名*/
+		.Cmp_RTtit a{margin:0px; padding:0px;}
+		.Cmp_RTtit a.Cmp_Stxz{float:left; height:21px; line-height:21px; overflow:hidden; white-space:nowrap;}
+		.Cmp_RTtit a.Cmp_Stxz:link,.Cmp_RTtit a.Cmp_Stxz:visited,.Cmp_RTtit a.Cmp_Stxz:hover{color:#333; text-decoration:none; }
+		.Cmp_RTtit a.Cmp_Stxz:hover{color:#000;}
+		.Cmp_RTtit .IcoImg{display:block;width:16px;height:21px;float:left}
+			a.Cmp_r{background-position:-40px -5px}
+			a.Cmp_r:hover{background-position:-40px -37px}
+			a.Cmp_d{background-position:-8px -5px}
+			a.Cmp_d:hover{background-position:-8px -37px}
+	.Cmp_RTcont{}/*通讯录条目*/
+		.Cmp_RTcont a{height:24px; line-height:24px; clear:both; display:block; overflow:hidden; padding-left:16px;}
+		.Cmp_RTcont a:link,.Cmp_RTcont a:visited,.Cmp_RTcont a:hover{color:#666; text-decoration:none;}
+		.Cmp_RTcont a:hover{color:#000;}
+		.Cmp_RTcont a.IcoImg,.Cmp_RTcont a.IcoImg:visited{background-position:14px -325px;text-indent:23px}
+		.Cmp_RTcont a.UnUse,.Cmp_RTcont a.UnUse:visited,.Cmp_RTcont a.UnUse:hover,.UnUse .tSchRz_iName,.UnUse .tSchRz_iEmail{color:#ccc;}
+	.Cmp_RtISmp{height:303px; overflow-x:hidden; overflow-y:auto;}
+		table.Cmp_RtI{table-layout:fixed; border-bottom:1px solid #eee; cursor:pointer; cursor:hand;}
+		table.Cmp_RtI_Hv{}/*鼠标动作*/
+		table.Cmp_RtI td.RtITT{font-size:12px; color:#666; height:24px; line-height:24px; overflow:hidden; white-space:nowrap; padding-left:4px;}
+		table.Cmp_RtI td.Extra{font-size:12px; height:24px; line-height:24px; width:46px; text-align:center;}
+
+/*Wayhome 2008-9-22*/
+/*通讯录查找结果*/
+div.Cmp_tSchRzWp{}
+	.tSchRz_gTT{padding:0 8px;font-weight:bold;line-height:18px; color:#666;}
+	div.Cmp_tSchRzWp td.tSchRz_Item{ padding:6px 10px;}
+		/*a.tSchRz_iA:link,a.tSchRz_iA:visited,a.tSchRz_iA:hover{text-decoration:none;color:#333;display:block; padding:8px 10px;}
+		a.tSchRz_iA:hover{background-color:#FFFFE1;}*/
+			div.tSchRz_iName{line-height:14px; overflow:hidden; white-space:nowrap;}
+			div.tSchRz_iEmail{line-height:14px; color:#999; font-size:11px; overflow:hidden; white-space:nowrap;}
+
+/* 通讯录折叠列表 End */
+
+
+
+/*通用系统对话框（批量上传附件，查看详细对话框） 开始*/
+.upFlDtlLst{ border-bottom:#CCC 1px dotted; color:#333; font-size:12px; line-height:14px; margin:8px 0px; padding:0px 10px 10px 10px}
+	.upFlDtlLst input{ width:16px; height:16px; border:0px; background-color:transparent}
+	.upFlDtlLst input.Cmp_suc{ background-position:-104px -8px}
+	.upFlDtlLst input.icoAtch{ background-position:-136px -8px}
+/*延续以前loading bar*/
+.upFlDiv{ margin:4px 0px 0px 0px; width:120px}
+	.upFlBar{ border:#CCC 1px solid; background-color:#fafafa; overflow:hidden; width:120px}
+	.ctn{border:#fafafa 1px solid; overflow:hidden; height:6px}
+.upFlDiv2,.upFlDiv2 .upFlBar{ width:190px}
+.upFLEroIco{ background-position:-136px -72px}
+/*通用系统对话框（批量上传附件，查看详细对话框） 结束*/
+
+
+/*通用系统对话框（邮箱搬家进度） 开始*/
+.popDtlLst{ border-bottom:#CCC 1px dotted; color:#333; font-size:12px; line-height:14px; margin:8px 0px; padding:0px 10px 10px 10px}
+	.PopAc{height:18px; line-height:18px; margin-bottom:4px;}
+	.popStatus{height:20px; line-height:20px; margin-bottom:4px;}
+	.popDtlLst input{ width:16px; height:16px; border:0px; background-color:transparent}
+	.popDtlLst input.icoScs{ background-position:-104px -8px}
+	.popDtlLst input.icoAtch{ background-position:-136px -8px}
+/*延续以前loading bar*/
+.popDiv{ margin:4px 0px 0px 0px; width:120px}
+	.popBar{ border:#CCC 1px solid; background-color:#fafafa; overflow:hidden; width:120px}
+	.ctn{border:#fafafa 1px solid; overflow:hidden; height:6px}
+.popDiv2,.popDiv2 .popBar{ width:240px}
+.popEroIco{ background-position:-136px -72px}
+/*通用系统对话框（邮箱搬家进度） 结束*/

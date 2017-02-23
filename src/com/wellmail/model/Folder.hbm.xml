@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.wellmail.model">
+	<class name="Folder" table="folder">
+		<id name="folderid">
+			<generator class="native"/>
+		</id>
+		<property name="foldername"/>
+		<property name="folderspace"/>
+		<property name="mailcount"/>
+		
+		<set name="emails">
+			<key column="folderid"/>
+			<one-to-many class="Email"/>
+		</set>
+		
+		<many-to-one name="user" column="username"/>
+	</class>
+</hibernate-mapping>

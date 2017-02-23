@@ -1,0 +1,186 @@
+	
+	1、用户表:users
+	字段					字段类型			字段意义
+	Username			Varchar			用户名
+	PwdHash				Varchar			用户密码
+	pwdAlgorithm    	varchar(20)
+	useForwarding		smailint(6)
+	forwardDestination 	varchar(255)
+	useAlias			smaillint(6)
+	alias				varchar(255)
+	
+	2、邮箱空间表：emailspace
+	字段	   			字段类型			字段意义
+	esid			int				邮箱容量id
+	emailspace		float			邮箱总容量
+	spaceleft		float			剩余邮箱容量
+	username 		varchar(255)	用户
+	
+	3、用户密码问题表：userpwd
+	字段	   			字段类型			字段意义
+	qid				int 			问题id
+	question		varchar			问题
+	answer			varchar			答案
+	username		varchar(255)	当前用户（外键）
+	
+	
+	4、邮箱表:email
+	字段	   			字段类型			字段意义
+	emailid			bigint（20） 	邮件id
+	username		varchar(255)	当前用户（外键）
+	sender			Varchar（255）	发件人
+	recipients		Varchar（255）	收件人
+	subject			longblob		邮件标题
+	content			longblob		邮件内容
+	senttime		Varchar（25）	发送时间
+	mailtype		Int				邮件类型
+	messageid   	varchar 		邮件messageid
+	msgsize     	bigint（20）		邮件大小
+	unread			int				邮件标记状态(0.已读 1.未读)
+	tagid			int				邮件标记标签(1.重要邮件 2.公司邮件 3.业务邮件 4.资讯邮件 5.亲友邮件
+						    			   6.同学邮件 7.休闲邮件 8.趣闻邮件 9.杂项邮件)（默认-杂项））（外键）
+	priorityid		int				邮件优先级（1.紧急邮件 2.普通邮件 3.缓慢邮件）（默认-普通）（外键）
+	folderid    	bigint          文件夹（1收件箱，2草稿箱，3已发送，4已删除，5垃圾邮件箱，6广告邮件）（外键）
+	
+	
+	5、附件表：attachment
+	字段				字段类型			字段意义
+	attachmentid	int				附件id
+	attachmentpath	varchar			附件路径
+	attachmentname	varchar			附件名称
+	attachmentsize	float			附件大小
+	emailid			bigint（20） 	邮件id（外键）
+	
+	
+	6、抄送人表：cc
+	字段				字段类型			字段意义
+	ccid			bigint（20）    	抄送id
+	ccname			Varchar（255）   抄送人
+	emailid			bigint（20） 	邮件id（外键）
+	
+	
+	7、密送人表：bcc
+	字段				字段类型			字段意义
+	bccid			bigint（20）     	密送id
+	bccname			Varchar（255）   	密送人
+	emailid			bigint（20） 	邮件id（外键）
+	
+	
+	8、文件夹表：folder
+	字段				字段类型			字段意义
+	folderid		bigint(20)		文件夹id
+	foldername		varchar（100）	文件夹名
+	folderspace		float			文件夹大小
+	mailcount		int 			邮件数量
+	username		varchar			用户（外键）
+	
+	
+	9、邮件标记标签表：mailtag
+	字段				字段类型			字段意义
+	tagid			int				邮件标记标签id
+	tagname			varchar（100）	邮件标记标签name
+	
+	
+	10、邮件优先级表：priority
+	字段				字段类型			字段意义
+	priorityid		int				邮件优先级id
+	priorityname	varchar（100）	邮件优先级name
+	
+	
+	
+	11、用户积分表：score
+	字段				字段类型			字段意义
+	scoreid			int				积分id
+	username		varchar(255)	用户（外键）
+	score			int				积分
+	level           int             等级（图标）
+	
+	
+	12、网盘空间表：webdisk
+	字段				字段类型			字段意义
+	webspaceid		int				网盘id
+	username		varchar（255）	用户名（外键）
+	webspace		float			网盘空间
+	wsleft			float			剩余大小
+	filecount		int				文件数量
+	
+	
+	13、网盘文件表：webfile
+	字段				字段类型			字段意义
+	fileid			int				文件id
+	filename		varchar(255)	文件名
+	filesize		float			文件大小
+	uploadtime		varchar(25)		上传时间
+	filetypeid		int				文件分类（1.我的文档 2.我的图片 3.我的音乐 4.我的多媒体 5.我的软件）（可添加）（外键）
+	username		varchar(255)	用户名（外键）
+	
+	
+	14、网盘文件分类表：filetype
+	字段				字段类型			字段意义
+	filetypeid		int				文件类型id
+	filetypename	varchar（255）	文件类型name
+	username		varchar(255)	用户名（外键）（用户可添加，所以每个用户不同）
+	
+	
+	15、记事本表：notebook
+	字段				字段类型			字段意义
+	noteid			int				记事本id
+	notetitle		longblob		文件标题
+	notecontent		longblob		文件内容
+	notedate		varchar(25)		创建时间
+	notetypeid		int				记事本分类（1.普通记事 ， 2.代办纪事 ， 3.日常琐事 ）（可添加）（外键）
+	username		varchar(255)	用户名（外键）
+	
+	16、记事本类型表：notetype
+	字段				字段类型			字段意义
+	notetypeid 		int				记事本类型id
+	notetypename 	varchar（255）   记事本类型name（1.普通记事 ， 2.代办纪事 ， 3.日常琐事 ）
+	username		varchar(255)	用户名（外键）（用户可添加，所以每个用户不同）
+	
+	
+	17、联系人表：Contact
+	字段				字段类型			字段意义
+	contactid		int				联系人id
+	contactname		varchar(255)	联系人姓名
+	contactemail	varchar（100）	联系人邮箱地址
+	groupid			int				联系人所属组id
+	username		varchar（255）	当前用户（外键）
+	
+	18、联系人组表：contactgroup
+	字段				字段类型			字段意义
+	groupid			int				联系人所属组id
+	groupname		varchar（255）	所属组名称(1.朋友，2.亲人，3.同事，4.网友，5.老师，6.同学)
+	username		varchar（255）	当前用户（外键）
+	
+	
+	19、用户信息表：usersinfo
+	字段				字段类型			字段意义
+	usersinfoid		int 			用户信息id
+	sex				varchar			性别
+	birthday		varchar	  		生日
+	tel				varchar			联系方式
+	username		varchar			用户名（外键）
+	
+	
+	20、其他邮箱表：othermailbox
+	字段				字段类型			字段意义
+	uid				int 			邮箱id
+	uname			varchar			邮箱用户名
+	upass			varchar			邮箱密码 
+	username		varchar			用户名（外键）
+	tid				int				其他邮箱类型id（外键）
+	
+	
+	
+	21、其他邮箱类型表：mailboxtype
+	字段				字段类型			字段意义
+	tid				int				邮箱类型id
+	tname			varchar			邮箱名称
+	tsmtp			varchar	        smtp
+	tpop3			varchar			pop3
+	
+	
+	
+	
+	
+	 

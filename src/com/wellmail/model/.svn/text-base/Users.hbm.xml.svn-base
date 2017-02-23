@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.wellmail.model">
+	<class name="Users" table="users">
+		<id name="username"></id>
+		<property name="pwdHash"/>
+		<property name="pwdAlgorithm"/>
+		<property name="useForwarding"/>
+		<property name="forwardDestination"/>
+		<property name="useAlias"/>
+		<property name="alias"/>
+		
+		<set name="folders">
+			<key column="username"/>
+			<one-to-many class="Folder"/>
+		</set>
+		
+		<set name="webfiles">
+			<key column="username"/>
+			<one-to-many class="WebFile"/>
+		</set>
+		
+		<set name="filetypes">
+			<key column="username"/>
+			<one-to-many class="FileType"/>
+		</set>
+		
+		<set name="notebooks">
+			<key column="username"/>
+			<one-to-many class="NoteBook"/>
+		</set>
+		
+		<set name="notetypes">
+			<key column="username"/>
+			<one-to-many class="NoteType"/>
+		</set>
+		
+		<set name="contacts">
+			<key column="username"/>
+			<one-to-many class="Contact"/>
+		</set>
+		
+		<set name="contactgroups">
+			<key column="username"/>
+			<one-to-many class="ContactGroup"/>
+		</set>
+	</class>
+</hibernate-mapping>

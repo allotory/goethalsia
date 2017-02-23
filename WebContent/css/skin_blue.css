@@ -1,0 +1,95 @@
+@charset "utf-8";
+
+/* Ĭ��Ƥ�� */
+
+
+/*--ͨ��Class ��ʼ--*/
+
+	/*l��*/
+	a:link,a:visited,.Acolor{color:#0068b7; text-decoration:underline;}
+	a:hover{color:#0075cd; text-decoration:underline;}
+	
+	/*��ť*/
+	.Btn,.ABtn{border:1px solid #72a1bd; background-color:#fff;}
+	.BtnHv,.ABtn:hover{border:1px solid #A2904D; background-color:#fff;}
+
+	/*�����*/
+	.Ipt,.IptOnF{border:1px solid #a8b7c0; }
+
+	.Hr{border-top:1px solid #D1D8DB; border-bottom:1px solid #f6f9fb;}
+	.HrSub{border-top:1px solid #D1D8DB; border-bottom:none;}/*�ӷָ���*/
+	.HrSub2{border-top:none;border-bottom:1px solid #ededed;}/*���ӷָ���*/
+
+	.Tips_Nml_C{ border:1px solid #e0e5e5; background-color:#f6fafd;}
+	
+	/*ͨ�ñ�����һ����*/ /*д��ҳ�棬���ŵ�ҳ�湫��*/
+	.gCBgWp{background-color:#f6fafd; border-top:1px solid #eff4f7; border-bottom:1px solid #e0e7ed;}
+
+	/*ͨ��ϵͳ�Ի���*/
+	.gSW_Con_WpIn,.gSW_Footer_WpIn{border:1px solid #608da8;}
+	.gSW_Con_WpIn{border-top:none; border-bottom:none;}
+	.gSW_Footer_Wp{background-color:#F6FAFD;}
+	.gSW_Footer_WpIn{border-top:none;}
+	.gSW_Footer_WpIn .HrSub{border-top-color:#cbdde5;}
+
+/*--ͨ��Class ����--*/
+
+
+
+/*--ͼƬ���� ��ʼ--*/
+	/*--f1.gif������ƽ�̡����Ԫ���Լ���ǳɫ������ico���ϡ�--*/
+	.F1Img,.HeadWpInner,.SchBtn,.SchMenuBtn,.SidebarBdWp,.BigBtnWp a.aShouXIN,.BigBtnWp a.aXieXIN,.BigBtnWp,.PanelCon li.On a.fileItem,.Sb_Line
+	{background-image:url('../images/skin_blue/f1.gif');background-repeat:no-repeat;}
+
+	/*--f2.gif������ƽ��--*/
+	.F2Img,.HeadWp,.Btn,.BtnHv,.ABtn
+	{background-image:url('../images/skin_blue/f2.gif');background-repeat:repeat-x;}
+
+	/*--ico.gif��ǳɫ������ico���ϡ�--*/
+	.IcoImg,.icoOpCls,.icoCls,.icoTips,.icoIbx,.icoInfo
+	{background-image:url('../images/ico.gif');background-repeat:no-repeat;}
+
+	/*--loading.gif��������LoadingСͼ�ꡣ--*/
+	.IcoLoading
+	{background-image:url('../images/skin_blue/loading.gif');background-repeat:no-repeat; background-position:0px 0px;}
+
+	/*--theme.gif��Ƥ�����⸽��ͼƬ��--*/
+	.HeadThemeWp,.SidebarThemeWp{background-image:url('../images/skin_blue/theme.gif');background-repeat:no-repeat; background-position:0px 0px;}
+
+/*--ͼƬ���� ����--*/
+
+
+
+/*--��� ��ʼ--*/
+
+	/*�Զ���logo��ʽ*/
+	.g163logo{}
+	.g126Logo{}
+	.gYeahLogo{}
+	.g188Logo{}
+	.gVip163Logo{}
+
+	.SidebarBdWp{background-repeat:repeat-y;}
+
+	/*--theme.gif��Ƥ�����⸽��ͼƬ��--*/
+	.HeadThemeWp{background-position:right 0px;}
+	.SidebarThemeWp{background-position:0px -192px;}
+
+/*--��� ����--*/
+
+
+
+/*--д�� ��ʼ--*/
+	.Cmp_tip table tr td.Cmp_TipOn,.Cmp_RTcont a:hover,table.Cmp_RtI_Hv{ background-color:#E6F3FB}/*��껮��6ɫ*//*ͨѶ¼����*/
+	.Cmp_att{ background-color:#E7F1FA;}/*�������򱳾�ɫ*/
+	.Cmp_tip table tr td b{ color:#0068B7}/*д����ʾ����������ɫ*/
+	.ctn{ background-color:#A5DD3D}/*�ϴ�������ڲ�ɫ*/
+	.Cmp_editor_wide,.Cmp_editor,.Cmp_table td input.Ipt,.Cmp_table td textarea.Ipt{border-color:#839BB1}/*д�������߿���ɫ*/
+	.Cmp_txlbox,.Cmp_TBtit a{border-color:#C9D3DB}/*д�ŵ�ͨѶ¼�߿�ɫ*/
+	.Cmp_TBtit a{background-color:#F6FAFD}/*д��ͨѶ¼��ǩδѡ������ɫ*/
+	.Cmp_RHcont a.on,.Cmp_RHcont a.on:hover{ background-color:#ffeda1;border-color:#FFC467}/*д����ֽѡ�еı������߿�ɫ*/
+	.Cmp_cpt_txlW{border-color:#C9D3DB}/*д�ųɹ��������ͨѶ¼�߿�ɫ*/
+	.CMPth_lbtab{ border-top-color:#E0EBF5; border-bottom-color:#E0EBF5; background-color:#F9FCFE}/*��ӵ�ͨѶ¼���±߿�ɫ���䱳��ɫ*/
+	.CMPth_lbtab th{ border-bottom-color:#E4EBF0; background-color:#F3F9FC}/*���ͷ��ɫ�ʼ��ױ�ɫ*/
+/*--д�� ����--*/
+

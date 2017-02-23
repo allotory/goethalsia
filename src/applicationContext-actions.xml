@@ -1,0 +1,2162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	     xmlns:aop="http://www.springframework.org/schema/aop"
+	     xmlns:tx="http://www.springframework.org/schema/tx"
+	     xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
+	
+	 <!-- 注册跳转 -->
+	<bean name="/register" class="com.wellmail.action.RegisterAction" scope="prototype"/>
+	 
+	<!-- 注册 -->
+	<bean name="/registing" class="com.wellmail.action.RegistingAction" scope="prototype">
+		
+		<!-- 用户注入  -->
+		<property name="usersDao" ref="usersDao"/>
+		<property name="users" ref="users"/>
+		
+		<!-- 联系人注入   -->
+		<property name="contactGroupDao" ref="contactGroupDao"/>
+		<property name="contactGroupInit" ref="contactGroupInit"/>
+		<property name="contactgroup" ref="contactgroup"/>
+		
+		<!-- 邮件空间注入  -->
+		<property name="emailSpaceDao" ref="emailSpaceDao"/>
+		<property name="emailspace" ref="emailspace"/>
+		
+		<!-- 网盘文件注入  -->
+		<property name="fileTypeDao" ref="fileTypeDao"/>
+		<property name="fileTypeInit" ref="fileTypeInit"/>
+		<property name="filetype" ref="filetype"/>
+
+		<!-- 文件夹注入  -->
+		<property name="folderDao" ref="folderDao"/>
+		<property name="folder" ref="folder"/>
+		<property name="folderInit" ref="folderInit"/>
+		
+		<!-- 记事本类型注入  -->
+		<property name="noteTypeDao" ref="noteTypeDao"/>
+		<property name="notetype" ref="notetype"/>
+		<property name="noteTypeInit" ref="noteTypeInit"/>
+		
+		<!-- 用户密码提示问题注入  -->
+		<property name="userPwdDao" ref="userPwdDao"/>
+		<property name="userpwd" ref="userpwd"/>
+		
+		<!--用户积分注入   -->
+		<property name="userScoreDao" ref="userScoreDao"/>
+		<property name="userscore" ref="userscore"/>
+		
+		<!-- 用户个人信息注入  -->
+		<property name="usersInfoDao" ref="usersInfoDao"/>
+		<property name="usersinfo" ref="usersinfo"/>
+		
+		<!-- 网盘空间注入 -->
+		<property name="webDiskDao" ref="webDiskDao"/>
+		<property name="webdisk" ref="webdisk"/>
+	</bean> 
+	
+	<!-- 用户登录 -->
+	<bean name="/login" class="com.wellmail.action.LoginAction" scope="prototype">
+		
+		<!-- 用户注入  -->
+		<property name="usersDao" ref="usersDao"/>
+		<property name="users" ref="users"/>
+		
+		<!--用户积分注入   -->
+		<property name="userScoreDao" ref="userScoreDao"/>
+		<property name="userscore" ref="userscore"/>
+		
+		<!-- 邮件空间注入  -->
+		<property name="emailSpaceDao" ref="emailSpaceDao"/>
+		<property name="emailspace" ref="emailspace"/>
+		
+		<!-- 文件夹注入  -->
+		<property name="folderDao" ref="folderDao"/>
+		<property name="folder" ref="folder"/>
+		
+		<!-- email注入  -->
+		<property name="emailDao" ref="emailDao"/>
+		
+		<!-- 联系人注组入   -->
+		<property name="contactGroupDao" ref="contactGroupDao"/>
+		<property name="contactgroup" ref="contactgroup"/>
+		
+		<!-- 联系人注入   -->
+		<property name="contactDao" ref="contactDao"/>
+		
+		<!-- contact bean -->
+		<property name="contactbean" ref="contactbean"/>
+	</bean>
+	
+	<!-- 发送Email -->
+	<bean name="/senting" class="com.wellmail.action.SendingAction" scope="prototype">
+		
+		<!-- 用户注入  -->
+		<property name="usersDao" ref="usersDao"/>
+		<property name="users" ref="users"/>
+		
+		<!--用户积分注入   -->
+		<property name="userScoreDao" ref="userScoreDao"/>
+		<property name="userscore" ref="userscore"/>
+		
+		<!-- 文件夹注入  -->
+		<property name="folderDao" ref="folderDao"/>
+		<property name="folder" ref="folder"/>
+		
+		<!-- email注入  -->
+		<property name="emailDao" ref="emailDao"/>
+		<property name="email" ref="email"/>
+		
+		<!-- mailtag注入  -->
+		<property name="mailTagDao" ref="mailTagDao"/>
+		<property name="mailtag" ref="mailtag"/>
+		
+		<!-- priority注入  -->
+		<property name="priorityDao" ref="priorityDao"/>
+		<property name="priority" ref="priority"/>
+		
+		<!-- attachment注入  -->
+		<property name="attachmentDao" ref="attachmentDao"/>
+		<property name="attachment" ref="attachment"/>
+		
+		<!-- cc注入  -->
+		<property name="ccDao" ref="ccDao"/>
+		<property name="ccs" ref="ccs"/>
+		
+		<!--bcc注入  -->
+		<property name="bccDao" ref="bccDao"/>
+		<property name="bccs" ref="bccs"/>
+	</bean>
+	
+	<!-- 查询收件箱-->
+	<bean name="/goreceive" class="com.wellmail.action.ReceiveBoxAction" scope="prototype">
+		
+		<!-- 用户注入  -->
+		<property name="usersDao" ref="usersDao"/>
+		<property name="users" ref="users"/>
+		
+		<!-- attachment注入  -->
+		<property name="attachmentDao" ref="attachmentDao"/>
+
+		<!-- email注入  -->
+		<property name="emailDao" ref="emailDao"/>
+		<property name="email" ref="email"/>
+		
+		<!-- mailtag注入  -->
+		<property name="mailTagDao" ref="mailTagDao"/>
+		<property name="mailtag" ref="mailtag"/>
+		
+		<!-- priority注入  -->
+		<property name="priorityDao" ref="priorityDao"/>
+		<property name="priority" ref="priority"/>
+		
+		<!-- eamil bean -->
+		<property name="emailbean" ref="emailbean"/>
+		
+		<!-- cc注入  -->
+		<property name="ccDao" ref="ccDao"/>
+		
+		<!--bcc注入  -->
+		<property name="bccDao" ref="bccDao"/>
+		
+		<!-- 文件夹注入  -->
+		<property name="folderDao" ref="folderDao"/>
+		<property name="folder" ref="folder"/>
+	</bean>
+	
+	<!-- 查询收件箱（分页）-->
+	<bean name="/goreceive2" class="com.wellmail.action.ReceiveBoxAction" scope="prototype">
+		
+		<!-- 用户注入  -->
+		<property name="usersDao" ref="usersDao"/>
+		<property name="users" ref="users"/>
+		
+		<!-- attachment注入  -->
+		<property name="attachmentDao" ref="attachmentDao"/>
+
+		<!-- email注入  -->
+		<property name="emailDao" ref="emailDao"/>
+		<property name="email" ref="email"/>
+		
+		<!-- mailtag注入  -->
+		<property name="mailTagDao" ref="mailTagDao"/>
+		<property name="mailtag" ref="mailtag"/>
+		
+		<!-- priority注入  -->
+		<property name="priorityDao" ref="priorityDao"/>
+		<property name="priority" ref="priority"/>
+		
+		<!-- eamil bean -->
+		<property name="emailbean" ref="emailbean"/>
+		
+		<!-- cc注入  -->
+		<property name="ccDao" ref="ccDao"/>
+		
+		<!--bcc注入  -->
+		<property name="bccDao" ref="bccDao"/>
+		
+		<!-- 文件夹注入  -->
+		<property name="folderDao" ref="folderDao"/>
+		<property name="folder" ref="folder"/>
+	</bean>
+	
+	
+	<!-- 查询草稿箱-->
+	<bean name="/goscript" class="com.wellmail.action.ScriptBoxAction" scope="prototype">
+		
+		<!-- 用户注入  -->
+		<property name="usersDao" ref="usersDao"/>
+		<property name="users" ref="users"/>
+		
+		<!-- attachment注入  -->
+		<property name="attachmentDao" ref="attachmentDao"/>
+
+		<!-- email注入  -->
+		<property name="emailDao" ref="emailDao"/>
+		<property name="email" ref="email"/>
+		
+		<!-- mailtag注入  -->
+		<property name="mailTagDao" ref="mailTagDao"/>
+		<property name="mailtag" ref="mailtag"/>
+		
+		<!-- priority注入  -->
+		<property name="priorityDao" ref="priorityDao"/>
+		<property name="priority" ref="priority"/>
+		
+		<!-- eamil bean -->
+		<property name="emailbean" ref="emailbean"/>
+		
+		<!-- 文件夹注入  -->
+		<property name="folderDao" ref="folderDao"/>
+		<property name="folder" ref="folder"/>
+		
+		<!-- cc注入  -->
+		<property name="ccDao" ref="ccDao"/>
+		
+		<!--bcc注入  -->
+		<property name="bccDao" ref="bccDao"/>
+	</bean>
+	
+	<!-- 查询草稿箱（分页）-->
+	<bean name="/goscript2" class="com.wellmail.action.ScriptBoxAction" scope="prototype">
+		
+		<!-- 用户注入  -->
+		<property name="usersDao" ref="usersDao"/>
+		<property name="users" ref="users"/>
+		
+		<!-- attachment注入  -->
+		<property name="attachmentDao" ref="attachmentDao"/>
+
+		<!-- email注入  -->
+		<property name="emailDao" ref="emailDao"/>
+		<property name="email" ref="email"/>
+		
+		<!-- mailtag注入  -->
+		<property name="mailTagDao" ref="mailTagDao"/>
+		<property name="mailtag" ref="mailtag"/>
+		
+		<!-- priority注入  -->
+		<property name="priorityDao" ref="priorityDao"/>
+		<property name="priority" ref="priority"/>
+		
+		<!-- eamil bean -->
+		<property name="emailbean" ref="emailbean"/>
+		
+		<!-- 文件夹注入  -->
+		<property name="folderDao" ref="folderDao"/>
+		<property name="folder" ref="folder"/>
+		
+		<!-- cc注入  -->
+		<property name="ccDao" ref="ccDao"/>
+		
+		<!--bcc注入  -->
+		<property name="bccDao" ref="bccDao"/>
+	</bean>
+	
+	<!-- 保存草稿-->
+	<bean name="/savescript" class="com.wellmail.action.AddScriptAction" scope="prototype">
+		
+		<!-- 用户注入  -->
+		<property name="usersDao" ref="usersDao"/>
+		<property name="users" ref="users"/>
+		
+		<!-- attachment注入  -->
+		<property name="attachmentDao" ref="attachmentDao"/>
+		<property name="attachment" ref="attachment"/>
+
+		<!-- email注入  -->
+		<property name="emailDao" ref="emailDao"/>
+		<property name="email" ref="email"/>
+		
+		<!-- mailtag注入  -->
+		<property name="mailTagDao" ref="mailTagDao"/>
+		<property name="mailtag" ref="mailtag"/>
+		
+		<!-- priority注入  -->
+		<property name="priorityDao" ref="priorityDao"/>
+		<property name="priority" ref="priority"/>
+		
+		<!-- 文件夹注入  -->
+		<property name="folderDao" ref="folderDao"/>
+		<property name="folder" ref="folder"/>
+		
+		<!-- cc注入  -->
+		<property name="ccDao" ref="ccDao"/>
+		<property name="ccs" ref="ccs"/>
+		
+		<!--bcc注入  -->
+		<property name="bccDao" ref="bccDao"/>
+		<property name="bccs" ref="bccs"/>
+		
+		<!-- 邮件空间注入  -->
+		<property name="emailSpaceDao" ref="emailSpaceDao"/>
+		<property name="emailspace" ref="emailspace"/>
+		
+		
+		<property name="emailbean" ref="emailbean"/>
+	</bean>
+	
+	<!-- 查询已发送-->
+	<bean name="/gosent" class="com.wellmail.action.SentBoxAction" scope="prototype">
+		
+		<!-- 用户注入  -->
+		<property name="usersDao" ref="usersDao"/>
+		<property name="users" ref="users"/>
+		
+		<!-- attachment注入  -->
+		<property name="attachmentDao" ref="attachmentDao"/>
+
+		<!-- email注入  -->
+		<property name="emailDao" ref="emailDao"/>
+		<property name="email" ref="email"/>
+		
+		<!-- mailtag注入  -->
+		<property name="mailTagDao" ref="mailTagDao"/>
+		<property name="mailtag" ref="mailtag"/>
+		
+		<!-- priority注入  -->
+		<property name="priorityDao" ref="priorityDao"/>
+		<property name="priority" ref="priority"/>
+		
+		<!-- eamil bean -->
+		<property name="emailbean" ref="emailbean"/>
+		
+		<!-- 文件夹注入  -->
+		<property name="folderDao" ref="folderDao"/>
+		<property name="folder" ref="folder"/>
+		
+		<!-- cc注入  -->
+		<property name="ccDao" ref="ccDao"/>
+		
+		<!--bcc注入  -->
+		<property name="bccDao" ref="bccDao"/>
+	</bean>
+	
+	
+	<!-- 查询已发送（分页）-->
+	<bean name="/gosent2" class="com.wellmail.action.SentBoxAction" scope="prototype">
+		
+		<!-- 用户注入  -->
+		<property name="usersDao" ref="usersDao"/>
+		<property name="users" ref="users"/>
+		
+		<!-- attachment注入  -->
+		<property name="attachmentDao" ref="attachmentDao"/>
+
+		<!-- email注入  -->
+		<property name="emailDao" ref="emailDao"/>
+		<property name="email" ref="email"/>
+		
+		<!-- mailtag注入  -->
+		<property name="mailTagDao" ref="mailTagDao"/>
+		<property name="mailtag" ref="mailtag"/>
+		
+		<!-- priority注入  -->
+		<property name="priorityDao" ref="priorityDao"/>
+		<property name="priority" ref="priority"/>
+		
+		<!-- eamil bean -->
+		<property name="emailbean" ref="emailbean"/>
+		
+		<!-- 文件夹注入  -->
+		<property name="folderDao" ref="folderDao"/>
+		<property name="folder" ref="folder"/>
+		
+		<!-- cc注入  -->
+		<property name="ccDao" ref="ccDao"/>
+		
+		<!--bcc注入  -->
+		<property name="bccDao" ref="bccDao"/>
+	</bean>
+	
+	<!--删除已发送-->
+	<bean name="/sendeddeleting" class="com.wellmail.action.SendedDeleteAction" scope="prototype">
+		
+		<!-- 用户注入  -->
+		<property name="usersDao" ref="usersDao"/>
+		<property name="users" ref="users"/>
+		
+		<!-- attachment注入  -->
+		<property name="attachmentDao" ref="attachmentDao"/>
+
+		<!-- email注入  -->
+		<property name="emailDao" ref="emailDao"/>
+		<property name="email" ref="email"/>
+		
+		<!-- mailtag注入  -->
+		<property name="mailTagDao" ref="mailTagDao"/>
+		<property name="mailtag" ref="mailtag"/>
+		
+		<!-- priority注入  -->
+		<property name="priorityDao" ref="priorityDao"/>
+		<property name="priority" ref="priority"/>
+		
+		<!-- eamil bean -->
+		<property name="emailbean" ref="emailbean"/>
+		
+		<!-- 文件夹注入  -->
+		<property name="folderDao" ref="folderDao"/>
+		<property name="folder" ref="folder"/>
+		
+		<!-- cc注入  -->
+		<property name="ccDao" ref="ccDao"/>
+		
+		<!--bcc注入  -->
+		<property name="bccDao" ref="bccDao"/>
+	</bean>
+
+	<!--删除收件箱-->
+	<bean name="/receivemaildeleting" class="com.wellmail.action.ReceivedDeleteAction" scope="prototype">
+		
+		<!-- 用户注入  -->
+		<property name="usersDao" ref="usersDao"/>
+		<property name="users" ref="users"/>
+		
+		<!-- attachment注入  -->
+		<property name="attachmentDao" ref="attachmentDao"/>
+
+		<!-- email注入  -->
+		<property name="emailDao" ref="emailDao"/>
+		<property name="email" ref="email"/>
+		
+		<!-- mailtag注入  -->
+		<property name="mailTagDao" ref="mailTagDao"/>
+		<property name="mailtag" ref="mailtag"/>
+		
+		<!-- priority注入  -->
+		<property name="priorityDao" ref="priorityDao"/>
+		<property name="priority" ref="priority"/>
+		
+		<!-- eamil bean -->
+		<property name="emailbean" ref="emailbean"/>
+		
+		<!-- cc注入  -->
+		<property name="ccDao" ref="ccDao"/>
+		
+		<!--bcc注入  -->
+		<property name="bccDao" ref="bccDao"/>
+		
+		<!-- 文件夹注入  -->
+		<property name="folderDao" ref="folderDao"/>
+		<property name="folder" ref="folder"/>
+	</bean>
+	
+	<!--删除草稿箱-->
+	<bean name="/scriptmaildeleting" class="com.wellmail.action.ScriptDeleteAction" scope="prototype">
+		
+	<!-- 用户注入  -->
+		<property name="usersDao" ref="usersDao"/>
+		<property name="users" ref="users"/>
+		
+		<!-- attachment注入  -->
+		<property name="attachmentDao" ref="attachmentDao"/>
+
+		<!-- email注入  -->
+		<property name="emailDao" ref="emailDao"/>
+		<property name="email" ref="email"/>
+		
+		<!-- mailtag注入  -->
+		<property name="mailTagDao" ref="mailTagDao"/>
+		<property name="mailtag" ref="mailtag"/>
+		
+		<!-- priority注入  -->
+		<property name="priorityDao" ref="priorityDao"/>
+		<property name="priority" ref="priority"/>
+		
+		<!-- eamil bean -->
+		<property name="emailbean" ref="emailbean"/>
+		
+		<!-- 文件夹注入  -->
+		<property name="folderDao" ref="folderDao"/>
+		<property name="folder" ref="folder"/>
+		
+		<!-- cc注入  -->
+		<property name="ccDao" ref="ccDao"/>
+		
+		<!--bcc注入  -->
+		<property name="bccDao" ref="bccDao"/>
+	</bean>
+	
+	<!--查询已删除-->
+	<bean name="/godeleted" class="com.wellmail.action.DeletedBoxAction" scope="prototype">
+		<!-- 用户注入  -->
+		<property name="usersDao" ref="usersDao"/>
+		<property name="users" ref="users"/>
+		
+		<!-- attachment注入  -->
+		<property name="attachmentDao" ref="attachmentDao"/>
+
+		<!-- email注入  -->
+		<property name="emailDao" ref="emailDao"/>
+		<property name="email" ref="email"/>
+		
+		<!-- mailtag注入  -->
+		<property name="mailTagDao" ref="mailTagDao"/>
+		<property name="mailtag" ref="mailtag"/>
+		
+		<!-- priority注入  -->
+		<property name="priorityDao" ref="priorityDao"/>
+		<property name="priority" ref="priority"/>
+		
+		<!-- eamil bean -->
+		<property name="emailbean" ref="emailbean"/>
+		
+		<!-- 文件夹注入  -->
+		<property name="folderDao" ref="folderDao"/>
+		<property name="folder" ref="folder"/>
+		
+		<!-- cc注入  -->
+		<property name="ccDao" ref="ccDao"/>
+		
+		<!--bcc注入  -->
+		<property name="bccDao" ref="bccDao"/>
+	</bean>
+	
+	<!--查询已删除（分页）-->
+	<bean name="/godeleted2" class="com.wellmail.action.DeletedBoxAction" scope="prototype">
+		<!-- 用户注入  -->
+		<property name="usersDao" ref="usersDao"/>
+		<property name="users" ref="users"/>
+		
+		<!-- attachment注入  -->
+		<property name="attachmentDao" ref="attachmentDao"/>
+
+		<!-- email注入  -->
+		<property name="emailDao" ref="emailDao"/>
+		<property name="email" ref="email"/>
+		
+		<!-- mailtag注入  -->
+		<property name="mailTagDao" ref="mailTagDao"/>
+		<property name="mailtag" ref="mailtag"/>
+		
+		<!-- priority注入  -->
+		<property name="priorityDao" ref="priorityDao"/>
+		<property name="priority" ref="priority"/>
+		
+		<!-- eamil bean -->
+		<property name="emailbean" ref="emailbean"/>
+		
+		<!-- 文件夹注入  -->
+		<property name="folderDao" ref="folderDao"/>
+		<property name="folder" ref="folder"/>
+		
+		<!-- cc注入  -->
+		<property name="ccDao" ref="ccDao"/>
+		
+		<!--bcc注入  -->
+		<property name="bccDao" ref="bccDao"/>
+	</bean>
+	
+	<!--清空已删除-->
+	<bean name="/deletedmaildeleting" class="com.wellmail.action.ClearDeletedBoxAction" scope="prototype">
+		<!-- 用户注入  -->
+		<property name="usersDao" ref="usersDao"/>
+		<property name="users" ref="users"/>
+		
+		<!-- attachment注入  -->
+		<property name="attachmentDao" ref="attachmentDao"/>
+		<property name="attachment" ref="attachment"/>
+
+		<!-- email注入  -->
+		<property name="emailDao" ref="emailDao"/>
+		<property name="email" ref="email"/>
+		
+		<!-- mailtag注入  -->
+		<property name="mailTagDao" ref="mailTagDao"/>
+		<property name="mailtag" ref="mailtag"/>
+		
+		<!-- priority注入  -->
+		<property name="priorityDao" ref="priorityDao"/>
+		<property name="priority" ref="priority"/>
+		
+		<!-- eamil bean -->
+		<property name="emailbean" ref="emailbean"/>
+		
+		<!-- 文件夹注入  -->
+		<property name="folderDao" ref="folderDao"/>
+		<property name="folder" ref="folder"/>
+		
+		<!-- cc注入  -->
+		<property name="ccDao" ref="ccDao"/>
+		<property name="ccs" ref="ccs"/>
+		
+		<!--bcc注入  -->
+		<property name="bccDao" ref="bccDao"/>
+		<property name="bccs" ref="bccs"/>
+		
+		<!-- 邮件空间注入  -->
+		<property name="emailSpaceDao" ref="emailSpaceDao"/>
+		<property name="emailspace" ref="emailspace"/>
+	</bean>
+	
+	<!--清空已发送列表-->
+	<bean name="/clearsentedmail" class="com.wellmail.action.ClearSentBoxAction" scope="prototype">
+		<!-- 用户注入  -->
+		<property name="usersDao" ref="usersDao"/>
+		<property name="users" ref="users"/>
+		
+		<!-- email注入  -->
+		<property name="emailDao" ref="emailDao"/>
+		<property name="email" ref="email"/>
+
+		<!-- 文件夹注入  -->
+		<property name="folderDao" ref="folderDao"/>
+		<property name="folder" ref="folder"/>
+	</bean>
+	
+	<!--清空草稿箱列表-->
+	<bean name="/clearscriptmail" class="com.wellmail.action.ClearScriptBoxAction" scope="prototype">
+		<!-- 用户注入  -->
+		<property name="usersDao" ref="usersDao"/>
+		<property name="users" ref="users"/>
+		
+		<!-- attachment注入  -->
+		<property name="attachmentDao" ref="attachmentDao"/>
+
+		<!-- email注入  -->
+		<property name="emailDao" ref="emailDao"/>
+		<property name="email" ref="email"/>
+		
+		<!-- mailtag注入  -->
+		<property name="mailTagDao" ref="mailTagDao"/>
+		<property name="mailtag" ref="mailtag"/>
+		
+		<!-- priority注入  -->
+		<property name="priorityDao" ref="priorityDao"/>
+		<property name="priority" ref="priority"/>
+		
+		<!-- eamil bean -->
+		<property name="emailbean" ref="emailbean"/>
+		
+		<!-- 文件夹注入  -->
+		<property name="folderDao" ref="folderDao"/>
+		<property name="folder" ref="folder"/>
+		
+		<!-- cc注入  -->
+		<property name="ccDao" ref="ccDao"/>
+		
+		<!--bcc注入  -->
+		<property name="bccDao" ref="bccDao"/>
+	</bean>
+	
+	<!--清空收件箱列表-->
+	<bean name="/clearreceivemail" class="com.wellmail.action.ClearReceiveBoxAction" scope="prototype">
+		<!-- 用户注入  -->
+		<property name="usersDao" ref="usersDao"/>
+		<property name="users" ref="users"/>
+		
+		<!-- attachment注入  -->
+		<property name="attachmentDao" ref="attachmentDao"/>
+
+		<!-- email注入  -->
+		<property name="emailDao" ref="emailDao"/>
+		<property name="email" ref="email"/>
+		
+		<!-- mailtag注入  -->
+		<property name="mailTagDao" ref="mailTagDao"/>
+		<property name="mailtag" ref="mailtag"/>
+		
+		<!-- priority注入  -->
+		<property name="priorityDao" ref="priorityDao"/>
+		<property name="priority" ref="priority"/>
+		
+		<!-- eamil bean -->
+		<property name="emailbean" ref="emailbean"/>
+		
+		<!-- cc注入  -->
+		<property name="ccDao" ref="ccDao"/>
+		
+		<!--bcc注入  -->
+		<property name="bccDao" ref="bccDao"/>
+		
+		<!-- 文件夹注入  -->
+		<property name="folderDao" ref="folderDao"/>
+		<property name="folder" ref="folder"/>
+	</bean>
+	
+	<!--收件箱标记为-->
+	<bean name="/receivechangeFlag" class="com.wellmail.action.ReceiveChangeFlagAction" scope="prototype">
+		
+		<!-- email注入  -->
+		<property name="emailDao" ref="emailDao"/>
+		<property name="email" ref="email"/>
+		
+		<!-- mailtag注入  -->
+		<property name="mailTagDao" ref="mailTagDao"/>
+		<property name="mailtag" ref="mailtag"/>
+		
+		<!-- priority注入  -->
+		<property name="priorityDao" ref="priorityDao"/>
+		<property name="priority" ref="priority"/>
+		
+		<!-- 用户注入  -->
+		<property name="usersDao" ref="usersDao"/>
+		<property name="users" ref="users"/>
+		
+		<!-- 文件夹注入  -->
+		<property name="folderDao" ref="folderDao"/>
+		<property name="folder" ref="folder"/>
+		
+		<!-- attachment注入  -->
+		<property name="attachmentDao" ref="attachmentDao"/>
+		
+		<!-- cc注入  -->
+		<property name="ccDao" ref="ccDao"/>
+		
+		<!-- eamil bean -->
+		<property name="emailbean" ref="emailbean"/>
+	</bean>
+	
+	<!--草稿箱标记为-->
+	<bean name="/scriptchangeFlag" class="com.wellmail.action.ScriptChangeFlagAction" scope="prototype">
+		
+		<!-- email注入  -->
+		<property name="emailDao" ref="emailDao"/>
+		<property name="email" ref="email"/>
+		
+		<!-- mailtag注入  -->
+		<property name="mailTagDao" ref="mailTagDao"/>
+		<property name="mailtag" ref="mailtag"/>
+		
+		<!-- priority注入  -->
+		<property name="priorityDao" ref="priorityDao"/>
+		<property name="priority" ref="priority"/>
+		
+		<!-- 用户注入  -->
+		<property name="usersDao" ref="usersDao"/>
+		<property name="users" ref="users"/>
+		
+		<!-- 文件夹注入  -->
+		<property name="folderDao" ref="folderDao"/>
+		<property name="folder" ref="folder"/>
+		
+		<!-- attachment注入  -->
+		<property name="attachmentDao" ref="attachmentDao"/>
+		
+		<!-- cc注入  -->
+		<property name="ccDao" ref="ccDao"/>
+		
+		<!-- eamil bean -->
+		<property name="emailbean" ref="emailbean"/>
+		
+		<!--bcc注入  -->
+		<property name="bccDao" ref="bccDao"/>
+	</bean>
+	
+	<!--草稿箱标记为-->
+	<bean name="/sendedchangeFlag" class="com.wellmail.action.SendedChangeFlagAction" scope="prototype">
+		
+		<!-- email注入  -->
+		<property name="emailDao" ref="emailDao"/>
+		<property name="email" ref="email"/>
+		
+		<!-- mailtag注入  -->
+		<property name="mailTagDao" ref="mailTagDao"/>
+		<property name="mailtag" ref="mailtag"/>
+		
+		<!-- priority注入  -->
+		<property name="priorityDao" ref="priorityDao"/>
+		<property name="priority" ref="priority"/>
+		
+		<!-- 用户注入  -->
+		<property name="usersDao" ref="usersDao"/>
+		<property name="users" ref="users"/>
+		
+		<!-- 文件夹注入  -->
+		<property name="folderDao" ref="folderDao"/>
+		<property name="folder" ref="folder"/>
+		
+		<!-- attachment注入  -->
+		<property name="attachmentDao" ref="attachmentDao"/>
+		
+		<!-- cc注入  -->
+		<property name="ccDao" ref="ccDao"/>
+		
+		<!-- eamil bean -->
+		<property name="emailbean" ref="emailbean"/>
+		
+		<!--bcc注入  -->
+		<property name="bccDao" ref="bccDao"/>
+	</bean>
+	
+	<!--已删除标记为-->
+	<bean name="/deletedchangeFlag" class="com.wellmail.action.DeletedChangeFlagAction" scope="prototype">
+		
+		<!-- email注入  -->
+		<property name="emailDao" ref="emailDao"/>
+		<property name="email" ref="email"/>
+		
+		<!-- mailtag注入  -->
+		<property name="mailTagDao" ref="mailTagDao"/>
+		<property name="mailtag" ref="mailtag"/>
+		
+		<!-- priority注入  -->
+		<property name="priorityDao" ref="priorityDao"/>
+		<property name="priority" ref="priority"/>
+		
+		<!-- 用户注入  -->
+		<property name="usersDao" ref="usersDao"/>
+		<property name="users" ref="users"/>
+		
+		<!-- 文件夹注入  -->
+		<property name="folderDao" ref="folderDao"/>
+		<property name="folder" ref="folder"/>
+		
+		<!-- attachment注入  -->
+		<property name="attachmentDao" ref="attachmentDao"/>
+		
+		<!-- cc注入  -->
+		<property name="ccDao" ref="ccDao"/>
+		
+		<!-- eamil bean -->
+		<property name="emailbean" ref="emailbean"/>
+		
+		<!--bcc注入  -->
+		<property name="bccDao" ref="bccDao"/>
+	</bean>
+	
+	<!--收件箱移动到-->
+	<bean name="/receivemoveto" class="com.wellmail.action.ReceiveMoveToAction" scope="prototype">
+		
+		<!-- 用户注入  -->
+		<property name="usersDao" ref="usersDao"/>
+		<property name="users" ref="users"/>
+		
+		<!-- email注入  -->
+		<property name="emailDao" ref="emailDao"/>
+		<property name="email" ref="email"/>
+		
+		<!-- 文件夹注入  -->
+		<property name="folderDao" ref="folderDao"/>
+		<property name="folder" ref="folder"/>
+		
+		<!-- cc注入  -->
+		<property name="ccDao" ref="ccDao"/>
+		
+		<!--bcc注入  -->
+		<property name="bccDao" ref="bccDao"/>
+		
+			<!-- mailtag注入  -->
+		<property name="mailTagDao" ref="mailTagDao"/>
+		<property name="mailtag" ref="mailtag"/>
+		
+		<!-- priority注入  -->
+		<property name="priorityDao" ref="priorityDao"/>
+		<property name="priority" ref="priority"/>
+		
+		<!-- eamil bean -->
+		<property name="emailbean" ref="emailbean"/>
+		
+		<!-- attachment注入  -->
+		<property name="attachmentDao" ref="attachmentDao"/>
+		
+	</bean>
+	
+	
+	<!--草稿箱移动到-->
+	<bean name="/scriptmoveto" class="com.wellmail.action.ScriptMoveToAction" scope="prototype">
+		
+		<!-- 用户注入  -->
+		<property name="usersDao" ref="usersDao"/>
+		<property name="users" ref="users"/>
+		
+		<!-- email注入  -->
+		<property name="emailDao" ref="emailDao"/>
+		<property name="email" ref="email"/>
+		
+		<!-- 文件夹注入  -->
+		<property name="folderDao" ref="folderDao"/>
+		<property name="folder" ref="folder"/>
+		
+		<!-- cc注入  -->
+		<property name="ccDao" ref="ccDao"/>
+		
+		<!--bcc注入  -->
+		<property name="bccDao" ref="bccDao"/>
+		
+			<!-- mailtag注入  -->
+		<property name="mailTagDao" ref="mailTagDao"/>
+		<property name="mailtag" ref="mailtag"/>
+		
+		<!-- priority注入  -->
+		<property name="priorityDao" ref="priorityDao"/>
+		<property name="priority" ref="priority"/>
+		
+		<!-- eamil bean -->
+		<property name="emailbean" ref="emailbean"/>
+		
+		<!-- attachment注入  -->
+		<property name="attachmentDao" ref="attachmentDao"/>
+	</bean>
+	
+	<!--已发送移动到-->
+	<bean name="/sendedmoveto" class="com.wellmail.action.SendedMoveToAction" scope="prototype">
+		
+		<!-- 用户注入  -->
+		<property name="usersDao" ref="usersDao"/>
+		<property name="users" ref="users"/>
+		
+		<!-- email注入  -->
+		<property name="emailDao" ref="emailDao"/>
+		<property name="email" ref="email"/>
+		
+		<!-- 文件夹注入  -->
+		<property name="folderDao" ref="folderDao"/>
+		<property name="folder" ref="folder"/>
+		
+		
+		<!-- cc注入  -->
+		<property name="ccDao" ref="ccDao"/>
+		
+		<!--bcc注入  -->
+		<property name="bccDao" ref="bccDao"/>
+		
+		<!-- mailtag注入  -->
+		<property name="mailTagDao" ref="mailTagDao"/>
+		<property name="mailtag" ref="mailtag"/>
+		
+		<!-- priority注入  -->
+		<property name="priorityDao" ref="priorityDao"/>
+		<property name="priority" ref="priority"/>
+		
+		<!-- eamil bean -->
+		<property name="emailbean" ref="emailbean"/>
+		
+		<!-- attachment注入  -->
+		<property name="attachmentDao" ref="attachmentDao"/>
+		
+	</bean>
+	
+	<!--已删除移动到-->
+	<bean name="/deletedmoveto" class="com.wellmail.action.DeletedMoveToAction" scope="prototype">
+		
+		<!-- 用户注入  -->
+		<property name="usersDao" ref="usersDao"/>
+		<property name="users" ref="users"/>
+		
+		<!-- email注入  -->
+		<property name="emailDao" ref="emailDao"/>
+		<property name="email" ref="email"/>
+		
+		<!-- 文件夹注入  -->
+		<property name="folderDao" ref="folderDao"/>
+		<property name="folder" ref="folder"/>
+		
+			
+		<!-- cc注入  -->
+		<property name="ccDao" ref="ccDao"/>
+		
+		<!--bcc注入  -->
+		<property name="bccDao" ref="bccDao"/>
+		
+		<!-- mailtag注入  -->
+		<property name="mailTagDao" ref="mailTagDao"/>
+		<property name="mailtag" ref="mailtag"/>
+		
+		<!-- priority注入  -->
+		<property name="priorityDao" ref="priorityDao"/>
+		<property name="priority" ref="priority"/>
+		
+		<!-- eamil bean -->
+		<property name="emailbean" ref="emailbean"/>
+		
+		<!-- attachment注入  -->
+		<property name="attachmentDao" ref="attachmentDao"/>
+		
+	</bean>
+
+	<!--收件箱查看-->
+	<bean name="/receivequeryfrom" class="com.wellmail.action.ReceiveQueryFromAction" scope="prototype">
+		
+		<!-- 用户注入  -->
+		<property name="usersDao" ref="usersDao"/>
+		<property name="users" ref="users"/>
+		
+		<!-- email注入  -->
+		<property name="emailDao" ref="emailDao"/>
+		<property name="email" ref="email"/>
+		
+		<!-- mailtag注入  -->
+		<property name="mailTagDao" ref="mailTagDao"/>
+		<property name="mailtag" ref="mailtag"/>
+		
+		<!-- priority注入  -->
+		<property name="priorityDao" ref="priorityDao"/>
+		<property name="priority" ref="priority"/>
+		
+		<!-- attachment注入  -->
+		<property name="attachmentDao" ref="attachmentDao"/>
+		
+		<!-- eamil bean -->
+		<property name="emailbean" ref="emailbean"/>
+		
+		<!-- cc注入  -->
+		<property name="ccDao" ref="ccDao"/>
+		
+		<!-- 文件夹注入  -->
+		<property name="folderDao" ref="folderDao"/>
+		<property name="folder" ref="folder"/>
+	</bean>
+	
+	<!--草稿箱查看-->
+	<bean name="/scriptqueryfrom" class="com.wellmail.action.ScriptQueryFromAction" scope="prototype">
+		
+		<!-- 用户注入  -->
+		<property name="usersDao" ref="usersDao"/>
+		<property name="users" ref="users"/>
+		
+		<!-- email注入  -->
+		<property name="emailDao" ref="emailDao"/>
+		<property name="email" ref="email"/>
+		
+		<!-- mailtag注入  -->
+		<property name="mailTagDao" ref="mailTagDao"/>
+		<property name="mailtag" ref="mailtag"/>
+		
+		<!-- priority注入  -->
+		<property name="priorityDao" ref="priorityDao"/>
+		<property name="priority" ref="priority"/>
+		
+		<!-- attachment注入  -->
+		<property name="attachmentDao" ref="attachmentDao"/>
+		
+		<!-- eamil bean -->
+		<property name="emailbean" ref="emailbean"/>
+		
+		<!-- cc注入  -->
+		<property name="ccDao" ref="ccDao"/>
+		
+		<!-- 文件夹注入  -->
+		<property name="folderDao" ref="folderDao"/>
+		<property name="folder" ref="folder"/>
+	</bean>
+	
+	<!--已发送查看-->
+	<bean name="/sendedqueryfrom" class="com.wellmail.action.SendedQueryFromAction" scope="prototype">
+		
+		<!-- 用户注入  -->
+		<property name="usersDao" ref="usersDao"/>
+		<property name="users" ref="users"/>
+		
+		<!-- email注入  -->
+		<property name="emailDao" ref="emailDao"/>
+		<property name="email" ref="email"/>
+		
+		<!-- mailtag注入  -->
+		<property name="mailTagDao" ref="mailTagDao"/>
+		<property name="mailtag" ref="mailtag"/>
+		
+		<!-- priority注入  -->
+		<property name="priorityDao" ref="priorityDao"/>
+		<property name="priority" ref="priority"/>
+		
+		<!-- attachment注入  -->
+		<property name="attachmentDao" ref="attachmentDao"/>
+		
+		<!-- eamil bean -->
+		<property name="emailbean" ref="emailbean"/>
+		
+		<!-- cc注入  -->
+		<property name="ccDao" ref="ccDao"/>
+		
+		<!-- 文件夹注入  -->
+		<property name="folderDao" ref="folderDao"/>
+		<property name="folder" ref="folder"/>
+	</bean>
+	
+	<!--已删除查看-->
+	<bean name="/deletedqueryfrom" class="com.wellmail.action.DeletedQueryFromAction" scope="prototype">
+		
+		<!-- 用户注入  -->
+		<property name="usersDao" ref="usersDao"/>
+		<property name="users" ref="users"/>
+		
+		<!-- email注入  -->
+		<property name="emailDao" ref="emailDao"/>
+		<property name="email" ref="email"/>
+		
+		<!-- mailtag注入  -->
+		<property name="mailTagDao" ref="mailTagDao"/>
+		<property name="mailtag" ref="mailtag"/>
+		
+		<!-- priority注入  -->
+		<property name="priorityDao" ref="priorityDao"/>
+		<property name="priority" ref="priority"/>
+		
+		<!-- attachment注入  -->
+		<property name="attachmentDao" ref="attachmentDao"/>
+		
+		<!-- eamil bean -->
+		<property name="emailbean" ref="emailbean"/>
+		
+		<!-- cc注入  -->
+		<property name="ccDao" ref="ccDao"/>
+		
+		<!-- 文件夹注入  -->
+		<property name="folderDao" ref="folderDao"/>
+		<property name="folder" ref="folder"/>
+	</bean>
+	
+	<!-- 进入垃圾邮件 -->
+	<bean name="/gorubbish" class="com.wellmail.action.RubbishBoxAction" scope="prototype">
+		
+		<!-- 用户注入  -->
+		<property name="usersDao" ref="usersDao"/>
+		<property name="users" ref="users"/>
+		
+		<!-- attachment注入  -->
+		<property name="attachmentDao" ref="attachmentDao"/>
+
+		<!-- email注入  -->
+		<property name="emailDao" ref="emailDao"/>
+		<property name="email" ref="email"/>
+		
+		<!-- mailtag注入  -->
+		<property name="mailTagDao" ref="mailTagDao"/>
+		<property name="mailtag" ref="mailtag"/>
+		
+		<!-- priority注入  -->
+		<property name="priorityDao" ref="priorityDao"/>
+		<property name="priority" ref="priority"/>
+		
+		<!-- eamil bean -->
+		<property name="emailbean" ref="emailbean"/>
+		
+		<!-- 文件夹注入  -->
+		<property name="folderDao" ref="folderDao"/>
+		<property name="folder" ref="folder"/>
+		
+		<!-- cc注入  -->
+		<property name="ccDao" ref="ccDao"/>
+		
+		<!--bcc注入  -->
+		<property name="bccDao" ref="bccDao"/>
+	</bean>
+	
+	<!-- 进入垃圾邮件（分页） -->
+	<bean name="/gorubbish2" class="com.wellmail.action.RubbishBoxAction" scope="prototype">
+		
+		<!-- 用户注入  -->
+		<property name="usersDao" ref="usersDao"/>
+		<property name="users" ref="users"/>
+		
+		<!-- attachment注入  -->
+		<property name="attachmentDao" ref="attachmentDao"/>
+
+		<!-- email注入  -->
+		<property name="emailDao" ref="emailDao"/>
+		<property name="email" ref="email"/>
+		
+		<!-- mailtag注入  -->
+		<property name="mailTagDao" ref="mailTagDao"/>
+		<property name="mailtag" ref="mailtag"/>
+		
+		<!-- priority注入  -->
+		<property name="priorityDao" ref="priorityDao"/>
+		<property name="priority" ref="priority"/>
+		
+		<!-- eamil bean -->
+		<property name="emailbean" ref="emailbean"/>
+		
+		<!-- 文件夹注入  -->
+		<property name="folderDao" ref="folderDao"/>
+		<property name="folder" ref="folder"/>
+		
+		<!-- cc注入  -->
+		<property name="ccDao" ref="ccDao"/>
+		
+		<!--bcc注入  -->
+		<property name="bccDao" ref="bccDao"/>
+	</bean>
+	
+	
+	<!--清空垃圾邮件-->
+	<bean name="/clearrubbish" class="com.wellmail.action.ClearRubbishBoxAction" scope="prototype">
+		<!-- 用户注入  -->
+		<property name="usersDao" ref="usersDao"/>
+		<property name="users" ref="users"/>
+		
+		<!-- attachment注入  -->
+		<property name="attachmentDao" ref="attachmentDao"/>
+		<property name="attachment" ref="attachment"/>
+
+		<!-- email注入  -->
+		<property name="emailDao" ref="emailDao"/>
+		<property name="email" ref="email"/>
+		
+		<!-- 文件夹注入  -->
+		<property name="folderDao" ref="folderDao"/>
+		<property name="folder" ref="folder"/>
+		
+		<!-- cc注入  -->
+		<property name="ccDao" ref="ccDao"/>
+		<property name="ccs" ref="ccs"/>
+		
+		<!--bcc注入  -->
+		<property name="bccDao" ref="bccDao"/>
+		<property name="bccs" ref="bccs"/>
+		
+		<!-- 邮件空间注入  -->
+		<property name="emailSpaceDao" ref="emailSpaceDao"/>
+		<property name="emailspace" ref="emailspace"/>
+		
+			<!-- mailtag注入  -->
+		<property name="mailTagDao" ref="mailTagDao"/>
+		<property name="mailtag" ref="mailtag"/>
+		
+		<!-- priority注入  -->
+		<property name="priorityDao" ref="priorityDao"/>
+		<property name="priority" ref="priority"/>
+		
+		<!-- eamil bean -->
+		<property name="emailbean" ref="emailbean"/>
+	</bean>
+	
+	<!--删除垃圾邮件-->
+	<bean name="/rubbishmaildeleting" class="com.wellmail.action.RubbishMailDeletingAction" scope="prototype">
+		<!-- 用户注入  -->
+		<property name="usersDao" ref="usersDao"/>
+		<property name="users" ref="users"/>
+		
+		<!-- attachment注入  -->
+		<property name="attachmentDao" ref="attachmentDao"/>
+		<property name="attachment" ref="attachment"/>
+
+		<!-- email注入  -->
+		<property name="emailDao" ref="emailDao"/>
+		<property name="email" ref="email"/>
+		
+		<!-- 文件夹注入  -->
+		<property name="folderDao" ref="folderDao"/>
+		<property name="folder" ref="folder"/>
+		
+		<!-- cc注入  -->
+		<property name="ccDao" ref="ccDao"/>
+		<property name="ccs" ref="ccs"/>
+		
+		<!--bcc注入  -->
+		<property name="bccDao" ref="bccDao"/>
+		<property name="bccs" ref="bccs"/>
+		
+		<!-- 邮件空间注入  -->
+		<property name="emailSpaceDao" ref="emailSpaceDao"/>
+		<property name="emailspace" ref="emailspace"/>
+		
+			<!-- mailtag注入  -->
+		<property name="mailTagDao" ref="mailTagDao"/>
+		<property name="mailtag" ref="mailtag"/>
+		
+		<!-- priority注入  -->
+		<property name="priorityDao" ref="priorityDao"/>
+		<property name="priority" ref="priority"/>
+		
+		<!-- eamil bean -->
+		<property name="emailbean" ref="emailbean"/>
+	</bean>
+	
+	
+	<!--垃圾邮件移动到-->
+	<bean name="/rubbishmoveto" class="com.wellmail.action.RubbishMoveToAction" scope="prototype">
+		
+		<!-- 用户注入  -->
+		<property name="usersDao" ref="usersDao"/>
+		<property name="users" ref="users"/>
+		
+		<!-- email注入  -->
+		<property name="emailDao" ref="emailDao"/>
+		<property name="email" ref="email"/>
+		
+		<!-- 文件夹注入  -->
+		<property name="folderDao" ref="folderDao"/>
+		<property name="folder" ref="folder"/>
+		
+		
+		<!-- cc注入  -->
+		<property name="ccDao" ref="ccDao"/>
+		
+		<!--bcc注入  -->
+		<property name="bccDao" ref="bccDao"/>
+		
+			<!-- mailtag注入  -->
+		<property name="mailTagDao" ref="mailTagDao"/>
+		<property name="mailtag" ref="mailtag"/>
+		
+		<!-- priority注入  -->
+		<property name="priorityDao" ref="priorityDao"/>
+		<property name="priority" ref="priority"/>
+		
+		<!-- eamil bean -->
+		<property name="emailbean" ref="emailbean"/>
+		
+		<!-- attachment注入  -->
+		<property name="attachmentDao" ref="attachmentDao"/>
+	</bean>
+	
+	
+	<!-- 进入广告邮件 -->
+	<bean name="/goad" class="com.wellmail.action.AdBoxAction" scope="prototype">
+		
+		<!-- 用户注入  -->
+		<property name="usersDao" ref="usersDao"/>
+		<property name="users" ref="users"/>
+		
+		<!-- attachment注入  -->
+		<property name="attachmentDao" ref="attachmentDao"/>
+
+		<!-- email注入  -->
+		<property name="emailDao" ref="emailDao"/>
+		<property name="email" ref="email"/>
+		
+		<!-- mailtag注入  -->
+		<property name="mailTagDao" ref="mailTagDao"/>
+		<property name="mailtag" ref="mailtag"/>
+		
+		<!-- priority注入  -->
+		<property name="priorityDao" ref="priorityDao"/>
+		<property name="priority" ref="priority"/>
+		
+		<!-- eamil bean -->
+		<property name="emailbean" ref="emailbean"/>
+		
+		<!-- 文件夹注入  -->
+		<property name="folderDao" ref="folderDao"/>
+		<property name="folder" ref="folder"/>
+		
+		<!-- cc注入  -->
+		<property name="ccDao" ref="ccDao"/>
+		
+		<!--bcc注入  -->
+		<property name="bccDao" ref="bccDao"/>
+	</bean>
+	
+	<!-- 进入广告邮件（分页） -->
+	<bean name="/goad2" class="com.wellmail.action.AdBoxAction" scope="prototype">
+		
+		<!-- 用户注入  -->
+		<property name="usersDao" ref="usersDao"/>
+		<property name="users" ref="users"/>
+		
+		<!-- attachment注入  -->
+		<property name="attachmentDao" ref="attachmentDao"/>
+
+		<!-- email注入  -->
+		<property name="emailDao" ref="emailDao"/>
+		<property name="email" ref="email"/>
+		
+		<!-- mailtag注入  -->
+		<property name="mailTagDao" ref="mailTagDao"/>
+		<property name="mailtag" ref="mailtag"/>
+		
+		<!-- priority注入  -->
+		<property name="priorityDao" ref="priorityDao"/>
+		<property name="priority" ref="priority"/>
+		
+		<!-- eamil bean -->
+		<property name="emailbean" ref="emailbean"/>
+		
+		<!-- 文件夹注入  -->
+		<property name="folderDao" ref="folderDao"/>
+		<property name="folder" ref="folder"/>
+		
+		<!-- cc注入  -->
+		<property name="ccDao" ref="ccDao"/>
+		
+		<!--bcc注入  -->
+		<property name="bccDao" ref="bccDao"/>
+	</bean>
+	
+	
+	<!--清空广告邮件-->
+	<bean name="/clearad" class="com.wellmail.action.ClearAdBoxAction" scope="prototype">
+		<!-- 用户注入  -->
+		<property name="usersDao" ref="usersDao"/>
+		<property name="users" ref="users"/>
+		
+		<!-- attachment注入  -->
+		<property name="attachmentDao" ref="attachmentDao"/>
+		<property name="attachment" ref="attachment"/>
+
+		<!-- email注入  -->
+		<property name="emailDao" ref="emailDao"/>
+		<property name="email" ref="email"/>
+		
+		<!-- 文件夹注入  -->
+		<property name="folderDao" ref="folderDao"/>
+		<property name="folder" ref="folder"/>
+		
+		<!-- cc注入  -->
+		<property name="ccDao" ref="ccDao"/>
+		<property name="ccs" ref="ccs"/>
+		
+		<!--bcc注入  -->
+		<property name="bccDao" ref="bccDao"/>
+		<property name="bccs" ref="bccs"/>
+		
+		<!-- 邮件空间注入  -->
+		<property name="emailSpaceDao" ref="emailSpaceDao"/>
+		<property name="emailspace" ref="emailspace"/>
+		
+			<!-- mailtag注入  -->
+		<property name="mailTagDao" ref="mailTagDao"/>
+		<property name="mailtag" ref="mailtag"/>
+		
+		<!-- priority注入  -->
+		<property name="priorityDao" ref="priorityDao"/>
+		<property name="priority" ref="priority"/>
+		
+		<!-- eamil bean -->
+		<property name="emailbean" ref="emailbean"/>
+	</bean>
+	<!--清空广告邮件-->
+	<bean name="/admaildeleting" class="com.wellmail.action.AdMailDeletingAction" scope="prototype">
+		<!-- 用户注入  -->
+		<property name="usersDao" ref="usersDao"/>
+		<property name="users" ref="users"/>
+		
+		<!-- attachment注入  -->
+		<property name="attachmentDao" ref="attachmentDao"/>
+		<property name="attachment" ref="attachment"/>
+
+		<!-- email注入  -->
+		<property name="emailDao" ref="emailDao"/>
+		<property name="email" ref="email"/>
+		
+		<!-- 文件夹注入  -->
+		<property name="folderDao" ref="folderDao"/>
+		<property name="folder" ref="folder"/>
+		
+		<!-- cc注入  -->
+		<property name="ccDao" ref="ccDao"/>
+		<property name="ccs" ref="ccs"/>
+		
+		<!--bcc注入  -->
+		<property name="bccDao" ref="bccDao"/>
+		<property name="bccs" ref="bccs"/>
+		
+		<!-- 邮件空间注入  -->
+		<property name="emailSpaceDao" ref="emailSpaceDao"/>
+		<property name="emailspace" ref="emailspace"/>
+		
+			<!-- mailtag注入  -->
+		<property name="mailTagDao" ref="mailTagDao"/>
+		<property name="mailtag" ref="mailtag"/>
+		
+		<!-- priority注入  -->
+		<property name="priorityDao" ref="priorityDao"/>
+		<property name="priority" ref="priority"/>
+		
+		<!-- eamil bean -->
+		<property name="emailbean" ref="emailbean"/>
+	</bean>
+	
+	
+	<!--广告邮件移动到-->
+	<bean name="/admoveto" class="com.wellmail.action.AdMoveToAction" scope="prototype">
+		
+		<!-- 用户注入  -->
+		<property name="usersDao" ref="usersDao"/>
+		<property name="users" ref="users"/>
+		
+		<!-- email注入  -->
+		<property name="emailDao" ref="emailDao"/>
+		<property name="email" ref="email"/>
+		
+		<!-- 文件夹注入  -->
+		<property name="folderDao" ref="folderDao"/>
+		<property name="folder" ref="folder"/>
+		
+		
+		<!-- cc注入  -->
+		<property name="ccDao" ref="ccDao"/>
+		
+		<!--bcc注入  -->
+		<property name="bccDao" ref="bccDao"/>
+		
+			<!-- mailtag注入  -->
+		<property name="mailTagDao" ref="mailTagDao"/>
+		<property name="mailtag" ref="mailtag"/>
+		
+		<!-- priority注入  -->
+		<property name="priorityDao" ref="priorityDao"/>
+		<property name="priority" ref="priority"/>
+		
+		<!-- eamil bean -->
+		<property name="emailbean" ref="emailbean"/>
+		
+		<!-- attachment注入  -->
+		<property name="attachmentDao" ref="attachmentDao"/>
+	</bean>
+	
+	
+	<!--进入webdisk-->
+	<bean name="/gowebdiskfolder" class="com.wellmail.action.WebDiskBoxAction" scope="prototype">
+		
+		<!-- 用户注入  -->
+		<property name="usersDao" ref="usersDao"/>
+		<property name="users" ref="users"/>
+		
+		<!-- 网盘空间注入 -->
+		<property name="webDiskDao" ref="webDiskDao"/>
+		<property name="webdisk" ref="webdisk"/>
+		
+		<!-- 网盘文件分类注入  -->
+		<property name="fileTypeDao" ref="fileTypeDao"/>
+		<property name="filetype" ref="filetype"/>
+		
+		<!-- 网盘文件注入 -->
+		<property name="webFileDao" ref="webFileDao"/>
+		
+		<!-- webfilebean 注入 -->
+		<property name="webfilebean" ref="webfilebean"/>
+	</bean>
+	
+	<!--创建新文件夹webdisk-->
+	<bean name="/createfolder" class="com.wellmail.action.CreateFolderAction" scope="prototype">
+		
+		<!-- 用户注入  -->
+		<property name="usersDao" ref="usersDao"/>
+		<property name="users" ref="users"/>
+		
+		<!-- 网盘空间注入 -->
+		<property name="webDiskDao" ref="webDiskDao"/>
+		<property name="webdisk" ref="webdisk"/>
+		
+		<!-- 网盘文件分类注入  -->
+		<property name="fileTypeDao" ref="fileTypeDao"/>
+		<property name="filetype" ref="filetype"/>
+		
+		<!-- 网盘文件注入 -->
+		<property name="webFileDao" ref="webFileDao"/>
+		
+		<!-- webfilebean 注入 -->
+		<property name="webfilebean" ref="webfilebean"/>
+	</bean>
+	
+	<!--创建新文件夹webdisk-->
+	<bean name="/deletefolder" class="com.wellmail.action.DeletedFolderAction" scope="prototype">
+		
+		<!-- 用户注入  -->
+		<property name="usersDao" ref="usersDao"/>
+		<property name="users" ref="users"/>
+		
+		<!-- 网盘空间注入 -->
+		<property name="webDiskDao" ref="webDiskDao"/>
+		<property name="webdisk" ref="webdisk"/>
+		
+		<!-- 网盘文件分类注入  -->
+		<property name="fileTypeDao" ref="fileTypeDao"/>
+		<property name="filetype" ref="filetype"/>
+		
+		<!-- 网盘文件注入 -->
+		<property name="webFileDao" ref="webFileDao"/>
+		
+		<!-- webfilebean 注入 -->
+		<property name="webfilebean" ref="webfilebean"/>
+	</bean>
+	
+	<!--删除文件webdisk-->
+	<bean name="/deletefile" class="com.wellmail.action.DeletedFileAction" scope="prototype">
+		
+		<!-- 用户注入  -->
+		<property name="usersDao" ref="usersDao"/>
+		<property name="users" ref="users"/>
+		
+		<!-- 网盘空间注入 -->
+		<property name="webDiskDao" ref="webDiskDao"/>
+		<property name="webdisk" ref="webdisk"/>
+		
+		<!-- 网盘文件分类注入  -->
+		<property name="fileTypeDao" ref="fileTypeDao"/>
+		<property name="filetype" ref="filetype"/>
+		
+		<!-- 网盘文件注入 -->
+		<property name="webFileDao" ref="webFileDao"/>
+		<property name="webfile" ref="webfile"/>
+		
+		<!-- webfilebean 注入 -->
+		<property name="webfilebean" ref="webfilebean"/>
+	</bean>
+	
+	
+	<!--进入记事本-->
+	<bean name="/gonotebook" class="com.wellmail.action.NoteBookBoxAction" scope="prototype">
+		
+		<!-- 用户注入  -->
+		<property name="usersDao" ref="usersDao"/>
+		<property name="users" ref="users"/>
+		
+		<!-- 记事本类型注入  -->
+		<property name="noteTypeDao" ref="noteTypeDao"/>
+		<property name="notetype" ref="notetype"/>
+		
+		<!-- 记事本注入 -->
+		<property name="noteBookDao" ref="noteBookDao"/>
+		<property name="notebook" ref="notebook"/>
+		
+		<property name="notebookbean" ref="notebookbean"/>
+	</bean>
+	
+	<!--进入记事本(分页)-->
+	<bean name="/gonotebook2" class="com.wellmail.action.NoteBookBoxAction" scope="prototype">
+		
+		<!-- 用户注入  -->
+		<property name="usersDao" ref="usersDao"/>
+		<property name="users" ref="users"/>
+		
+		<!-- 记事本类型注入  -->
+		<property name="noteTypeDao" ref="noteTypeDao"/>
+		<property name="notetype" ref="notetype"/>
+		
+		<!-- 记事本注入 -->
+		<property name="noteBookDao" ref="noteBookDao"/>
+		<property name="notebook" ref="notebook"/>
+		
+		<property name="notebookbean" ref="notebookbean"/>
+	</bean>
+	
+	
+	<!--增加记事本类型-->
+	<bean name="/createnotetype" class="com.wellmail.action.CreateNoteTypeAction" scope="prototype">
+		
+		<!-- 用户注入  -->
+		<property name="usersDao" ref="usersDao"/>
+		<property name="users" ref="users"/>
+		
+		<!-- 记事本类型注入  -->
+		<property name="noteTypeDao" ref="noteTypeDao"/>
+		<property name="notetype" ref="notetype"/>
+		
+	</bean>
+	
+	
+	<!--保存记事本-->
+	<bean name="/savenote" class="com.wellmail.action.NoteCreateAction" scope="prototype">
+		
+		<!-- 用户注入  -->
+		<property name="usersDao" ref="usersDao"/>
+		<property name="users" ref="users"/>
+		
+		<!-- 记事本类型注入  -->
+		<property name="noteTypeDao" ref="noteTypeDao"/>
+		<property name="notetype" ref="notetype"/>
+		
+		<!-- 记事本注入 -->
+		<property name="noteBookDao" ref="noteBookDao"/>
+		<property name="notebook" ref="notebook"/>
+		
+		<property name="notebookbean" ref="notebookbean"/>
+	</bean>
+		
+	<!--删除记事本-->
+	<bean name="/deletenote" class="com.wellmail.action.DeleteNoteAction" scope="prototype">
+		
+		<!-- 用户注入  -->
+		<property name="usersDao" ref="usersDao"/>
+		<property name="users" ref="users"/>
+		
+		<!-- 记事本类型注入  -->
+		<property name="noteTypeDao" ref="noteTypeDao"/>
+		<property name="notetype" ref="notetype"/>
+		
+		<!-- 记事本注入 -->
+		<property name="noteBookDao" ref="noteBookDao"/>
+		<property name="notebook" ref="notebook"/>
+		
+		<property name="notebookbean" ref="notebookbean"/>
+	</bean>
+	
+	<!--更改记事分类-->
+	<bean name="/notechangtype" class="com.wellmail.action.NoteChangeTypeAction" scope="prototype">
+		
+		<!-- 用户注入  -->
+		<property name="usersDao" ref="usersDao"/>
+		<property name="users" ref="users"/>
+		
+		<!-- 记事本类型注入  -->
+		<property name="noteTypeDao" ref="noteTypeDao"/>
+		<property name="notetype" ref="notetype"/>
+		
+		<!-- 记事本注入 -->
+		<property name="noteBookDao" ref="noteBookDao"/>
+		<property name="notebook" ref="notebook"/>
+		
+		<property name="notebookbean" ref="notebookbean"/>
+	</bean>
+	
+	<!--删除一个记事本-->
+	<bean name="/deleteonenote" class="com.wellmail.action.DeleteOneNoteAction" scope="prototype">
+		
+		<!-- 用户注入  -->
+		<property name="usersDao" ref="usersDao"/>
+		<property name="users" ref="users"/>
+		
+		<!-- 记事本类型注入  -->
+		<property name="noteTypeDao" ref="noteTypeDao"/>
+		<property name="notetype" ref="notetype"/>
+		
+		<!-- 记事本注入 -->
+		<property name="noteBookDao" ref="noteBookDao"/>
+		<property name="notebook" ref="notebook"/>
+		
+		<property name="notebookbean" ref="notebookbean"/>
+	</bean>
+	
+	<!--更改某一个记事分类-->
+	<bean name="/onenotechangtype" class="com.wellmail.action.OneNoteChangeTypeAction" scope="prototype">
+		
+		<!-- 用户注入  -->
+		<property name="usersDao" ref="usersDao"/>
+		<property name="users" ref="users"/>
+		
+		<!-- 记事本类型注入  -->
+		<property name="noteTypeDao" ref="noteTypeDao"/>
+		<property name="notetype" ref="notetype"/>
+		
+		<!-- 记事本注入 -->
+		<property name="noteBookDao" ref="noteBookDao"/>
+		<property name="notebook" ref="notebook"/>
+		
+		<property name="notebookbean" ref="notebookbean"/>
+	</bean>
+	
+	<!--更改某一个记事分类-->
+	<bean name="/modifynote" class="com.wellmail.action.NoteModifyAction" scope="prototype">
+		
+		<!-- 用户注入  -->
+		<property name="usersDao" ref="usersDao"/>
+		<property name="users" ref="users"/>
+		
+		<!-- 记事本类型注入  -->
+		<property name="noteTypeDao" ref="noteTypeDao"/>
+		<property name="notetype" ref="notetype"/>
+		
+		<!-- 记事本注入 -->
+		<property name="noteBookDao" ref="noteBookDao"/>
+		<property name="notebook" ref="notebook"/>
+		
+		<property name="notebookbean" ref="notebookbean"/>
+	</bean>
+	
+	<!--删除记事分类-->
+	<bean name="/deletenotetype" class="com.wellmail.action.NoteTypeDeleteAction" scope="prototype">
+		
+		<!-- 用户注入  -->
+		<property name="usersDao" ref="usersDao"/>
+		<property name="users" ref="users"/>
+		
+		<!-- 记事本类型注入  -->
+		<property name="noteTypeDao" ref="noteTypeDao"/>
+		<property name="notetype" ref="notetype"/>
+		
+		<!-- 记事本注入 -->
+		<property name="noteBookDao" ref="noteBookDao"/>
+		<property name="notebook" ref="notebook"/>
+		
+	</bean>
+	
+	<!--删除某一个记事分类-->
+	<bean name="/deleteonenotetype" class="com.wellmail.action.OneNoteTypeDeleteAction" scope="prototype">
+		
+		<!-- 用户注入  -->
+		<property name="usersDao" ref="usersDao"/>
+		<property name="users" ref="users"/>
+		
+		<!-- 记事本类型注入  -->
+		<property name="noteTypeDao" ref="noteTypeDao"/>
+		<property name="notetype" ref="notetype"/>
+		
+		<!-- 记事本注入 -->
+		<property name="noteBookDao" ref="noteBookDao"/>
+		<property name="notebook" ref="notebook"/>
+		
+	</bean>
+	
+	<!--进入通讯录-->
+	<bean name="/gocontactbox" class="com.wellmail.action.ContactBoxAction" scope="prototype">
+		
+		<!-- 用户注入  -->
+		<property name="usersDao" ref="usersDao"/>
+		<property name="users" ref="users"/>
+		
+		<!-- 联系人注组入   -->
+		<property name="contactGroupDao" ref="contactGroupDao"/>
+		<property name="contactgroup" ref="contactgroup"/>
+		
+		<!-- 联系人注入   -->
+		<property name="contactDao" ref="contactDao"/>
+		
+		<!-- contact bean -->
+		<property name="contactbean" ref="contactbean"/>
+		
+	</bean>
+	
+	
+	<!--添加联系人组-->
+	<bean name="/createcontactgroup" class="com.wellmail.action.CreateContactGroupAction" scope="prototype">
+		
+		<!-- 用户注入  -->
+		<property name="usersDao" ref="usersDao"/>
+		<property name="users" ref="users"/>
+		
+		<!-- 联系人注组入   -->
+		<property name="contactGroupDao" ref="contactGroupDao"/>
+		<property name="contactgroup" ref="contactgroup"/>
+		
+		<!-- 联系人注入   -->
+		<property name="contactDao" ref="contactDao"/>
+		
+		<!-- contact bean -->
+		<property name="contactbean" ref="contactbean"/>
+		
+	</bean>
+	
+	<!--删除联系人组-->
+	<bean name="/deletecontactgroup" class="com.wellmail.action.DeleteContactGroupAction" scope="prototype">
+		
+		<!-- 用户注入  -->
+		<property name="usersDao" ref="usersDao"/>
+		<property name="users" ref="users"/>
+		
+		<!-- 联系人注组入   -->
+		<property name="contactGroupDao" ref="contactGroupDao"/>
+		<property name="contactgroup" ref="contactgroup"/>
+		
+		<!-- 联系人注入   -->
+		<property name="contactDao" ref="contactDao"/>
+		
+		<!-- contact bean -->
+		<property name="contactbean" ref="contactbean"/>
+		
+	</bean>
+	
+	<!--删除一个联系人组-->
+	<bean name="/deleteonecontactgroup" class="com.wellmail.action.DeleteOneContactGroupAction" scope="prototype">
+		
+		<!-- 用户注入  -->
+		<property name="usersDao" ref="usersDao"/>
+		<property name="users" ref="users"/>
+		
+		<!-- 联系人注组入   -->
+		<property name="contactGroupDao" ref="contactGroupDao"/>
+		<property name="contactgroup" ref="contactgroup"/>
+		
+		<!-- 联系人注入   -->
+		<property name="contactDao" ref="contactDao"/>
+		
+		<!-- contact bean -->
+		<property name="contactbean" ref="contactbean"/>
+		
+	</bean>
+	
+	<!--新建联系人-->
+	<bean name="/createcontact" class="com.wellmail.action.CreateContactAction" scope="prototype">
+		
+		<!-- 用户注入  -->
+		<property name="usersDao" ref="usersDao"/>
+		<property name="users" ref="users"/>
+		
+		<!-- 联系人注组入   -->
+		<property name="contactGroupDao" ref="contactGroupDao"/>
+		<property name="contactgroup" ref="contactgroup"/>
+		
+		<!-- 联系人注入   -->
+		<property name="contactDao" ref="contactDao"/>
+		<property name="contact" ref="contact"/>
+		
+		<!-- contact bean -->
+		<property name="contactbean" ref="contactbean"/>
+		
+	</bean>
+	
+	<!--删除联系人-->
+	<bean name="/deletecontact" class="com.wellmail.action.DeleteContactAction" scope="prototype">
+		
+		<!-- 用户注入  -->
+		<property name="usersDao" ref="usersDao"/>
+		<property name="users" ref="users"/>
+		
+		<!-- 联系人注组入   -->
+		<property name="contactGroupDao" ref="contactGroupDao"/>
+		<property name="contactgroup" ref="contactgroup"/>
+		
+		<!-- 联系人注入   -->
+		<property name="contactDao" ref="contactDao"/>
+		<property name="contact" ref="contact"/>
+		
+		<!-- contact bean -->
+		<property name="contactbean" ref="contactbean"/>
+		
+	</bean>
+	
+	<!--删除一个联系人-->
+	<bean name="/deleteonecontact" class="com.wellmail.action.DeleteOneContactAction" scope="prototype">
+		
+		<!-- 用户注入  -->
+		<property name="usersDao" ref="usersDao"/>
+		<property name="users" ref="users"/>
+		
+		<!-- 联系人注组入   -->
+		<property name="contactGroupDao" ref="contactGroupDao"/>
+		<property name="contactgroup" ref="contactgroup"/>
+		
+		<!-- 联系人注入   -->
+		<property name="contactDao" ref="contactDao"/>
+		<property name="contact" ref="contact"/>
+		
+		<!-- contact bean -->
+		<property name="contactbean" ref="contactbean"/>
+		
+	</bean>
+	
+	<!--更改联系人分组-->
+	<bean name="/contactchangegroup" class="com.wellmail.action.ContactChangeGroupAction" scope="prototype">
+		
+		<!-- 用户注入  -->
+		<property name="usersDao" ref="usersDao"/>
+		<property name="users" ref="users"/>
+		
+		<!-- 联系人注组入   -->
+		<property name="contactGroupDao" ref="contactGroupDao"/>
+		<property name="contactgroup" ref="contactgroup"/>
+		
+		<!-- 联系人注入   -->
+		<property name="contactDao" ref="contactDao"/>
+		<property name="contact" ref="contact"/>
+		
+		<!-- contact bean -->
+		<property name="contactbean" ref="contactbean"/>
+		
+	</bean>
+	
+	<!--mail添加到通讯录-->
+	<bean name="/addtocontact" class="com.wellmail.action.MailAddToContactAction" scope="prototype">
+		
+		<!-- 用户注入  -->
+		<property name="usersDao" ref="usersDao"/>
+		<property name="users" ref="users"/>
+		
+		<!-- 联系人注组入   -->
+		<property name="contactGroupDao" ref="contactGroupDao"/>
+		
+		<!-- 联系人注入   -->
+		<property name="contactDao" ref="contactDao"/>
+		<property name="contact" ref="contact"/>
+		
+	</bean>
+	
+	
+	<!--添加其他邮箱-->
+	<bean name="/addothermailbox" class="com.wellmail.action.CreateOtherMailBoxAction" scope="prototype">
+		
+		<!-- 用户注入  -->
+		<property name="usersDao" ref="usersDao"/>
+		<property name="users" ref="users"/>
+		
+		<!-- 其他邮箱 -->
+		<!--<property name="otherMailBoxDao" ref="otherMailBoxDao"/>
+		<property name="othermailbox" ref="othermailbox"/>
+		
+		 其他邮箱类型 <property name="othermailboxtype" ref="othermailboxtype"/>-->
+		<property name="otherMailBoxTypeDao" ref="otherMailBoxTypeDao"/>
+		
+	</bean>
+	
+	<!--添加其他邮箱-->
+	<bean name="/createothermailbox" class="com.wellmail.action.CreatingOtherMailBoxAction" scope="prototype">
+		
+		<!-- 用户注入  -->
+		<property name="usersDao" ref="usersDao"/>
+		<property name="users" ref="users"/>
+		
+		<!-- 其他邮箱 -->
+		<property name="otherMailBoxDao" ref="otherMailBoxDao"/>
+		<property name="othermailbox" ref="othermailbox"/>
+		
+		 <!--其他邮箱类型-->
+		<property name="otherMailBoxTypeDao" ref="otherMailBoxTypeDao"/>
+		<property name="othermailboxtype" ref="othermailboxtype"/>
+		
+		<!-- othermailbox bean -->
+		<property name="othermailboxbean" ref="othermailboxbean"/>
+		
+	</bean>
+	
+	<!--查看其他邮箱-->
+	<bean name="/goothermailbox" class="com.wellmail.action.OtherMailBoxAction" scope="prototype">
+		
+		<!-- 用户注入  -->
+		<property name="usersDao" ref="usersDao"/>
+		<property name="users" ref="users"/>
+		
+		<!-- 其他邮箱 -->
+		<property name="otherMailBoxDao" ref="otherMailBoxDao"/>
+		<property name="othermailbox" ref="othermailbox"/>
+		
+		 <!--其他邮箱类型-->
+		<property name="otherMailBoxTypeDao" ref="otherMailBoxTypeDao"/>
+		<property name="othermailboxtype" ref="othermailboxtype"/>
+		
+		<!-- othermailbox bean -->
+		<property name="othermailboxbean" ref="othermailboxbean"/>
+		
+	</bean>
+	
+		<!--查看其他邮箱（分页）-->
+	<bean name="/goothermailbox2" class="com.wellmail.action.OtherMailBoxAction" scope="prototype">
+		
+		<!-- 用户注入  -->
+		<property name="usersDao" ref="usersDao"/>
+		<property name="users" ref="users"/>
+		
+		<!-- 其他邮箱 -->
+		<property name="otherMailBoxDao" ref="otherMailBoxDao"/>
+		<property name="othermailbox" ref="othermailbox"/>
+		
+		 <!--其他邮箱类型-->
+		<property name="otherMailBoxTypeDao" ref="otherMailBoxTypeDao"/>
+		<property name="othermailboxtype" ref="othermailboxtype"/>
+		
+		<!-- othermailbox bean -->
+		<property name="othermailboxbean" ref="othermailboxbean"/>
+		
+	</bean>
+	
+	<!--列表添加其他邮箱-->
+	<bean name="/addothermailbox2" class="com.wellmail.action.CreateOtherMailBox2Action" scope="prototype">
+		
+		<!-- 用户注入  -->
+		<property name="usersDao" ref="usersDao"/>
+		<property name="users" ref="users"/>
+		
+		<!-- 其他邮箱 -->
+		<!--<property name="otherMailBoxDao" ref="otherMailBoxDao"/>
+		<property name="othermailbox" ref="othermailbox"/>
+		
+		 其他邮箱类型 <property name="othermailboxtype" ref="othermailboxtype"/>-->
+		<property name="otherMailBoxTypeDao" ref="otherMailBoxTypeDao"/>
+		
+	</bean>
+	
+	<!--删除其他邮箱-->
+	<bean name="/deleteothermailbox" class="com.wellmail.action.OtherMailBoxDeleteAction" scope="prototype">
+		
+		<!-- 用户注入  -->
+		<property name="usersDao" ref="usersDao"/>
+		<property name="users" ref="users"/>
+		
+		<!-- 其他邮箱 -->
+		<property name="otherMailBoxDao" ref="otherMailBoxDao"/>
+		<property name="othermailbox" ref="othermailbox"/>
+		
+		 <!--其他邮箱类型-->
+		<property name="otherMailBoxTypeDao" ref="otherMailBoxTypeDao"/>
+		<property name="othermailboxtype" ref="othermailboxtype"/>
+		
+		<!-- othermailbox bean -->
+		<property name="othermailboxbean" ref="othermailboxbean"/>
+		
+	</bean>
+	
+	<!--查询其他邮箱收件箱-->
+	<bean name="/gootherreceive" class="com.wellmail.action.OtherMailBoxReceiveAction" scope="prototype">
+		
+		<!-- 用户注入  -->
+		<property name="usersDao" ref="usersDao"/>
+		<property name="users" ref="users"/>
+		
+		<!-- 其他邮箱 -->
+		<property name="otherMailBoxDao" ref="otherMailBoxDao"/>
+		<property name="othermailbox" ref="othermailbox"/>
+		
+		 <!--其他邮箱类型-->
+		<property name="otherMailBoxTypeDao" ref="otherMailBoxTypeDao"/>
+		<property name="othermailboxtype" ref="othermailboxtype"/>
+		
+		<!-- othermailbox bean
+		<property name="othermailboxbean" ref="othermailboxbean"/> -->
+		
+	</bean>
+	
+	<!--删除一个其他邮箱-->
+	<bean name="/deleteoneotherreceive" class="com.wellmail.action.OneOtherMailBoxDeleteAction" scope="prototype">
+		
+		<!-- 用户注入  -->
+		<property name="usersDao" ref="usersDao"/>
+		<property name="users" ref="users"/>
+		
+		<!-- 其他邮箱 -->
+		<property name="otherMailBoxDao" ref="otherMailBoxDao"/>
+		<property name="othermailbox" ref="othermailbox"/>
+		
+		 <!--其他邮箱类型-->
+		<property name="otherMailBoxTypeDao" ref="otherMailBoxTypeDao"/>
+		<property name="othermailboxtype" ref="othermailboxtype"/>
+		
+		<!-- othermailbox bean -->
+		<property name="othermailboxbean" ref="othermailboxbean"/>
+		
+	</bean>
+	
+	<!--退出-->
+	<bean name="/logout" class="com.wellmail.action.LogoutAction" scope="prototype">
+	</bean>
+	
+	<!-- 发送Email -->
+	<bean name="/othermailsenting" class="com.wellmail.action.OtherMailSendingAction" scope="prototype">
+	</bean>
+	
+	<!--修改密码-->
+	<bean name="/modifyuser" class="com.wellmail.action.ModifyUserAction" scope="prototype">
+		
+		<!-- 用户注入  -->
+		<property name="usersDao" ref="usersDao"/>
+		<property name="users" ref="users"/>
+		
+	</bean>
+	 
+	<!-- 查询用户密码提示问题 -->
+	<bean name="/queryuserques" class="com.wellmail.action.UserQuesAction" scope="prototype">
+		
+		<!-- 用户密码提示问题注入  -->
+		<property name="userPwdDao" ref="userPwdDao"/>
+		<property name="userpwd" ref="userpwd"/>
+		
+	</bean> 
+	
+	<!-- 确认用户密码提示问题 -->
+	<bean name="/confirmuserques" class="com.wellmail.action.UserQuesConfirmAction" scope="prototype">
+	
+		<!-- 用户密码提示问题注入  -->
+		<property name="userpwd" ref="userpwd"/>
+	
+	</bean> 
+	
+	<!-- 清除cookie -->
+	<bean name="/clearcookie" class="com.wellmail.action.ClearCookieAction" scope="prototype">
+	</bean> 
+	
+</beans>

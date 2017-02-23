@@ -1,0 +1,20 @@
+// 导航栏配置文件
+var outlookbar=new outlook();
+var t;
+t=outlookbar.addtitle('基本操作','系统设置',1)
+outlookbar.additem('写信',t,'writetemp.jsp')
+outlookbar.additem('收件箱',t,'receivetemp.jsp')
+outlookbar.additem('草稿箱',t,'receive.html')
+outlookbar.additem('已发送',t,'receive.html')
+outlookbar.additem('已删除',t,'receive.html')
+outlookbar.additem('垃圾邮件',t,'receive.html')
+outlookbar.additem('广告邮件',t,'receive.html')
+
+t=outlookbar.addtitle('邮箱搬家','系统设置',1)
+outlookbar.additem('添加其他邮箱',t,'receive.html')
+outlookbar.additem('查看其它邮箱',t,'receive.html')
+
+t=outlookbar.addtitle('邮箱服务','系统设置',1)
+outlookbar.additem('联系人',t,'receive.html')
+outlookbar.additem('记事本',t,'receive.html')
+outlookbar.additem('网盘',t,'receive.html')

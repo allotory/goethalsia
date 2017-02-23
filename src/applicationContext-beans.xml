@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	     xmlns:aop="http://www.springframework.org/schema/aop"
+	     xmlns:tx="http://www.springframework.org/schema/tx"
+	     xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
+
+	<!-- 用户 -->
+	<bean id="usersDao" class="com.wellmail.dao.impl.UsersDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="users" class="com.wellmail.model.Users"/>
+	
+	
+	<!-- 联系人组 -->
+	<bean id="contactGroupDao" class="com.wellmail.dao.impl.ContactGroupDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="contactGroupInit" class="com.wellmail.init.ContactGroupInit"/>
+	<bean id="contactgroup" class="com.wellmail.model.ContactGroup"/>
+	
+	<!-- 联系人 -->
+	<bean id="contactDao" class="com.wellmail.dao.impl.ContactDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="contact" class="com.wellmail.model.Contact"/>
+	
+	<!-- 邮件空间  -->
+	<bean id="emailSpaceDao" class="com.wellmail.dao.impl.EmailSpaceDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="emailspace" class="com.wellmail.model.EmailSpace"/>
+	
+	
+	<!-- 网盘文件 -->
+	<bean id="fileTypeDao" class="com.wellmail.dao.impl.FileTypeDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="fileTypeInit" class="com.wellmail.init.FileTypeInit"/>
+	<bean id="filetype" class="com.wellmail.model.FileType"/>
+	
+	
+	<!-- 文件夹  -->
+	<bean id="folderDao" class="com.wellmail.dao.impl.FolderDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="folder" class="com.wellmail.model.Folder"/>
+	<bean id="folderInit" class="com.wellmail.init.FolderInit"/>
+	
+	
+	<!-- 记事本类型 -->
+	<bean id="noteTypeDao" class="com.wellmail.dao.impl.NoteTypeDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="notetype" class="com.wellmail.model.NoteType"/>
+	<bean id="noteTypeInit" class="com.wellmail.init.NoteTypeInit"/>
+	
+	
+	<!-- 用户密码提示问题 -->
+	<bean id="userPwdDao" class="com.wellmail.dao.impl.UserPwdDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="userpwd" class="com.wellmail.model.UserPwd"/>
+	
+	
+	<!-- 用户积分 -->
+	<bean id="userScoreDao" class="com.wellmail.dao.impl.UserScoreDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="userscore" class="com.wellmail.model.UserScore"/>
+	
+	
+	<!-- 用户个人信息 -->
+	<bean id="usersInfoDao" class="com.wellmail.dao.impl.UsersInfoDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="usersinfo" class="com.wellmail.model.UsersInfo"/>
+	
+	
+	<!-- 网盘 -->
+	<bean id="webDiskDao" class="com.wellmail.dao.impl.WebDiskDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="webdisk" class="com.wellmail.model.WebDisk"/>
+	
+	<!-- 网盘文件 -->
+	<bean id="webFileDao" class="com.wellmail.dao.impl.WebFileDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="webfile" class="com.wellmail.model.WebFile"/>
+	
+	<!-- webfile bean -->
+	<bean id="webfilebean" class="com.wellmail.bean.WebFileBean"/>
+	
+	<!-- 邮件 -->
+	<bean id="emailDao" class="com.wellmail.dao.impl.EmailDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="email" class="com.wellmail.model.Email"/>
+	
+	<!-- 邮件标签 -->
+	<bean id="mailTagDao" class="com.wellmail.dao.impl.MailTagDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="mailtag" class="com.wellmail.model.MailTag"/>
+	
+	<!-- 邮件优先级 -->
+	<bean id="priorityDao" class="com.wellmail.dao.impl.PriorityDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="priority" class="com.wellmail.model.Priority"/>
+	
+	<!-- 邮件附件 -->
+	<bean id="attachmentDao" class="com.wellmail.dao.impl.AttachmentDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="attachment" class="com.wellmail.model.Attachment"/>
+	
+	<!-- cc -->
+	<bean id="ccDao" class="com.wellmail.dao.impl.CCDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="ccs" class="com.wellmail.model.CC"/>
+	
+	<!-- bcc -->
+	<bean id="bccDao" class="com.wellmail.dao.impl.BCCDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="bccs" class="com.wellmail.model.BCC"/>
+	
+	<!-- email bean -->
+	<bean id="emailbean" class="com.wellmail.bean.EmailBean"/>
+	
+	<!-- 记事本 -->
+	<bean id="noteBookDao" class="com.wellmail.dao.impl.NoteBookDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="notebook" class="com.wellmail.model.NoteBook"/>
+	
+	<!-- notebook bean -->
+	<bean id="notebookbean" class="com.wellmail.bean.NoteBookBean"/>
+	
+	<!-- contact bean -->
+	<bean id="contactbean" class="com.wellmail.bean.ContactBean"/>
+	
+	<!-- 其他邮箱 -->
+	<bean id="otherMailBoxDao" class="com.wellmail.dao.impl.OtherMailBoxDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="othermailbox" class="com.wellmail.model.OtherMailBox"/>
+	
+	<!-- 其他邮箱类型 -->
+	<bean id="otherMailBoxTypeDao" class="com.wellmail.dao.impl.OtherMailBoxTypeDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<bean id="othermailboxtype" class="com.wellmail.model.OtherMailBoxType"/>
+	
+	
+	<!-- othermailbox bean -->
+	<bean id="othermailboxbean" class="com.wellmail.bean.OtherMailBoxBean"/>
+	
+</beans>

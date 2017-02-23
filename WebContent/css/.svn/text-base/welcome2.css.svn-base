@@ -1,0 +1,118 @@
+﻿/* 简约3.0 欢迎页面 CSS 文件 */
+
+
+body.W2_bdy{margin:0px; padding:0px; background:#fafafa;}
+
+/*图片集成*/
+.WelImg{background-image:url('../images/wel_1.gif'); background-repeat:no-repeat;}
+
+/*头部*/
+.w2_HeadWp{background-position:0px -768px; background-repeat:repeat-x;}
+	.w2_HeadTb{table-layout:fixed; height:158px;}/*头部表格*/
+		.User_tdWp{vertical-align:top;}/*用户信息板块*/
+			/*用户欢迎信息，新邮件信息*/
+			.w2_U_Wp{width:100%; height:140px; position:relative;}
+				.w2_U_Wp h1{position:absolute; left:25px; top: 17px; font-size:14px; font-weight:bold; color:#000;}
+				.w2_U_Wp h2{position:absolute; left:45px; top: 48px; font-size:14px; font-weight:normal; color:#898989;}
+				.w2_U_Wp b.IcoNwMail{position:absolute; left:25px; top:48px; display:block; width:16px; height:16px; background-position:-200px -8px;}
+				.w2_U_Wp .fnt_Red:link,.w2_U_Wp .fnt_Red:visited,.w2_U_Wp .fnt_Red:hover{text-decoration:none;}
+				/*容量*/
+				.w2_Rong{position:absolute; left:25px; top:88px;}
+				.w2_Rong .rng_DcrTxt{color:#898989; line-height:13px; padding-bottom:7px;}
+				.w2_Rong .rng_PcsWp{position:relative; width:174px; height:16px; background-position:-32px -96px;}
+					.w2_Rong .rng_PcsTxt{position:absolute; left:0; top:0; color:#666; width:100%; height:16px; line-height:12px; font-size:10px; text-align:center;}
+					.w2_Rong .rng_Pcs{position:absolute; left:0; top:0; height:16px; line-height:16px; background-position:-32px -128px;}
+					.w2_Rong .rng_Wu{background-position:-32px -160px;}/*无限容量*/
+
+		.Weather_tdWp{vertical-align:top; width:269px;}/*天气预报板块*/
+			.w2_wtIfr{border:none; border:0px; width:263; height:140px; margin-left:4px; margin-top:7px;}
+		.Mid_LineWp{width:14px;background-position:right -960px;}/*中间分割线*/
+
+/*主体*/
+.w2_MidWp{}
+/*外框*/
+.w2_MidTb{table-layout:fixed; height:270px;}
+	.w2_MidTb .Mid_JJ{width:14px;}/*间隔*/
+	.w2_MidTb .Mid_lWp{vertical-align:top;}/*左边*/
+	.w2_MidTb .Mid_rWp{vertical-align:top; width:258px;}/*右边*/
+
+	/*圆角盒子*/
+	.w2cbx{position:relative; }
+		/*上方圆角+标题栏*/
+		.w2cbx_Top{table-layout:fixed; height:34px; background-position:0px -1408px;}
+			.w2cbx_Top .M_Rp{background-position:0px -1472px; color:#626262;}
+			.w2cbx_Top .C_L{background-position:-32px 0px;}
+			.w2cbx_Top .C_R{background-position:-64px 0px;}
+		/*下方圆角*/
+		.w2cbx_Btm{table-layout:fixed; height:6px; font-size:1px; line-height:1px;}
+			.w2cbx_Btm .M_Rp{background-position:0px -1504px;}
+			.w2cbx_Btm .C_L{background-position:-32px -64px;}
+			.w2cbx_Btm .C_R{background-position:-64px -64px;}
+		/*中间*/
+		.w2cbx_Mid{table-layout:fixed;}
+			.w2cbx_Mid .L_Rp{background-position:-624px 0px; background-repeat:repeat-y;}
+			.w2cbx_Mid .R_Rp{background-position:0px 0px; background-repeat:repeat-y;}
+			.w2cbx_Mid .M_C{background-color:#fff;}
+		/*圆角宽度*/
+		.C_L,.C_R{width:16px;}
+		/*中间边线宽度*/
+		.L_Rp,.R_Rp{width:3px;}
+		/*盒子标签*/
+		.cbx_TabWp{position:absolute; left:0; top:0;}
+		.cbx_TabIn{padding-left:3px;}
+		.cbx_TabIn li,.cbx_TabIn li a{display:block; float:left; width:113px; height:34px;}
+		.cbx_TabIn li a{line-height:34px; text-align:center; font-size:14px; outline:none;}
+		.cbx_TabIn li{background-position:-192px -192px; display:inline;}
+		.cbx_TabIn li.On{width:116px; margin-left:-3px; font-weight:bold; background-position:-32px -192px;}/*选中，宽度增加3px，用于覆盖“未选中”右分隔线。*/
+		.cbx_TabIn li a:link,.cbx_TabIn li a:visited,.cbx_TabIn li a:hover{text-decoration:none; color:#626262;}
+	/*邮箱服务*/
+	.cbx_yxFW{}
+	/*邮箱搬家*/
+	.cbx_yxBJ{background-position:0px -1120px;}
+	.yxBJ_r{margin-top:30px; margin-left:22px;}
+		.cbx_yxBJ .w2cbx_Top{background:none;}
+		.cbx_yxBJ .w2cbx_Mid .M_C{background:none; height:104px; padding-left:13px;}
+		.cbx_yxBJ .C_Tt{padding-top:0px; font-size:14px;}
+		.cbx_yxBJ .C_Dcr{height:36px; line-height:36px; color:#777;}
+		.cbx_yxBJ .C_Ipt .Ipt{width:154px; height:26px; line-height:17px; padding-top/**/:2px; padding-top:3px; margin-right:4px; font-weight:bold; color:#999999; padding-left:4px;}
+		.cbx_yxBJ .C_Ipt .IptOnF{color:#333; background-color:#fff;}
+	/*邮箱推荐*/
+	.cbx_yxTJ{}
+		.cbx_yxTJ .w2cbx_Mid .M_C{height:100px; padding-left:12px;}
+		.cbx_yxTJ p{font-family:'宋体'; height:28px; line-height:28px; color:#a0a0a0;}
+	/*大公告*/
+	.cbx_yxGG{}
+		.cbx_yxGG .w2cbx_Mid .M_C{height:230px; vertical-align:top;}
+		.cbx_yxGG p{font-family:'宋体'; height:22px; line-height:22px; color:#a0a0a0;}
+		.p_Con{padding:0px; overflow-x:hidden; overflow-y:auto; width:100%; height:230px; }
+			.p_ConInr{line-height:22px; padding:8px 13px; color:#333; line-height:22px; word-wrap:break-word; word-break:break-all;}
+
+	/*大快捷入口*/
+	.w2ft_Bnr{background-position:0px -1280px; height:96px;}
+	.BnrTj_Tb{table-layout:fixed; }
+		.BnrTj_ImgWp{width:150px;}
+		.BnrTj_Img{width:150px; height:94px; background-position:-232px -68px;}/*图标*/
+		.BnrTj_TtWp{padding-top:16px; vertical-align:top; overflow:hidden;}
+		.BnrTj_TtWp h3{font-size:14px; font-weight:bold; color:#434343;}
+		.BnrTj_DcrWp{padding-top:8px; line-height:18px; color:#626262; overflow:hidden;}
+		.BnrTj_ExLink{padding-top:6px; padding-right:8px; line-height:18px; font-family:'宋体'; text-align:right;}
+	/*大快捷-闪电邮*/
+	.bTj_sdy{}
+		.bTj_sdy .BnrTj_ImgWp{width:112px;}
+		.bTj_sdy .BnrTj_Img{width:110px; height:94px; background-position:-200px -242px;}/*图标*/
+	/*小快捷入口*/
+	.sTj_WpTb{table-layout:fixed; height:134px;}
+		.sTj_WpTb td.Bx{width:50%; height:50%;}
+	.sTj_Tb{table-layout:fixed; }
+		.sTj_ImgWp{width:76px;}
+		.sTj_Img{width:32px; height:32px; margin-left:22px; margin-top:6px;}
+		.sTj_TtWp{padding-top:6px;}
+		.sTj_TtWp h4{font-size:14px;}
+		.sTj_DcrWp{color:#888888; vertical-align:top; padding-top:10px;}
+		/*小快捷入口图标*/
+		.Bx_Huangfu .sTj_Img{background-position:-224px 0px;}
+		.Bx_Dingshi .sTj_Img{background-position:-288px 0px;}
+		.Bx_Qianxin .sTj_Img{background-position:-352px 0px;}
+		.Bx_Daohang .sTj_Img{background-position:-416px 0px;}
+		.Bx_Huifu .sTj_Img{background-position:-480px 0px;}
+		.Bx_Laixinfenlei .sTj_Img{background-position:-544px 0px;}

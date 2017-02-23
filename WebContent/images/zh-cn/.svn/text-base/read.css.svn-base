@@ -1,0 +1,102 @@
+﻿
+.Read_f1{font-size:14px}
+/*读信表格*/
+.Read_T{margin:8px 12px;}
+.Read_zT{padding:0px; line-height:25px}
+.rTable{width:auto;}
+	.rTable td,.rTable th{line-height:24px; vertical-align:middle; vertical-align:top; word-break:break-all;}
+	.rTable th{text-align:left; width:55px; color:#777}
+	.rTable .Sel,.rTable .SelA{margin-top:1px;}
+	.rTable .HrWp{height:auto; line-height:2px; font-size:2px; padding:6px;}
+	.rTable .Ipt,.rTable .IptOnF{width:180px;}
+
+/*附件区域*/
+.Read_tb{width:500px; table-layout:fixed;}
+	.Read_tb td{line-height:16px; padding:4px 0px; color:#777;}
+	td.Read_tn{width:340px; word-break:break-all;}
+	td.Read_tCtrl{width:160px; text-align:right;}
+
+.Enc_Table{width:auto; margin-bottom:10px;}
+    .Enc_Table th{text-align:left; padding-right:10px;}
+	.Enc_Table th img{border:#9DDAF7 2px solid;}
+	.Enc_Table td{text-align:left;  line-height:150%;}
+.Fx_Tab{width:90%; background-color:#c8c8c8;border-right:#c8c8c8 1px solid;border-top:#c8c8c8 1px solid; margin:5px 0px; table-layout:fixed;}
+    .Fx_Tab th,.Fx_Tab td{padding:0px 5px; height:25px; line-height:25px; border-left:#c8c8c8 1px solid; border-bottom:#c8c8c8 1px solid;}
+	.Fx_Tab th{background-color:#f9f9f9; color:#7a7a7a}
+	.Fx_Tab td{background-color:#fff;}
+	.FX_Tab_Z{width:180px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+	/*--连接--*/
+	a.Read_a:link,a.Read_a:visited{color:#777; text-decoration:none;}
+	a.Read_a:hover{color:#777; text-decoration:underline;}
+	.Read_tn a{text-decoration:none;}/*text-decoration:none;*/
+/*--读信内容--*/
+.Read_D{width:100%; padding:10px}
+    .Read_see{margin:25px 10px 25px 12px;}
+/*--提示栏--*/
+.Read_tips{border-width:0 0 1px 0; border-bottom-color:#f2f2f2; margin-top:0px; margin-bottom:0px;}
+/*--附件图标--*/
+.Read_tn .IcoImg{width:16px; height:16px; line-height:16px; font-size:13px; margin-right:3px;}
+	/*第一行*/
+	.Rico1{background-position:-8px -136px;}
+	.Rico2{background-position:-40px -136px;}
+	.Rico3{background-position:-72px -136px;}
+	.Rico4{background-position:-104px -136px;}
+	.Rico5{background-position:-136px -136px;}
+	.Rico6{background-position:-168px -136px;}
+	.Rico7{background-position:-200px -136px;}
+	.Rico8{background-position:-232px -136px;}
+	.Rico9{background-position:-264px -136px;}
+	.Rico10{background-position:-296px -136px;}
+	.Rico11{background-position:-328px -136px;}
+	.Rico12{background-position:-360px -136px;}
+	.Rico13{background-position:-392px -136px;}
+	.Rico14{background-position:-424px -136px;}
+	.Rico15{background-position:-456px -136px;}
+	.Rico16{background-position:-488px -136px;}
+	.Rico17{background-position:-520px -136px;}
+	.Rico18{background-position:-552px -136px;}
+	.Rico19{background-position:-584px -136px;}
+	.Rico20{background-position:-616px -136px;}
+	.Rico21{background-position:-648px -136px;}
+	.Rico22{background-position:-680px -136px;}
+	.Rico23{background-position:-712px -136px;}
+	.Rico24{background-position:-744px -136px;}
+	.Rico25{background-position:-776px -136px;}
+	.Rico26{background-position:-808px -136px;}
+	.Rico27{background-position:-840px -136px;}
+	.Rico28{background-position:-872px -136px;}
+	.Rico29{background-position:-904px -136px;}
+	.Rico30{}
+	/*第二行*/
+	.Rico31{background-position:-8px -168px;}
+	.Rico32{background-position:-40px -168px;}
+	.Rico33{background-position:-72px -168px;}
+	.Rico34{background-position:-104px -168px;}
+	.Rico35{background-position:-136px -168px;}
+	.Rico36{background-position:-168px -168px;}
+	.Rico37{background-position:-200px -168px;}
+	.Rico38{background-position:-232px -168px;}
+	.Rico39{background-position:-264px -168px;}
+	.Rico40{background-position:-296px -168px;}
+	.Rico41{background-position:-328px -168px;}
+	.Rico42{background-position:-360px -168px;}
+	.Rico43{background-position:-392px -168px;}
+	.Rico44{background-position:-424px -168px;}
+	.Rico45{background-position:-456px -168px;}
+	.Rico46{background-position:-488px -168px;}
+	.Rico47{background-position:-520px -168px;}
+	.Rico48{background-position:-552px -168px;}
+	.Rico49{background-position:-584px -168px;}
+	.Rico50{background-position:-616px -168px;}
+	.Rico51{background-position:-648px -168px;}
+	.Rico52{background-position:-680px -168px;}
+	.Rico53{background-position:-712px -168px;}
+	.Rico54{background-position:-744px -168px;}
+	.Rico55{background-position:-776px -168px;}
+	.Rico56{background-position:-808px -168px;}
+	.Rico57{background-position:-840px -168px;}
+	.Rico58{background-position:-872px -168px;}
+	.Rico59{background-position:-904px -168px;}
+	.Rico60{}
+
+

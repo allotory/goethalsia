@@ -1,0 +1,185 @@
+
+/*--收件箱 开始--*/
+
+.Ibx_hdTips{margin-bottom:10px; margin-top:-6px; color:#777;}
+.Ibx_Main_Wp{}
+
+	.Ibx_Main_Wp .Tips_TbTop{border-bottom:none; border-left:none; border-right:none; margin:0px;}
+	.Ibx_Main_Wp .Tips_NoMail{border:none; border-bottom:1px solid #D6D6D6; margin:0px; color:#777; font-size:14px; padding:40px 20px; font-weight:bold;}
+
+	/*收件箱ico*/
+	.icoIbx{padding:0px 8px; height:16px; line-height:16px;}/*收件箱图标*/
+	
+	/*收件箱表格（初始化）*/
+	.Ibx_gTable{}
+	html>body .Ibx_gTable{width:100%;}/*FF, Opera*/
+	*html .Ibx_gTable{width:100%; table-layout:fixed;}/*IE*/
+		.Ibx_gTable td,.Ibx_gTable th{white-space:nowrap; overflow:hidden; height:26px; padding:0px;}
+		.Ibx_gTable a:link,.Ibx_gTable a:visited,.Ibx_gTable a:hover{white-space:nowrap; color:#333;text-decoration:none; overflow:hidden;}
+		.Ibx_gTable a:hover{color:#333;text-decoration:underline;}
+	
+	/*顶部标题栏表格*/
+	.Ibx_gTable_TT{background-position:0 -192px; border:1px solid #d6d6d6; border-left:none; border-right:none;}
+		.Ibx_gTable_TT th{font-weight:bold; color:#333;}
+		.Ibx_gTable .Ibx_Th_F{width:20px; border-right:1px solid #d6d6d6;}
+		.Ibx_gTable .Ibx_Th_Chkbx{text-align:center; width:28px; border-right:1px solid #d6d6d6;}
+		.Ibx_gTable .Ibx_Th_icoInfo{text-align:center; width:32px; border-right:1px solid #d6d6d6;}
+			.Ibx_gTable .Ibx_Th_icoInfo .icoIbx{background-position:-168px -8px;}
+		.Ibx_gTable .Ibx_Th_icoFlag{text-align:center; width:20px; border-right:1px solid #d6d6d6;}
+			.Ibx_gTable .Ibx_Th_icoFlag .icoIbx{background-position:-584px -8px;}
+		.Ibx_gTable .Ibx_Th_From{padding:0px 6px; width:170px; border-right:1px solid #d6d6d6;}
+		.Ibx_gTable .Ibx_Th_Subject{padding:0px 6px; border-right:1px solid #d6d6d6;}
+		.Ibx_gTable .Ibx_Th_Date{padding:0px 6px; width:114px; border-right:1px solid #d6d6d6;}
+		.Ibx_gTable .Ibx_Th_icoATCM{text-align:center; width:28px; border-right:1px solid #d6d6d6;}
+			.Ibx_gTable .Ibx_Th_icoATCM .icoIbx{background-position:-136px -8px;}
+		.Ibx_gTable .Ibx_Th_Size{padding:0px 6px;width:76px; text-align:right;}
+		
+		/*文件夹*/
+		.Ibx_gTable .Ibx_Th_fdFile{padding:0px 6px 0px 20px; border-right:1px solid #d6d6d6; }
+		.Ibx_gTable .Ibx_Th_fdUnRead{width:120px; text-align:center; border-right:1px solid #d6d6d6;}
+		.Ibx_gTable .Ibx_Th_fdAllMail{width:120px; text-align:center; border-right:1px solid #d6d6d6;}
+		.Ibx_gTable .Ibx_Th_fdSize{padding-right:30px; width:120px; text-align:right; border-right:1px solid #d6d6d6;}
+		.Ibx_gTable .Ibx_Th_fdOpt{padding:0px 6px; width:300px; text-align:left;}
+		
+		/*通讯录列表*/
+		.Ibx_gTable .Ibx_Th_addrName{padding:0px 6px; width:170px; border-right:1px solid #d6d6d6; }
+		.Ibx_gTable .Ibx_Th_addrEmail{padding:0px 6px; border-right:1px solid #d6d6d6;}
+		.Ibx_gTable .Ibx_Th_addrMoblie{padding:0px 6px; width:110px; text-align:right;}
+
+	.Ibx_Lst_dWp{}/*内容模块*/
+
+	/*内容表格*/
+	.Ibx_gTable_Con{display:table;}/*FF*/
+		.Ibx_gTable_Con .icoIbx{display:block; width:16px; height:16px; padding:0px; margin:0px auto;}/*图标初始化*/
+		html>body .Ibx_gTable_Con td{border-right:1px solid #fff;}/*FF, Opera*/
+		.Ibx_gTable_Con td{display:table-cell; border-bottom:1px solid #ededed; font-size:14px; height:32px;}/*14px优化 wayhome 2008-10-16*/
+		.Ibx_gTable_Con tr{display:table-row; cursor:pointer; cursor:hand;}/*FF, Opera*/
+			.Folder .Ibx_gTable_Con tr{cursor:default;}
+		.Ibx_gTable .Ibx_Td_F{width:20px;}/*空白*/
+		.Ibx_gTable .Ibx_Td_Chkbx{text-align:center; width:28px;}/*复选框*/
+		.Ibx_gTable .Ibx_Td_icoInfo{text-align:center; width:32px;}/*信息图标*/
+			.Ibx_gTable .Ibx_Td_icoInfo .icoIbx{background-position:16px 16px;}
+		.Ibx_gTable .Ibx_Td_icoFlag{text-align:center; width:20px;}/*小旗图标*/
+			.Ibx_gTable .Ibx_Td_icoFlag .icoIbx{background-position:16px 16px;}/*background-position:-584px -8px;*/
+		.Ibx_gTable .Ibx_Td_From{padding:0px 6px; width:170px;}/*发件人*/
+		.Ibx_gTable .Ibx_Td_Subject{padding:0px 6px 0px 2px;}/*主题*/
+			/*自动截取（发件人）*/
+			html>body .Ibx_gTable td.Ibx_Td_From{white-space:nowrap; word-break:break-all; overflow:hidden;}/*FF, Opera*/ 
+			*html .Ibx_gTable td.Ibx_Td_From{table-layout:fixed; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; empty-cells:show;}/*IE*/
+			/*自动截取（邮件标题）*/
+			html>body .Ibx_gTable td.Ibx_Td_Subject{white-space:nowrap; word-break:break-all; overflow:hidden;}/*FF, Opera*/ 
+			*html .Ibx_gTable td.Ibx_Td_Subject{table-layout:fixed; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; empty-cells:show;}/*IE*/
+			/*自动截取 FF, Opera*/
+			html>body .Ibx_Td_Subject a{margin-right:-10000px; display:inline;}
+			html>body .Ibx_Td_Subject a.lnkFolder{margin-right:0px; margin-left:0px; display:inline;}/*文件夹连接*/
+			.Ibx_gTable .Ibx_Td_Subject a.lnkFolder:link,.Ibx_gTable .Ibx_Td_Subject a.lnkFolder:visited,.Ibx_gTable .Ibx_Td_Subject a.lnkFolder:hover{color:#888;}
+		.Ibx_gTable .Ibx_Td_Date{padding:0px 6px; width:114px;}/*日期*/
+		.Ibx_gTable .Ibx_Td_icoATCM{text-align:center; width:28px;}/*附件图标*/
+			.Ibx_gTable .Ibx_Td_icoATCM .icoIbx{background-position:-136px -8px;}
+		.Ibx_gTable .Ibx_Td_Size{padding:0px 6px;width:76px; text-align:right;}/*邮件大小*/
+		
+		/*文件夹*/
+		.Ibx_gTable .Ibx_Td_fdFile{padding:0px 6px 0px 20px;}
+			.Ibx_gTable .Ibx_Td_fdFile a:link,.Ibx_gTable .Ibx_Td_fdFile a:visited,.Ibx_gTable .Ibx_Td_fdFile a:hover{color:#333;text-decoration:underline;}
+			/*自动截取（文件夹标题）*/
+			html>body .Ibx_gTable td.Ibx_Td_fdFile{white-space:nowrap; word-break:break-all; overflow:hidden;}/*FF, Opera*/ 
+			*html .Ibx_gTable td.Ibx_Td_fdFile{table-layout:fixed; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; empty-cells:show;}/*IE*/
+			/*自动截取 FF, Opera*/
+			html>body .Ibx_Td_fdFile a{float:left; max-width:100%; margin-right:-10000px; display:inline;}
+		.Ibx_gTable .Ibx_Td_fdUnRead{width:120px; text-align:center;}
+			.Ibx_gTable .Ibx_Td_fdUnRead a:link,.Ibx_gTable .Ibx_Td_fdUnRead a:visited,.Ibx_gTable .Ibx_Td_fdUnRead a:hover{color:#e60012; font-weight:bold; text-decoration:underline;}
+		.Ibx_gTable .Ibx_Td_fdAllMail{width:120px; text-align:center;}
+		.Ibx_gTable .Ibx_Td_fdSize{padding-right:30px; width:120px; text-align:right;}
+		.Ibx_gTable .Ibx_Td_fdOpt{padding:0px 6px; width:300px; text-align:left;}
+			.Ibx_gTable .Ibx_Td_fdOpt p{float:left; width:48px;}
+			.Ibx_gTable .Ibx_Td_fdOpt p.Extra{width:60px;}
+			.Ibx_gTable .Ibx_Td_fdOpt a:link,.Ibx_gTable .Ibx_Td_fdOpt a:visited,.Ibx_gTable .Ibx_Td_fdOpt a:hover{color:#0068b7;text-decoration:underline;}
+		
+		/*通讯录列表*/
+		.Ibx_gTable .Ibx_Td_addrName{padding:0px 6px; width:170px;}
+		.Ibx_gTable .Ibx_Td_addrEmail{padding:0px 6px;}
+		.Ibx_gTable .Ibx_Td_addrMoblie{padding:0px 6px; width:110px; text-align:right;}
+			/*自动截取（姓名）*/
+			html>body .Ibx_gTable td.Ibx_Td_addrName{white-space:nowrap; word-break:break-all; overflow:hidden;}/*FF, Opera*/ 
+			*html .Ibx_gTable td.Ibx_Td_addrName{table-layout:fixed; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; empty-cells:show;}/*IE*/
+			/*自动截取（邮件地址）*/
+			html>body .Ibx_gTable td.Ibx_Td_addrEmail{white-space:nowrap; word-break:break-all; overflow:hidden;}/*FF, Opera*/ 
+			*html .Ibx_gTable td.Ibx_Td_addrEmail{table-layout:fixed; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; empty-cells:show;}/*IE*/
+			/*自动截取 FF, Opera*/
+			html>body .Ibx_Td_addrName a{float:left; max-width:100%; margin-right:-10000px; display:inline;}
+			html>body .Ibx_Td_addrEmail a{float:left; max-width:100%; margin-right:-10000px; display:inline;}
+			.Ibx_gTable .Ibx_Td_addrMoblie a:link,.Ibx_gTable .Ibx_Td_addrMoblie a:visited,.Ibx_gTable .Ibx_Td_addrMoblie a:hover{color:#999;text-decoration:underline;}
+
+		/*可折叠日期栏*/
+		.Ibx_Lst_dTT{cursor:default; height:26px; line-height:26px; background-color:#F7F7F7; border-bottom:1px solid #ededed; font-weight:bold; color:#666;}
+			.Ibx_Lst_dTT .Txt{display:block; padding-left:20px; margin-top:0px!important; margin-top:1px;}
+			.Ibx_Lst_dTT a{font-weight:normal;}
+		.dWpOpen .Ibx_Lst_dTT .icoIbx,.dWpCls .Ibx_Lst_dTT .icoIbx{float:left; width:20px; height:24px; padding:0px;}
+		.Ibx_Lst_bExtra{cursor:default; height:26px; line-height:26px; background-color:#F7F7F7; border-bottom:1px solid #ededed; color:#666; padding:0 10px;}
+		/*展开*/
+		.dWpOpen .Ibx_Lst_dTT .icoIbx{background-position:-5px -292px;}
+		.dWpOpen .Ibx_gTable_Con{display:table;}/*FF*/
+		/*隐藏*/
+		.dWpCls .Ibx_Lst_dTT .icoIbx{background-position:-5px -260px;}
+		.dWpcls .Ibx_gTable_Con{display:none;}
+		
+		/*邮件状态*/
+		.gIcoFlag{height:16px; line-height:16px;}/*全局小旗图标*/
+		.I_Mark0 a:link,.I_Mark0 a:visited,.I_Mark0 a:hover{color:#000;}/*普通状态、取消标签*/
+			.I_Mark0 .Ibx_Td_icoFlag .icoIbx{}
+		.I_Mark1 a:link,.I_Mark1 a:visited,.I_Mark1 a:hover{color:#990000;}/*重要邮件*/
+			.I_Mark1 .Ibx_Td_icoFlag .icoIbx{background-position:-296px -8px;}
+		.I_Mark2 a:link,.I_Mark2 a:visited,.I_Mark2 a:hover{color:#006600;}/*公司邮件*/
+			.I_Mark2 .Ibx_Td_icoFlag .icoIbx{background-position:-328px -8px;}
+		.I_Mark3 a:link,.I_Mark3 a:visited,.I_Mark3 a:hover{color:#E38800;}/*业务邮件*/
+			.I_Mark3 .Ibx_Td_icoFlag .icoIbx{background-position:-360px -8px;}
+		.I_Mark4 a:link,.I_Mark4 a:visited,.I_Mark4 a:hover{color:#26A5A8;}/*资讯邮件*/
+			.I_Mark4 .Ibx_Td_icoFlag .icoIbx{background-position:-392px -8px;}
+		.I_Mark5 a:link,.I_Mark5 a:visited,.I_Mark5 a:hover{color:#FF6699;}/*亲友邮件*/
+			.I_Mark5 .Ibx_Td_icoFlag .icoIbx{background-position:-424px -8px;}
+		.I_Mark6 a:link,.I_Mark6 a:visited,.I_Mark6 a:hover{color:#003399;}/*同学邮件*/
+			.I_Mark6 .Ibx_Td_icoFlag .icoIbx{background-position:-456px -8px;}
+		.I_Mark7 a:link,.I_Mark7 a:visited,.I_Mark7 a:hover{color:#996600;}/*休闲邮件*/
+			.I_Mark7 .Ibx_Td_icoFlag .icoIbx{background-position:-488px -8px;}
+		.I_Mark8 a:link,.I_Mark8 a:visited,.I_Mark8 a:hover{color:#993399;}/*趣闻邮件*/
+			.I_Mark8 .Ibx_Td_icoFlag .icoIbx{background-position:-520px -8px;}
+		.I_Mark15 a:link,.I_Mark15 a:visited,.I_Mark15 a:hover{color:#333;}/*杂项邮件*/
+			.I_Mark15 .Ibx_Td_icoFlag .icoIbx{background-position:-552px -8px;}
+		.I_UnRd{font-weight:bold;}/*正常状态，未读*/
+			.I_UnRd .Ibx_Td_icoInfo .icoIbx{background-position:-200px -8px;}
+		
+		/*自定义文件夹效果*/
+		.I_fdCustom{background-color:#f6fafd;}
+			.I_fdCustom td{border-right-color:#f6fafd;}
+		/*选中效果
+		.I_Selected{background-color:#ffffca;}
+			.I_Selected td{border-right-color:#ffffca;}*/
+		/*鼠标滑过效果
+		.Ibx_gTable_Con tr:hover,.I_Onfocus{background-color:#FFFFE1;}
+			.I_Onfocus td{border-right-color:#FFFFE1;}*/
+
+		/*排序图标*/
+		.Ibx_gTable_TT .icoDown{height:13px; line-height:13px; background-position:-232px -8px; cursor:pointer;cursor:hand;}/*排序（下）*/
+		.Ibx_gTable_TT .icoUp{height:13px; line-height:13px; background-position:-264px -8px; cursor:pointer;cursor:hand;}/*排序（上）*/
+
+		/*收件箱列表ico*/
+		.Ibx_gTable .Ibx_Td_icoInfo .icoReply{background-position:-616px -8px;}/*已回复*/
+		.Ibx_gTable .Ibx_Td_icoInfo .icoForward{background-position:-648px -8px;}/*已转发*/
+		.Ibx_gTable .Ibx_Td_icoInfo .icoReplyForward{background-position:-680px -8px;}/*已回复+已转发*/
+		.Ibx_gTable .Ibx_Td_icoInfo .icoSysNotice{background-position:-712px -8px;}/*系统通知*/
+		.Ibx_gTable .Ibx_Td_icoInfo .icoSysNotice2{background-position:-744px -8px;}/*系统通知2*/
+		.Ibx_gTable .Ibx_Td_icoInfo .icoDrafts{background-position:-168px -72px;}/*草稿*/
+		.Ibx_gTable .Ibx_Td_icoInfo .icoRead{background-position:16px 16px;}/*已读background-position:-200px -72px;*/
+		.Ibx_gTable .Ibx_Td_icoInfo .icoTalk{background-position:-232px -72px;}/*会话*/
+		.Ibx_gTable .Ibx_Td_icoInfo .icoDTime{background-position:-264px -72px;}/*定时发信*/
+		.Ibx_gTable .Ibx_Td_icoInfo .icoUrgent{background-position:-333px -72px; width:8px; float:right; margin-left:-4px;}/*紧急*/
+		.Ibx_gTable .Ibx_Td_icoInfo .icoSlow{background-position:-365px -72px; width:8px; float:right; margin-left:-4px;}/*缓慢*/
+		.Ibx_gTable .Ibx_Td_icoInfo .icoSendOk{background-position:-422px -73px; width:24px;}/*已发送状态（成功）*/
+		.Ibx_gTable .Ibx_Td_icoInfo .icoSending{background-position:-454px -73px; width:24px;}/*已发送状态（发送中）*/
+		.Ibx_gTable .Ibx_Td_icoInfo .icoSendUnk{background-position:-486px -73px; width:24px;}/*已发送状态（未知状态）*/
+		.Ibx_gTable .Ibx_Td_icoInfo .icoSendFailure{background-position:-518px -73px; width:24px;}/*已发送状态（失败）*/
+		.Ibx_gTable .Ibx_Td_icoInfo .icoSend{background-position:-550px -73px; width:24px;}/*已发送状态（部分成功）*/
+		.Ibx_gTable .Ibx_Td_F .icoBackSgn{background-position:-776px -8px;}/*返回标记*/
+
+/*--收件箱 结束--*/
+

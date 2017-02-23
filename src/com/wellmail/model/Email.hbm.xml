@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.wellmail.model">
+	<class name="Email" table="email">
+		<id name="emailid">
+			<generator class="native"/>
+		</id>
+		<property name="sender"/>
+		<property name="recipients"/>
+		<property name="subject"/>
+		<property name="content" type="text"/>
+		<property name="senttime"/>
+		<property name="mailtype"/>
+		<property name="msgsize"/>
+		<property name="unread"/>
+		
+		<set name="attachments">
+			<key column="emailid"/>
+			<one-to-many class="Attachment"/>
+		</set>
+		
+		<many-to-one name="folder" column="folderid"/>
+		
+		<set name="ccs">
+			<key column="emailid"/>
+			<one-to-many class="CC"/>
+		</set>
+		
+		<set name="bccs">
+			<key column="emailid"/>
+			<one-to-many class="BCC"/>
+		</set>
+		
+		<many-to-one name="priority" column="priorityid"/>
+		
+		<many-to-one name="mailtag" column="tagid"/>
+		
+		<many-to-one name="user" column="username"/>
+	</class>
+</hibernate-mapping>

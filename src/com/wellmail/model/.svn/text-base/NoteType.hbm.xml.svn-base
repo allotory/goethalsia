@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.wellmail.model">
+	<class name="NoteType" table="notetype">
+		<id name="notetypeid">
+			<generator class="increment"/>
+		</id>
+		<property name="notetypename"/>
+		<property name="containfilecount"/>
+		
+		<set name="notebooks">
+			<key column="notetypeid"/>
+			<one-to-many class="NoteBook"/>
+		</set>
+		
+		<many-to-one name="user" column="username"/>
+	</class>
+</hibernate-mapping>

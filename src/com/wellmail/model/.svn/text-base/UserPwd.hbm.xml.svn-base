@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.wellmail.model">
+	<class name="UserPwd" table="userpwd">
+		<id name="qid">
+			<generator class="increment"/>
+		</id>
+		<property name="question"/>
+		<property name="answer"/>
+		
+		<many-to-one name="user" column="username" unique="true"/>
+	</class>
+</hibernate-mapping>

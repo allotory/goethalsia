@@ -1,0 +1,763 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+ 
+<struts-config>  
+
+  <form-beans>
+  
+  	<!-- 用户form -->
+  	<form-bean name="usersForm" type="com.wellmail.form.UsersForm"/>
+  	
+  	<!-- 邮件form -->
+  	<form-bean name="emailForm" type="com.wellmail.form.EmailForm"/>
+  	
+  	<!--webdisk form -->
+  	<form-bean name="webdiskForm" type="com.wellmail.form.WebDiskForm"/>
+  	
+  	<!--note form -->
+  	<form-bean name="noteForm" type="com.wellmail.form.NoteForm"/>
+  	
+  	<!--contact form -->
+  	<form-bean name="contactForm" type="com.wellmail.form.ContactForm"/>
+  	
+  	<!-- OtherMailBox form -->
+  	<form-bean name="otherMailBoxForm" type="com.wellmail.form.OtherMailBoxForm"/>
+  	
+  	<!-- page form -->
+  	<form-bean name="pageForm" type="com.wellmail.form.PageForm"/>
+  	
+  	<!-- userpwd form -->
+  	<form-bean name="userPwdForm" type="com.wellmail.form.UserPwdForm"/>
+  	
+  </form-beans>
+  
+  <global-exceptions />
+  
+  <global-forwards />
+  
+  <action-mappings> 
+  
+   <!-- Unknow action -->
+  	<action path="test unknow"
+  		unknown="true"
+  		forward="/unknow.jsp"/>
+  
+   <!-- 用户注册页面跳转action -->
+  	<action path="/register"
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="request">
+		<forward name="success" path="/register.jsp" />
+		<forward name="failure" path="/failure.jsp" />
+	</action>
+	
+	<!-- 用户注册action -->
+	<action path="/registing"
+		name="usersForm"
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="request">
+		<forward name="success" path="/success.jsp" />
+		<forward name="failure" path="/failure.jsp" />	
+	</action>
+	
+	<!-- 用户登录action -->
+	<action path="/login"
+		name="usersForm"
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="request">
+		<forward name="success" path="/index.jsp" />
+		<forward name="failure" path="/failure.jsp" />	
+	</action>
+	
+	<!-- 用户发邮件action -->
+	<action path="/senting"
+		name="emailForm"
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="request">
+		<forward name="success" path="/success.jsp" />
+		<forward name="failure" path="/failure.jsp" />	
+	</action>
+	
+	<!-- 查询用户收件箱action -->
+	<action path="/goreceive"
+		name="pageForm"
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="request">
+		<forward name="success" path="/receivetemp.jsp" />
+		<forward name="failure" path="/failure.jsp" />	
+	</action>
+	
+	<!-- 查询用户收件箱(分页)action -->
+	<action path="/goreceive2"
+		name="pageForm"
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="request">
+		<forward name="success" path="/receive.jsp" />
+		<forward name="failure" path="/failure.jsp" />	
+	</action>
+	
+	<!-- 查询用户草稿箱action -->
+	<action path="/goscript"
+		name="pageForm"
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="request">
+		<forward name="success" path="/scripttemp.jsp" />
+		<forward name="failure" path="/failure.jsp" />	
+	</action>
+	
+	<!-- 查询用户草稿箱action -->
+	<action path="/goscript2"
+		name="pageForm"
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="request">
+		<forward name="success" path="/script.jsp" />
+		<forward name="failure" path="/failure.jsp" />	
+	</action>
+	
+	<!-- 保存草稿箱action -->
+	<action path="/savescript"
+		name="emailForm"
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="request">
+		<forward name="success" path="/script.jsp" />
+		<forward name="failure" path="/failure.jsp" />	
+	</action>
+	
+	<!-- 进入已发送action -->
+	<action path="/gosent"
+		name="pageForm"
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="request">
+		<forward name="success" path="/sendedtemp.jsp" />
+		<forward name="failure" path="/failure.jsp" />	
+	</action>
+	
+	<!-- 进入已发送(分页)action -->
+	<action path="/gosent2"
+		name="pageForm"
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="request">
+		<forward name="success" path="/sended.jsp" />
+		<forward name="failure" path="/failure.jsp" />	
+	</action>
+	
+	<!-- 删除已发送的邮件action -->
+	<action path="/sendeddeleting"
+		name="emailForm"
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="request">
+		<forward name="success" path="/sended.jsp" />
+		<forward name="failure" path="/failure.jsp" />	
+	</action>
+	
+	<!-- 删除收件箱的邮件action -->
+	<action path="/receivemaildeleting"
+		name="emailForm"
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="request">
+		<forward name="success" path="/receive.jsp" />
+		<forward name="failure" path="/failure.jsp" />	
+	</action>
+	
+	<!-- 删除草稿箱的邮件action -->
+	<action path="/scriptmaildeleting"
+		name="emailForm"
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="request">
+		<forward name="success" path="/script.jsp" />
+		<forward name="failure" path="/failure.jsp" />	
+	</action>
+	
+	<!-- 已删除邮件action -->
+	<action path="/godeleted"
+		name="pageForm"
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="request">
+		<forward name="success" path="/deletedtemp.jsp" />
+		<forward name="failure" path="/failure.jsp" />	
+	</action>
+	
+	<!-- 已删除邮件(分页)action -->
+	<action path="/godeleted2"
+		name="pageForm"
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="request">
+		<forward name="success" path="/deleted.jsp" />
+		<forward name="failure" path="/failure.jsp" />	
+	</action>
+	
+	<!-- 清空已删除的邮件action -->
+	<action path="/deletedmaildeleting"
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="request">
+		<forward name="success" path="/deleted.jsp" />
+		<forward name="failure" path="/failure.jsp" />	
+	</action>
+	
+	<!-- 清空删除已发送列表的邮件action -->
+	<action path="/clearsentedmail"
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="request">
+		<forward name="success" path="/gosent.do" />
+		<forward name="failure" path="/failure.jsp" />	
+	</action>
+	
+	<!-- 清空删除草稿箱列表的邮件action -->
+	<action path="/clearscriptmail"
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="request">
+		<forward name="success" path="/script.jsp" />
+		<forward name="failure" path="/failure.jsp" />	
+	</action>
+	
+	<!-- 清空删除收件箱列表的邮件action -->
+	<action path="/clearreceivemail"
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="request">
+		<forward name="success" path="/receive.jsp" />
+		<forward name="failure" path="/failure.jsp" />	
+	</action>
+	
+	<!-- 收件箱标记为action -->
+	<action path="/receivechangeFlag"
+		name="emailForm"
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="request">
+		<forward name="success" path="/receive.jsp" />
+		<forward name="failure" path="/failure.jsp" />	
+	</action>
+	
+	<!-- 草稿箱标记为action -->
+	<action path="/scriptchangeFlag"
+		name="emailForm"
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="request">
+		<forward name="success" path="/script.jsp" />
+		<forward name="failure" path="/failure.jsp" />	
+	</action>
+	
+	<!-- 已发送标记为action -->
+	<action path="/sendedchangeFlag"
+		name="emailForm"
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="request">
+		<forward name="success" path="/sended.jsp" />
+		<forward name="failure" path="/failure.jsp" />	
+	</action>
+	
+	<!-- 已删除标记为action -->
+	<action path="/deletedchangeFlag"
+		name="emailForm"
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="request">
+		<forward name="success" path="/deleted.do" />
+		<forward name="failure" path="/failure.jsp" />	
+	</action>
+	
+	<!-- 收件箱移动到action -->
+	<action path="/receivemoveto"
+		name="emailForm"
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="request">
+		<forward name="success" path="/receive.jsp" />
+		<forward name="failure" path="/failure.jsp" />	
+	</action>
+	
+	<!-- 草稿箱移动到action -->
+	<action path="/scriptmoveto"
+		name="emailForm"
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="request">
+		<forward name="success" path="/script.jsp" />
+		<forward name="failure" path="/failure.jsp" />	
+	</action>
+	
+	<!-- 已发送移动到action -->
+	<action path="/sendedmoveto"
+		name="emailForm"
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="request">
+		<forward name="success" path="/sended.jsp" />
+		<forward name="failure" path="/failure.jsp" />	
+	</action>
+	
+	<!-- 已删除移动到action -->
+	<action path="/deletedmoveto"
+		name="emailForm"
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="request">
+		<forward name="success" path="/deleted.jsp" />
+		<forward name="failure" path="/failure.jsp" />	
+	</action>
+	
+	<!-- 收件箱查看action -->
+	<action path="/receivequeryfrom"
+		name="emailForm"
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="request">
+		<forward name="success" path="/receive.jsp" />
+		<forward name="failure" path="/failure.jsp" />	
+	</action>
+	
+	<!-- 草稿箱查看action -->
+	<action path="/scriptqueryfrom"
+		name="emailForm"
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="request">
+		<forward name="success" path="/script.jsp" />
+		<forward name="failure" path="/failure.jsp" />	
+	</action>
+	
+	<!-- 已发送查看action -->
+	<action path="/sendedqueryfrom"
+		name="emailForm"
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="request">
+		<forward name="success" path="/sended.jsp" />
+		<forward name="failure" path="/failure.jsp" />	
+	</action>
+	
+	<!-- 已删除查看action -->
+	<action path="/deletedqueryfrom"
+		name="emailForm"
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="request">
+		<forward name="success" path="/deleted.jsp" />
+		<forward name="failure" path="/failure.jsp" />	
+	</action>
+	
+	<!-- 进入垃圾邮件action -->
+	<action path="/gorubbish"
+		name="pageForm"
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="request">
+		<forward name="success" path="/rubbishtemp.jsp" />
+		<forward name="failure" path="/failure.jsp" />	
+	</action>
+	
+	<!-- 进入垃圾邮件(分页)action -->
+	<action path="/gorubbish2"
+		name="pageForm"
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="request">
+		<forward name="success" path="/rubbish.jsp" />
+		<forward name="failure" path="/failure.jsp" />	
+	</action>
+	
+	<!-- 彻底删除垃圾邮件action -->
+	<action path="/clearrubbish"
+		name="emailForm"
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="request">
+		<forward name="success" path="/rubbish.jsp" />
+		<forward name="failure" path="/failure.jsp" />	
+	</action>
+	
+	<!-- 彻底删除单个垃圾邮件action -->
+	<action path="/rubbishmaildeleting"
+		name="emailForm"
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="request">
+		<forward name="success" path="/rubbish.jsp" />
+		<forward name="failure" path="/failure.jsp" />	
+	</action>
+	
+	<!-- 垃圾邮件移动到action -->
+	<action path="/rubbishmoveto"
+		name="emailForm"
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="request">
+		<forward name="success" path="/rubbish.jsp" />
+		<forward name="failure" path="/failure.jsp" />	
+	</action>
+	
+	<!-- 进入广告邮件action -->
+	<action path="/goad"
+		name="pageForm"
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="request">
+		<forward name="success" path="/adtemp.jsp" />
+		<forward name="failure" path="/failure.jsp" />	
+	</action>
+	
+	<!-- 进入广告邮件(分页)action -->
+	<action path="/goad2"
+		name="pageForm"
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="request">
+		<forward name="success" path="/ad.jsp" />
+		<forward name="failure" path="/failure.jsp" />	
+	</action>
+	
+	<!-- 彻底删除广告邮件action -->
+	<action path="/clearad"
+		name="emailForm"
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="request">
+		<forward name="success" path="/ad.jsp" />
+		<forward name="failure" path="/failure.jsp" />	
+	</action>
+	
+	<!-- 彻底删除一个广告邮件action -->
+	<action path="/admaildeleting"
+		name="emailForm"
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="request">
+		<forward name="success" path="/ad.jsp" />
+		<forward name="failure" path="/failure.jsp" />	
+	</action>
+	
+	<!-- 广告邮件移动到action -->
+	<action path="/admoveto"
+		name="emailForm"
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="request">
+		<forward name="success" path="/ad.jsp" />
+		<forward name="failure" path="/failure.jsp" />	
+	</action>
+	
+	
+	<!--进入网盘文件夹列表action -->
+	<action path="/gowebdiskfolder"
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="request">
+		<forward name="success" path="/webdiskfoldertemp.jsp" />
+		<forward name="failure" path="/failure.jsp" />	
+	</action>
+	
+	<!--网盘文件夹列表创建新文件夹action -->
+	<action path="/createfolder"
+		name="webdiskForm"
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="request">
+		<forward name="success" path="/webdiskfolder.jsp" />
+		<forward name="failure" path="/failure.jsp" />	
+	</action>
+	
+	<!--网盘文件夹列表删除文件夹action -->
+	<action path="/deletefolder"
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="request">
+		<forward name="success" path="/webdiskfolder.jsp" />
+		<forward name="failure" path="/failure.jsp" />	
+	</action>
+	
+	<!--网盘文件列表删除文件action -->
+	<action path="/deletefile"
+		name="webdiskForm"
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="request">
+		<forward name="success" path="/webdisk.jsp" />
+		<forward name="failure" path="/failure.jsp" />	
+	</action>
+	
+	<!--进入记事本action -->
+	<action path="/gonotebook"
+		name="pageForm"
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="request">
+		<forward name="success" path="/notebooktemp.jsp" />
+		<forward name="failure" path="/failure.jsp" />	
+	</action>
+	
+	<!--进入记事本（分页）action -->
+	<action path="/gonotebook2"
+		name="pageForm"
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="request">
+		<forward name="success" path="/notebook.jsp" />
+		<forward name="failure" path="/failure.jsp" />	
+	</action>
+	
+	<!--新建记事本类型action -->
+	<action path="/createnotetype"
+		name="noteForm"
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="request">
+		<forward name="success" path="/notenew.jsp" />
+		<forward name="gotonotemodify" path="/notemodify.jsp"/>
+		<forward name="failure" path="/failure.jsp" />	
+	</action>
+	
+	<!--保存记事本action -->
+	<action path="/savenote"
+		name="noteForm"
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="request">
+		<forward name="success" path="/notebook.jsp" />
+		<forward name="failure" path="/failure.jsp" />	
+	</action>
+	
+	<!--删除记事本action -->
+	<action path="/deletenote"
+		name="noteForm"
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="request">
+		<forward name="success" path="/notebook.jsp" />
+		<forward name="failure" path="/failure.jsp" />	
+	</action>
+	
+	
+	<!--更改记事分类action -->
+	<action path="/notechangtype"
+		name="noteForm"
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="request">
+		<forward name="success" path="/notebook.jsp" />
+		<forward name="failure" path="/failure.jsp" />	
+	</action>
+	
+	<!--删除一个记事本action -->
+	<action path="/deleteonenote"
+		name="noteForm"
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="request">
+		<forward name="success" path="/notebook.jsp" />
+		<forward name="failure" path="/failure.jsp" />	
+	</action>
+	
+	<!--更改某一个记事分类action -->
+	<action path="/onenotechangtype"
+		name="noteForm"
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="request">
+		<forward name="success" path="/notebook.jsp" />
+		<forward name="failure" path="/failure.jsp" />	
+	</action>
+	
+	<!--更改某一个记事action -->
+	<action path="/modifynote"
+		name="noteForm"
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="request">
+		<forward name="success" path="/notebook.jsp" />
+		<forward name="failure" path="/failure.jsp" />	
+	</action>
+	
+	<!--删除记事本类型action -->
+	<action path="/deletenotetype"
+		name="noteForm"
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="request">
+		<forward name="success" path="/notetype.jsp" />
+		<forward name="failure" path="/failure.jsp" />	
+	</action>
+	
+	<!--删除某一个记事本类型action -->
+	<action path="/deleteonenotetype"
+		name="noteForm"
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="request">
+		<forward name="success" path="/notetype.jsp" />
+		<forward name="failure" path="/failure.jsp" />	
+	</action>
+	
+	<!--进入通讯录action -->
+	<action path="/gocontactbox"
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="request">
+		<forward name="success" path="/contactboxtemp.jsp" />
+		<forward name="failure" path="/failure.jsp" />	
+	</action>
+	
+	
+	<!--添加联系人组action -->
+	<action path="/createcontactgroup"
+		name="contactForm"
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="request">
+		<forward name="success" path="/contactbox.jsp" />
+		<forward name="failure" path="/failure.jsp" />	
+	</action>
+	
+	<!--删除联系人组action -->
+	<action path="/deletecontactgroup"
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="request">
+		<forward name="success" path="/contactgroup.jsp" />
+		<forward name="failure" path="/failure.jsp" />	
+	</action>
+	
+	
+	<!--删除一个联系人组action -->
+	<action path="/deleteonecontactgroup"
+		name="contactForm"
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="request">
+		<forward name="success" path="/contactgroup.jsp" />
+		<forward name="failure" path="/failure.jsp" />	
+	</action>
+	
+	<!--新建一个联系人action -->
+	<action path="/createcontact"
+		name="contactForm"
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="request">
+		<forward name="success" path="/contact.jsp" />
+		<forward name="failure" path="/failure.jsp" />	
+	</action>
+	
+	<!--删除联系人action -->
+	<action path="/deletecontact"
+		name="contactForm"
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="request">
+		<forward name="success" path="/contact.jsp" />
+		<forward name="failure" path="/failure.jsp" />	
+	</action>
+	
+	<!--删除一个联系人action -->
+	<action path="/deleteonecontact"
+		name="contactForm"
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="request">
+		<forward name="success" path="/contact.jsp" />
+		<forward name="failure" path="/failure.jsp" />	
+	</action>
+	
+	<!-- 更改联系人分组action -->
+	<action path="/contactchangegroup"
+		name="contactForm"
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="request">
+		<forward name="success" path="/contact.jsp" />
+		<forward name="failure" path="/failure.jsp" />	
+	</action>
+	
+	<!-- mail添加到通讯录action -->
+	<action path="/addtocontact"
+		name="contactForm"
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="request">
+		<forward name="success" path="/addtocontact.jsp" />
+		<forward name="failure" path="/failure.jsp" />	
+	</action>
+	
+	
+	<!-- 添加其他邮箱action -->
+	<action path="/addothermailbox"
+		name="otherMailBoxForm"
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="request">
+		<forward name="success" path="/createothermailboxtemp.jsp" />
+		<forward name="failure" path="/failure.jsp" />	
+	</action>
+	
+		
+	<!-- 添加ing其他邮箱action -->
+	<action path="/createothermailbox"
+		name="otherMailBoxForm"
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="request">
+		<forward name="success" path="/othermailbox.jsp" />
+		<forward name="failure" path="/failure.jsp" />	
+	</action>
+	
+	<!-- 查看其他邮箱action -->
+	<action path="/goothermailbox"
+		name="pageForm"
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="request">
+		<forward name="success" path="/othermailboxtemp.jsp" />
+		<forward name="failure" path="/failure.jsp" />	
+	</action>
+	
+	<!-- 查看其他邮箱(分页)action -->
+	<action path="/goothermailbox2"
+		name="pageForm"
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="request">
+		<forward name="success" path="/othermailbox.jsp" />
+		<forward name="failure" path="/failure.jsp" />	
+	</action>
+	
+	<!-- 列表添加其他邮箱action -->
+	<action path="/addothermailbox2"
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="request">
+		<forward name="success" path="/createothermailbox.jsp" />
+		<forward name="failure" path="/failure.jsp" />	
+	</action>
+	
+	<!-- 删除其他邮箱action -->
+	<action path="/deleteothermailbox"
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="request">
+		<forward name="success" path="/othermailbox.jsp" />
+		<forward name="failure" path="/failure.jsp" />	
+	</action>
+	
+	<!-- 进入其他邮箱收件箱action -->
+	<action path="/gootherreceive"
+		name="otherMailBoxForm"
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="request">
+		<forward name="success" path="/otherreceive.jsp" />
+		<forward name="failure" path="/failure.jsp" />	
+	</action>
+	
+	<!-- 删除一个其他邮箱action -->
+	<action path="/deleteoneotherreceive"
+		name="otherMailBoxForm"
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="request">
+		<forward name="success" path="/othermailbox.jsp" />
+		<forward name="failure" path="/failure.jsp" />	
+	</action>
+	
+	<!--退出action -->
+	<action path="/logout"
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="request">
+		<forward name="success" path="/login.jsp" />
+		<forward name="failure" path="/failure.jsp" />	
+	</action>
+	
+	<!-- 用户其他邮箱发邮件action -->
+	<action path="/othermailsenting"
+		name="emailForm"
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="request">
+		<forward name="success" path="/success.jsp" />
+		<forward name="failure" path="/failure.jsp" />	
+	</action>
+	
+	<!-- 修改用户密码action -->
+	<action path="/modifyuser"
+		name="usersForm"
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="request">
+		<forward name="success" path="/success.jsp" />
+		<forward name="failure" path="/failure.jsp" />	
+	</action>
+	
+	<!-- 查询用户密码提示问题action -->
+	<action path="/queryuserques"
+		name="usersForm"
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="request">
+		<forward name="success" path="/forgetques.jsp" />
+		<forward name="failure" path="/failure.jsp" />	
+	</action>
+	
+	<!-- 查询用户密码提示问题action -->
+	<action path="/confirmuserques"
+		name="userPwdForm"
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="request">
+		<forward name="success" path="/modifyuser.jsp" />
+		<forward name="failure" path="/failure.jsp" />	
+	</action>
+	
+	<!-- 清除cookie action -->
+	<action path="/clearcookie"
+		type="org.springframework.web.struts.DelegatingActionProxy"
+		scope="request">
+		<forward name="success" path="/login.jsp" />
+		<forward name="failure" path="/failure.jsp" />	
+	</action>
+	
+	</action-mappings>
+  
+  <message-resources parameter="com.wellmail.ApplicationResources" />
+</struts-config>
+

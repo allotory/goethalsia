@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" 
+	xmlns="http://java.sun.com/xml/ns/javaee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+  <servlet>
+    <servlet-name>action</servlet-name>
+    <servlet-class>org.apache.struts.action.ActionServlet</servlet-class>
+    <init-param>
+      <param-name>config</param-name>
+      <param-value>/WEB-INF/struts-config.xml</param-value>
+    </init-param>
+    <init-param>
+      <param-name>debug</param-name>
+      <param-value>3</param-value>
+    </init-param>
+    <init-param>
+      <param-name>detail</param-name>
+      <param-value>3</param-value>
+    </init-param>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>action</servlet-name>
+    <url-pattern>*.do</url-pattern>
+  </servlet-mapping>
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+  
+   <context-param>
+  	<param-name>contextConfigLocation</param-name>
+  	<param-value>classpath*:applicationContext-*.xml</param-value>
+  </context-param>
+   
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+    <!-- 配置FCKeditor图片上传servlet -->
+   <servlet>
+      <servlet-name>ConnectorServlet</servlet-name>
+        <servlet-class>
+          com.wellmail.servlet.ConnectorServlet
+      </servlet-class>
+      <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+      <servlet-name>ConnectorServlet</servlet-name>
+      <url-pattern>
+        /fckeditor/editor/filemanager/connectors/*
+      </url-pattern>
+    </servlet-mapping>
+    
+    <!-- 用户名校验 -->
+    <servlet>
+        <servlet-name>AJAXServlet</servlet-name>
+        <servlet-class>com.wellmail.servlet.AJAXServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>AJAXServlet</servlet-name>
+        <url-pattern>/AJAXServlet</url-pattern>
+    </servlet-mapping>
+
+    <!-- 文件上传 -->
+    <servlet>
+        <servlet-name>UploadServlet</servlet-name>
+        <servlet-class>com.wellmail.servlet.UploadServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>UploadServlet</servlet-name>
+        <url-pattern>/UploadServlet</url-pattern>
+    </servlet-mapping>
+    
+     <!-- 文件删除 -->
+    <servlet>
+        <servlet-name>DeleteServlet</servlet-name>
+        <servlet-class>com.wellmail.servlet.DeleteServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>DeleteServlet</servlet-name>
+        <url-pattern>/DeleteServlet</url-pattern>
+    </servlet-mapping>
+    
+    <!-- 添加cc -->
+    <servlet>
+        <servlet-name>CCServlet</servlet-name>
+        <servlet-class>com.wellmail.servlet.CCServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>CCServlet</servlet-name>
+        <url-pattern>/CCServlet</url-pattern>
+    </servlet-mapping>
+    
+       <!-- 添加bcc -->
+    <servlet>
+        <servlet-name>BCCServlet</servlet-name>
+        <servlet-class>com.wellmail.servlet.BCCServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>BCCServlet</servlet-name>
+        <url-pattern>/BCCServlet</url-pattern>
+    </servlet-mapping>
+    
+     <!-- 添加qf -->
+    <servlet>
+        <servlet-name>QFServlet</servlet-name>
+        <servlet-class>com.wellmail.servlet.QFServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>QFServlet</servlet-name>
+        <url-pattern>/QFServlet</url-pattern>
+    </servlet-mapping>
+</web-app>

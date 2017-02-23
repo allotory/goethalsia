@@ -1,0 +1,558 @@
+/*
+ * 极速框架页面公用结构页
+ */
+
+/* CSS复位 By Sunji
+========================================================================== */
+body{color:#000;background:#fff;overflow:auto;margin:0;padding:0}
+body/*,table*/{font-size:12px;/*line-height:166.6%*/}
+body,input,select,button,textarea{font-family:verdana,sans-serif}
+h1,h2,h3,h4,h5,h6,select,input,textarea,button,table{font-size:100%}
+h1,h2,h3,h4,h5,h6,ul,ol,li,form,p,dl,dt,dd,table,th,td,img,blockquote{margin:0;padding:0;border:0}
+input,button,textarea,img{line-height:normal;outline:0}
+abbr,acronym,address,cite,q,em,code,var,dfn,ins{font-style:normal;text-decoration:none;border:0}
+q:before,q:after{content:""}
+ul,ol{list-style:none}
+table{border-collapse:collapse;border-spacing:0}
+select,input,button,button img,textarea,label,img{margin:0;vertical-align:middle}
+.ipt-r,
+.ipt-c{width:16px;height:16px;_width:15px;_height:15px;-height:14px;padding:0;margin:2px 3px 2px 0;overflow:hidden;-ms-box-sizing:border-box}
+
+/* 公用样式 By Sunji
+========================================================================== */
+
+/* 隐藏 fn-hide
+--------------- */
+.fn-hide{display:none!important}
+.fn-show{display:block!important}
+
+/* 浮动
+--------------- */
+.fn-fle{float:left}
+.fn-fri{float:right}
+
+/* 手型指针
+--------------- */
+.fn-hand{cursor:pointer}
+
+/* 清除浮动 fn-clear
+--------------- */
+.fn-clear,
+.g-menu-inner,
+.g-menu-inner ul{zoom:1}
+.g-menu-inner:after,
+.g-menu-inner:before,
+.g-menu-inner ul:after,
+.g-menu-inner ul:before,
+.fn-clear:before,
+.fn-clear:after{clear:both;content:".";font-size:0;display:block;height:0;overflow:hidden;visibility:hidden}
+.C-clear{clear:both;font-size:0;line-height:0;height:0}
+
+/* 统一盒模型 fn-qmbox
+--------------- */
+.g-probar,						/* 进度条 */
+.g-probar span,					/* 进度条 */
+.gSys-body th,					/* 系统弹框内表头 */
+.gSys-body td,					/* 系统弹框内单元格 */
+.fn-qmbox{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;-khtml-box-sizing:border-box;box-sizing:border-box}
+
+/* 内联块元素 fn-ib
+--------------- */
+.g-probar,			/* 进度条 */
+span.ipt-t,			/* span模拟输入框 */
+.ico,				/* 所有图标 */
+.btngrp,			/* 按钮组合 */
+.btn,				/* 所有按钮 */
+.btn span,			/* 所有按钮内部 */
+.btn .arr,			/* 所有按钮箭头 */
+.fn-ib{display:-moz-inline-box;-moz-box-align:center;display:inline-block;+display:inline;zoom:1;vertical-align:middle}
+
+/* Loading图标
+--------------- */
+.ico-loading{width:16px;height:16px}
+.ico-loading-big{width:39px;height:39px}
+
+/* i图标（大）
+--------------- */
+.ico-info{width:32px;height:32px;background-position:-80px -36px}
+.ico-info-small{width:16px;height:16px;background-position:-127px -35px}
+/* 成功ico大图标
+--------------- */
+.ico-success-big{width:32px;height:32px;background-position:-160px -36px}
+.ico-success-small{width:15px;height:15px;background-position:-207px -35px}
+/* 禁止 ico大图标
+--------------- */
+.ico-err-big{width:32px;height:32px;background-position:0px -109px}
+.ico-err-small{width:15px;height:15px;background-position:-48px -109px}
+/* 警告ico大图标
+--------------- */
+.ico-warning{ width:32px; height:32px; background-position:0px -36px}
+/* 错误ico大图标
+--------------- */
+.ico-wrong{ width:32px; height:32px; background-position:-79px -107px}
+
+
+/* 屏蔽输入法 fn-noime
+--------------- */
+.fn-noime{ime-mode:disabled}
+
+/* 强制换行 fn-bwd
+--------------- */
+.fn-bwd{word-break:break-all;word-wrap:break-word}
+
+/* 文字不换行 fn-nobr
+--------------- */
+.fn-nobr{white-space:nowrap}
+
+
+/* 文本样式 (txt-)
+================================= */
+/* 加粗 */
+.txt-b{font-weight:bold!important}
+/* 斜体 */
+.txt-i{font-style:italic!important}
+/* 下划线 */
+.txt-u{text-decoration:underline!important}
+/* 删除线 */
+.txt-del{text-decoration:line-through}
+
+/* 字体大小 */
+.txt-12{font-size:12px}
+.txt-14{font-size:14px}
+.txt-16{font-size:16px}
+.txt-20{font-size:20px}
+
+/* 提示类文本 */
+.txt-tips{color:#565656}
+
+.btn-dft-disabd span,		/* 禁用按钮 */
+.btn-dft-gl-disabd span,	/* 禁用按钮(左) */
+.btn-dft-gc-disabd span,	/* 禁用按钮(中) */
+.btn-dft-gr-disabd span,	/* 禁用按钮(右) */
+.txt-disabd,
+.txt-del,
+.txt-info{color:#7D7D7D}
+/* 警告、错误提示类文本 */
+.txt-impt,
+.txt-err{color:#D90000}
+/* 警告类文本 */
+.txt-alert{color:#E6A800}
+/* 成功提示类文本 */
+.txt-succ{color:#16960E}
+/* 返回链接 */
+.txt-back{font-family:simsun,serif;font-weight:bold}
+
+/* 带图标文字 */
+.txt-hasico{position:relative;zoom:1;padding-left:16px}
+.txt-hasico .ico{position:absolute;left:0;top:0}
+
+/* 禁用文本 */
+.txt-disabd{cursor:default;text-decoration:none}
+
+/* 线条样式 (ln-)
+================================= */
+.ln-thin,
+.ln-thick,
+.ln-dotted{font-size:0;line-height:0}
+/* 主线条-粗 */
+.ln-thick{border-top:2px solid}
+/* 主线条-细 */
+.ln-thin{border-top:1px solid}
+/* 主线条-点线 */
+.ln-dotted{border-top:1px dotted #ccc}
+
+/* 边框样式 (bdr-)
+================================= 
+.bdr-thin{border:1px solid}
+*/
+
+/* 图标
+================================= */
+.ico{overflow:hidden}
+
+
+/* 按钮样式
+================================= */
+
+/* 所有按钮
+--------------- */
+.btn,
+.btn span{text-align:center;overflow:hidden;cursor:pointer;white-space:nowrap}
+
+/* 按钮组
+--------------- */
+.btngrp{margin-right:8px;padding-right:1px}
+.btngrp .btn{margin-right:-1px}
+
+/* 默认按钮
+--------------- */
+.btn-dft{height:24px;overflow:hidden;color:#000;text-decoration:none;border:0;padding:0;margin:0}
+.btn-dft span{margin-right:3px;padding:4px 9px 5px 12px;_padding:5px 9px 4px 12px;line-height:15px;/*line-height:23px;_line-height:25px;*/}
+
+.btn-dft{background-position:100% -24px}		/* 按钮右侧圆角 */
+
+.btn-dft-gl,
+.btn-dft-gl span,
+.btn-dft span{background-position:-288px 0}	/* 按钮左侧圆角 */
+
+.btn-dft-hover-arr,
+.btn-dft:hover,
+.btn-dft-hover{background-position:100% -72px}
+
+.btn-dft-gl-hover-arr,
+.btn-dft-gl:hover,
+.btn-dft-gl-hover,
+.btn-dft-gl-hover-txt span,
+.btn-dft-hover-txt span,
+.btn-dft-gl:hover span,
+.btn-dft-gr:hover span,
+.btn-dft-gl-hover span,
+.btn-dft-gr-hover span,
+.btn-dft:hover span,
+.btn-dft-hover span{background-position:-288px -48px}
+
+.btn-dft-active-arr,
+.btn-dft-active{background-position:100% -120px}
+
+.btn-dft-gl-active-arr,
+.btn-dft-gl-active,
+.btn-dft-gl-active-txt span,
+.btn-dft-active-txt span,
+.btn-dft-gl-active span,
+.btn-dft-gr-active span,
+.btn-dft-active span{background-position:-288px -96px}
+
+.btn-dft-gl-disabd,
+.btn-dft-gc-disabd,
+.btn-dft-gr-disabd,
+.btn-dft-gl-disabd span,
+.btn-dft-gc-disabd span,
+.btn-dft-gr-disabd span,
+.btn-dft-disabd,
+.btn-dft-disabd span{cursor:default}
+.btn-dft-gl-disabd,
+.btn-dft-disabd{background-position:100% -312px!important}
+.btn-dft-gl-disabd span,
+.btn-dft-disabd span{background-position:-288px -288px!important}
+
+.btn-dft-gl-hover-txt,
+.btn-dft-gl-hover-arr,
+.btn-dft-gc-hover-txt,
+.btn-dft-gc-hover-arr,
+.btn-dft-gr-hover-txt,
+.btn-dft-gr-hover-arr,
+.btn-dft-gl-active-txt,
+.btn-dft-gl-active-arr,
+.btn-dft-gc-active-txt,
+.btn-dft-gc-active-arr,
+.btn-dft-gr-active-txt,
+.btn-dft-gr-active-arr,
+.btn-dft-gl:hover,
+.btn-dft-gc:hover,
+.btn-dft-gr:hover,
+.btn-dft-gl-hover,
+.btn-dft-gc-hover,
+.btn-dft-gr-hover,
+.btn-dft-gl-active,
+.btn-dft-gc-active,
+.btn-dft-gr-active{position:relative}
+
+	/* 主操作按钮 */
+	.btn-dft-impt{background-position:100% -168px}
+	.btn-dft-impt span{background-position:-288px -144px}
+	.btn-dft-impt:hover,
+	.btn-dft-impt-hover{background-position:100% -216px}
+	.btn-dft-impt:hover span,
+	.btn-dft-impt-hover span{background-position:-288px -192px}
+	.btn-dft-impt-active{background-position:100% -264px}
+	.btn-dft-impt-active span{background-position:-288px -240px}
+
+	/* 默认按钮：带图标 */
+	.btn-dft-icon{position:relative}
+	.btn-dft-icon span{padding-left:30px}
+	.btn-dft-icon .ico{position:absolute;left:8px;top:4px}
+
+	/* 默认按钮：按钮组-左 */
+	.btn-dft-gl{border-right:1px solid}
+	.btn-dft-gl span{margin-right:0}
+
+	/* 默认按钮：按钮组-中 */
+	.btn-dft-gc{background-position:-291px 0;border-style:solid;border-width:0 1px}
+	.btn-dft-gc span{background-position:-291px 0;margin:0}
+	.btn-dft-gc-hover-arr,
+	.btn-dft-gc-hover-txt span,
+	.btn-dft-gc:hover,
+	.btn-dft-gc:hover span,
+	.btn-dft-gc-hover,
+	.btn-dft-gc-hover span{background-position:-291px -48px}
+	.btn-dft-gc-active-arr,
+	.btn-dft-gc-active-txt span,
+	.btn-dft-gc-active,
+	.btn-dft-gc-active span{background-position:-291px -96px}
+	.btn-dft-gc-disabd,
+	.btn-dft-gc-disabd span{background-position:-291px -288px!important}
+
+	/* 默认按钮：按钮组-右 */
+	.btn-dft-gr{background-position:100% -24px;border-left:1px solid}
+	.btn-dft-gr-hover-arr,
+	.btn-dft-gr:hover,
+	.btn-dft-gr-hover{background-position:100% -72px}
+	.btn-dft-gr-active-arr,
+	.btn-dft-gr-active{background-position:100% -120px}
+	.btn-dft-gr-disabd{background-position:100% -312px!important}
+	.btn-dft-gr span{background-position:-291px 0;margin-left:0}
+	.btn-dft-gr-hover-txt span,
+	.btn-dft-gr:hover span,
+	.btn-dft-gr-hover span{background-position:-291px -48px}
+	.btn-dft-gr-active-txt span,
+	.btn-dft-gr-active span{background-position:-291px -96px}
+	.btn-dft-gr-disabd span{background-position:-291px -288px!important}
+
+	/* 默认按钮：下拉 */
+	.btn-dft-pd span{padding-right:21px}
+	.btn-dft-pd .arr{width:22px;margin:0 0 0 -22px;height:24px;padding:0;background-position:-145px 5px}
+
+	/* 默认按钮：按钮+下拉 */
+	.btn-dft-sprt span{margin-right:21px}
+	.btn-dft-sprt .arr{width:22px;margin:0 0 0 -22px;height:24px;padding:0;background-position:-144px 5px}
+
+
+/* 小按钮
+--------------- */
+.btn-sml{color:#3D3D3D;height:22px;overflow:hidden;text-align:center;background-position:100% -454px}
+.btn-sml span{margin-right:3px;text-align:center;padding:3px 6px 4px 10px;_padding:4px 6px 3px 10px;line-height:15px;background-position:-288px -432px}
+
+	/* 小按钮：下拉 */
+	.btn-sml-pd span{padding-right:24px}
+	.btn-sml-pd .arr{width:20px;margin:0 0 0 -20px;height:22px;padding:0;background-position:-180px 4px}
+
+/* 搜索按钮（与输入框组合）
+--------------- */
+.btn-srch{width:20px;height:20px;background-position:-213px 3px}
+.btn-srch:hover,
+.btn-srch-hover{background-position:-249px 3px}
+
+/* 确定按钮（与输入框组合）
+--------------- */
+.btn-ok{width:20px;height:20px;background-position:-1509px -141px}
+
+/* 取消按钮（与输入框组合）
+--------------- */
+.btn-cancel{width:20px;height:20px;background-position:-1398px 6px}
+.btn-cancel:hover,
+.btn-cancel-hover{background-position:-1434px 6px}
+
+/* 大按钮
+--------------- */
+.btn-big{width:75px;height:60px;line-height:60px;text-decoration:none;background-position:-504px 0;font-size:14px;font-weight:bold}
+.btn-big:hover,
+.btn-big-hover{background-position:-504px -72px}
+.btn-big:active,
+.btn-big-active{background-position:-504px -144px}
+
+/* 增加按钮
+--------------- */
+.btn-add{width:12px;height:12px;background-position:-1548px -360px}
+.btn-add:hover,
+.btn-add-hover{background-position:-1584px -360px}
+
+/* 关闭按钮
+--------------- */
+.btn-close{width:14px;height:14px;background-position:-1616px -105px}
+
+
+/* 输入框
+================================= */
+/* 默认输入框
+--------------- */
+.ipt-t-dft{background:#fff;border:1px solid;cursor:text}
+.ipt-t-dft input{border:0;height:18px;padding-left:4px;padding-top:1px;+padding-top:3px;background:transparent}	/* div/span模拟输入框内部的input */
+input.ipt-t-dft{padding:2px 4px;width:160px;height:22px;line-height:17px;overflow:hidden}	/* 常规的input */
+.ipt-t-dft-hover,
+.ipt-t-dft-active{background:#FFFFE1}
+
+
+/* 工具栏
+================================= */
+.g-toolbar{clear:both;background-position:0 -110px;height:34px;padding:0 10px;white-space:nowrap}
+.g-toolbar a,
+.g-toolbar .btn,
+.g-toolbar .btngrp,
+.g-toolbar select{float:left;display:inline;vertical-align:baseline}
+.g-toolbar .btn{margin-top:5px}
+.g-toolbar select{margin-top:7px}
+.g-toolbar a{margin-top:10px}
+.g-toolbar .btngrp-ext{float:right;margin-right:0}
+.g-toolbar .btngrp a,
+.g-toolbar .btngrp select{margin-left:4px;margin-right:4px}
+.g-toolbar .btngrp-impt{margin-right:12px}
+.g-toolbar .btngrp .btn{margin-left:0;margin-right:-1px}
+
+
+/* 标题栏
+================================= */
+
+/* 一级标题
+--------------- */
+.g-title-1{text-indent:3px;padding-top:3px;height:25px;_height:28px}
+.g-title-1 h2{display:inline;margin-right:5px;font-size:14px}
+.g-title-1 .sprt{margin:0 5px;font-family:simsun,serif}
+.g-title-1 .ext{clear:both;zoom:1}
+
+/* 二级标题
+--------------- */
+.g-title-2{text-indent:3px;line-height:30px}
+.g-title-2 h3{display:inline;margin-right:10px;font-size:12px}
+.g-title-2 .txt-info{margin-right:10px}
+
+/* 通用表格 (表格按照 thead/th | tbody/td构建 )
+================================= */
+.g-table-comm{width:100%;table-layout:fixed}
+.g-table-comm thead tr{background-position:0px -13px}
+.g-table-comm thead tr th{color:#686868;height:24px;line-height:23px;border-width:1px 0px 1px 1px;border-color:#CCC;border-style:solid;font-weight:normal;text-align:left;padding:0px 6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.g-table-comm thead tr th.en{line-height:20px}
+.g-table-comm tbody td{border-bottom:#DCDCDC 1px solid;line-height:160%;padding:5px 6px 4px;overflow:hidden;text-overflow:ellipsis}
+.g-table-comm .wd1{border-left:none}
+
+
+/* 如果某列内容为 chechbox 的input时，在该列上调用如下样式 */
+.g-table-comm .ckb{text-align:center;width:28px;padding:0px}
+.g-table-comm thead tr th a{color:#686868}
+
+
+/* 设置板块通用表格（一行2列形式）
+================================= */
+.g-table-optcomm{width:100%;table-layout:fixed;margin:10px auto}
+.g-table-optcomm th{width:168px;padding:6px;text-align:right;vertical-align:top;font-weight:normal;line-height:21px}
+.g-table-optcomm td{width:auto;padding:6px;text-align:left;vertical-align:top;line-height:22px;word-wrap:break-word;overflow:hidden}
+.g-table-optcomm .underline th,
+.g-table-optcomm .underline td{border-bottom:#CCC 1px dotted;padding-top:15px;padding-bottom:15px}
+.g-table-optcomm td input.ipt-t-dft,
+.g-table-optcomm td textarea{margin-top:-2px} /* 输入框上提2像素，避免行高过大 */
+.underline-tr th,
+.underline-tr td{border-bottom:#CCC 1px dotted}
+
+/* 简单表格
+================================= */
+.g-table-simple{table-layout:fixed;width:100%;color:#000}
+.g-table-simple,
+.g-table-simple td,
+.g-table-simple th{border:1px solid #c8c8c8}
+.g-table-simple td,
+.g-table-simple th{text-align:left;padding:5px;overflow:hidden;text-overflow:ellipsis}
+
+.g-table-simple thead{background-color:#F9F9F9;color:#7a7a7a}
+.g-table-simple tbody{background-color:#fff}
+
+
+/* 选择区域(一般结构为第一列为checkbox，后跟账号的形式)
+================================= */
+.g-select-box{width:350px;height:200px;border-width:1px;border-style:solid;;overflow-x:hidden;overflow-y:auto;white-space:nowrap}
+.g-select-box ul li{width:100%;line-height:20px;padding:3px;border-bottom:#F1F1F1 1px solid;overflow:hidden;text-overflow:ellipsis;cursor:pointer}
+.g-select-box ul li label{cursor:pointer}
+
+/* 选项卡
+================================= */
+.g-tabs li{float:left;text-align:center;cursor:pointer}
+.g-tabs li span{display:block}
+.g-tabs li.on{font-weight:bold;color:#000}
+
+/* 进度条
+================================= */
+.g-probar{position:relative;border:1px solid #ccc;background:#fff;width:55px;height:10px;overflow:hidden}
+.g-probar span{position:absolute;left:0;top:0;height:8px;border:1px solid #fff;font-size:0;background-position:0 -149px}
+
+/* 警告状态 */
+.g-probar-alert span{background-position:0 -173px}
+
+/* 联系人树状列表
+================================= */
+.g-cntalist{padding:5px;line-height:21px;height:100%;overflow:auto;overflow-x:hidden;zoom:1;position:relative;/* opera bug */}
+
+
+/* 遮罩
+=================================*/
+.gSys-msg .mask{position:absolute;left:0px;top:0px;width:100%;height:100%;background-color:#FFF;filter:alpha(opacity=60);-moz-opacity:0.6;opacity:0.6;overflow:hidden;z-index:900}
+/* 浮层内容
+=================================*/
+	.gSys-msg-win{position:absolute;left:auto;top:20%;width:460px;height:auto;z-index:901}
+	
+	/* 标题栏
+	--------------- */
+	.gSys-msg-win .hd{height:27px;line-height:27px;background-position:0px -45px;cursor:move}
+	.gSys-msg-win .hd h4{font-size:14px;color:#FFF;font-weight:bold;float:left;margin-right:5px;margin-left:10px;-display:inline}
+	.gSys-msg-win .hd .sub{color:#FFF;float:left}
+	.gSys-msg-win .hd span.fn-bg{display:block;width:2px;height:27px} /* 圆角 */
+	.gSys-msg-win .hd .rc-l{float:left;background-position:0px 0px}
+	.gSys-msg-win .hd .rc-r{float:right;background-position:-2px 0px}
+	.gSys-msg-win .hd .Aclose{display:block;width:20px;height:20px;background-position:-36px 0px;float:right;overflow:hidden;text-indent:300px;margin-top:3px;margin-right:2px;outline:none} /* 关闭 */
+	.gSys-msg-win .hd .Aclose:hover{background-position:-72px 0px}
+	.gSys-msg-win .hd .Aclose:active{background-position:-108px 0px}
+	/* inner样例(默认图标提示文字)
+	--------------- */
+	.gSys-inner-comm{text-align:left;position:relative} 
+	.gSys-inner-comm .ct{padding:25px 15px 30px 75px;font-size:14px;word-wrap:break-word;zoom:1; line-height:160%}
+	.gSys-inner-comm .ico-loading-big,
+	.gSys-inner-comm .ico-success-big,
+	.gSys-inner-comm .ico-info,
+	.gSys-inner-comm .ico-err-big,
+	.gSys-inner-comm .ico-warning,
+	.gSys-inner-comm .ico-wrong{position:absolute;left:25px;top:20px}
+	.gSys-inner-comm .info{margin-top:5px}
+	.gSys-inner-comm .info li{padding:3px 0}
+	.gSys-inner-comm p{margin-bottom:5px}
+	/* 内容栏
+	--------------- */
+	.gSys-msg-win .cont{border-width:0px 1px;border-style:solid;overflow:hidden;background-color:#FFF;zoom:1}
+	
+	/* 底栏
+	--------------- */
+	.gSys-msg-win .ft{clear:both;border-width:1px;border-style:solid;height:42px;padding:0px 8px}
+	.gSys-msg-win .ft .sup{color:#565656;white-space:nowrap;float:left;line-height:40px}
+	.gSys-msg-win .ft .opt{float:right;white-space:nowrap;margin-top:9px}
+	.gSys-msg-win .ft .opt .btn{margin-left:8px}
+	.gSys-msg-win .ft .opt .btn span{padding-left:18px;padding-right:14px}
+
+	/* 内部头部（选项卡式）
+	--------------- */
+	.gSys-tab{height:36px;border-bottom:1px solid;padding:0 10px}
+	.gSys-tab ul{float:left}
+	.gSys-tab li{cursor:pointer;padding:0 16px;height:26px;line-height:26px;margin:10px -1px 0 0;position:relative;bottom:-1px;float:left; background-position:-288px -360px}
+	.gSys-tab li.on{cursor:default;font-weight:bold;background-position:-288 -396px;letter-spacing:-1px}
+	.gSys-tab li.on span{color:#000}
+	.gSys-tab .rc-r{width:3px;height:26px;position:absolute;top:0;right:0;background-position:-493px -360px}
+	.gSys-tab .on .rc-r{background-position:-493px -396px}
+/* 常规提示
+--------------- */
+.tip-normal{background:#F6F9FC;border:1px solid #9CB8CC;padding:6px 10px;line-height:20px}
+
+/* 搜索框+搜索按钮
+================================= */
+.g-srch .btn-sml{margin-left:-1px;letter-spacing:2px}
+
+/* 下拉菜单
+================================= */
+.g-menu{white-space:nowrap;position:absolute;border-style:solid;border-width:0 2px 2px 0;z-index:150;left:0;top:0;width:180px}	/* 默认宽度180px */
+.g-menu-inner{border:1px solid;background:#fff;zoom:1}
+.g-menu-inner .tit{ height:23px; font-size:12px; line-height:23px; overflow:hidden; color:#616161; background-color:#F9F9F9; border-bottom:#CBCBCB 1px solid; padding:0 7px; background-position:0 -252px}
+
+.g-menu-scroll{height:200px;overflow:auto;overflow-x:hidden}
+.g-menu li{float:left;display:inline;width:100%;position:relative;zoom:1}
+.g-menu li .ext{float:right;margin-right:10px}
+.g-menu li a{display:block;width:100%;overflow:hidden;text-overflow:ellipsis;line-height:21px;text-decoration:none;color:#000}
+.g-menu li a,
+.g-menu-hasico .g-menu li a{text-indent:10px}
+.g-menu .ln-thin{position:static;margin:3px 0 3px 5%;width:90%}
+.g-menu .arr{width:18px;height:18px;position:absolute;right:0;top:1px;background-position:-1649px -103px}
+.g-menu-auto .hover,
+.g-menu li a:hover{color:#fff}
+.g-menu li a:hover .arr,
+.g-menu li a.hover .arr{background-position:-1649px -139px}
+.g-menu-hasico .g-menu-hasico li a,
+.g-menu-hasico li a{text-indent:22px}
+.g-menu-hasico .ico{position:absolute;left:2px;top:3px;vertical-align:baseline}
+.g-menu .g-menu{left:100%}
+.g-menu-bottom{border-bottom:0}								/* 出现在底部时去掉下边阴影 */
+.g-menu-bottom .g-menu{border-bottom:2px;top:auto;bottom:0}	/* 子菜单恢复下边阴影 */
+.g-menu-nobdr,
+.g-menu-nobdr .g-menu-inner{border:none;background:transparent}

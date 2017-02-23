@@ -1,0 +1,106 @@
+/*
+ * 极速3.5 126green风格
+ */
+
+/* 公用背景图 */
+.g-menu .arr,
+.btn,
+.btn span,
+.btn .arr,
+.ico,
+.fn-bg{background-image:url(../img/skin_126green/bg.png);background-repeat:no-repeat}
+
+/* 横向平铺 */
+.g-probar span,
+.g-table-comm thead tr,
+.g-toolbar,
+.fn-bgx{background-image:url(../img/skin_126green/bgx.png);background-repeat:repeat-x}
+
+
+/* 链接 */
+.txt-link,
+a{color:#158144}
+
+/* 命中关键字颜色(默认：绿) */
+.txt-c-match,
+.txt-match{color:#16960E}
+
+/* 图标 */
+.ico-loading{background-image:url(../img/skin_126green/loading_16x16.gif);background-repeat:no-repeat}	/* 16x16 loading图标 */
+.ico-loading-big{background-image:url(../img/skin_126green/loading.gif);background-repeat:no-repeat}		/* 39x39 loading图标 */
+
+/* 默认按钮 */
+/* 默认按钮：按钮组 */
+.btn-dft-gl,
+.btn-dft-gc,
+.btn-dft-gr{border-color:#969696}
+.btn-dft-gl-hover,
+.btn-dft-gc-hover,
+.btn-dft-gr-hover{border-color:#656565}
+.btn-dft-gl-active,
+.btn-dft-gc-active,
+.btn-dft-gr-active{border-color:#6A6A6A}
+
+/* 小按钮 */
+.btn-sml{border-color:#6EBD83}
+
+/* 背景样式 */
+/* 主调-浅 */
+.bg-main-1{background-color:#6BAE6C}
+/* 主调-深 */
+.bg-main-2{background-color:#136D39}
+/* 侧栏 */
+.bg-side{background-color:#D0EDD0}
+/* 内容区 */
+.bg-cont{background-color:#F0F8F0}/
+/* 高亮 */
+.bg-highlight{background-color:#D0EDD0}
+/* 阴影 */
+.bg-shadow{background-color:#D0EDD0}
+.g-menu{border-color:#D0EDD0}	/* 弹出菜单 */
+/* 提示 */
+.bg-tips{background-color:#FFFFE1}
+/* 成功提示 */
+.bg-succ{background-color:#F1FFE3}
+/* 警告提示 */
+.bg-err{background-color:#FFEAEA}
+/* 进度条 */
+.g-probar span,
+.bg-pro{background-color:#A5DD3D}
+.g-probar-alert span,
+.bg-pro-alert{background-color:#D90000}
+/* 鼠标滑过 */
+.g-menu li a:hover,				/* 下拉菜单选项 */
+.g-menu li a.hover,
+.g-menu li a:hover span,
+.g-menu li a.hover span,
+.g-menu-auto .hover,			/* 下拉菜单选项 */
+.bg-hover{background-color:#50a05b;color:#fff!important}
+
+/* 分隔线颜色 */
+/* 深 ln-c-dark */
+.ln-c-dark{border-color:#50A05B}
+/* 中 ln-c-mid */
+.ln-c-mid{border-color:#6EBD83}
+/* 浅 ln-c-light */
+.ln-c-light{border-color:#D0EDD0}
+
+/* 边框颜色 */
+/* 深 bdr-c-dark */
+.ipt-t-dft,						/* 默认输入框 */
+.bdr-c-dark{border-color:#50A05B}
+/* 中 bdr-c-mid */
+.g-menu-inner,
+.bdr-c-mid{border-color:#6EBD83}
+/* 浅 bdr-c-light */
+.bdr-c-light{border-color:#D0EDD0}
+/* 错误 bdr-c-err */
+.bdr-c-err{border-color:#DAC5C5}
+/* 成功 bdr-c-succ */
+.bdr-c-succ{border-color:#DAC5C5}
+
+/* 行结构划过/选中背景色（一般为浅黄/深黄） */
+.g-table-comm .over,
+.g-select-box .over{background-color:#FFFFE1} /* 当前行划过背景色 */
+.g-table-comm .chked,
+.g-select-box .chked{background-color:#FFFFCA} /* 当前行选中背景色 */

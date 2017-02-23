@@ -1,0 +1,28 @@
+126
+　POP3服务器：pop.126.com　　 端口号110
+　SMTP服务器：smtp.126.com 　 端口号25
+
+163
+  POP3服务器：pop.163.com
+　SMTP服务器：smtp.163.com
+
+sina
+  POP3服务器：pop.sina.com
+　SMTP服务器：smtp.sina.com
+
+sohu
+  POP3服务器：pop3.sohu.com
+  SMTP服务器：smtp.sohu.com
+
+yahoo
+  POP3服务器：pop.mail.yahoo.com.cn
+  SMTP服务器：smtp.mail.yahoo.com.cn
+
+gmail
+  POP3服务器：pop3.gmail.com
+  SMTP服务器：smtp.gmail.com
+
+hotmail
+  POP3服务器：pop3.live.com
+  SMTP服务器：smtp.live.com	
+
